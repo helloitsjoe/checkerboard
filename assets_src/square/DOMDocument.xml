@@ -1,0 +1,39 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="380" height="120" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" viewAngle3D="17.5703612046931" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
+     <media>
+          <DOMBitmapItem name="color011" itemID="585d708a-000000e6" sourceExternalFilepath="./LIBRARY/color011.png" sourceLastImported="1482518666" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color011.png" bitmapDataHRef="M 4 1482786094.dat" frameRight="7540" frameBottom="2400"/>
+          <DOMBitmapItem name="color021" itemID="585d7094-000000f1" sourceExternalFilepath="./LIBRARY/color021.png" sourceLastImported="1482518676" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color021.png" bitmapDataHRef="M 5 1482786094.dat" frameRight="7540" frameBottom="2400"/>
+          <DOMBitmapItem name="states2" itemID="585d711d-00000115" sourceExternalFilepath="./LIBRARY/states2.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states2.png" bitmapDataHRef="M 1 1482786094.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="states3" itemID="585d711d-0000010c" sourceExternalFilepath="./LIBRARY/states3.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states3.png" bitmapDataHRef="M 2 1482786094.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="states4" itemID="585d711d-00000103" sourceExternalFilepath="./LIBRARY/states4.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states4.png" bitmapDataHRef="M 3 1482786094.dat" frameRight="7560" frameBottom="4880"/>
+     </media>
+     <symbols>
+          <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1482518666"/>
+          <Include href="color02.xml" loadImmediate="false" itemID="5854ce25-0000012e" lastModified="1482518676"/>
+          <Include href="squareOdd.xml" itemIcon="1" loadImmediate="false" itemID="5854cd46-0000011b" lastModified="1482522404"/>
+          <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1482518813"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1">
+               <layers>
+                    <DOMLayer name="square" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="squareOdd" name="square">
+                                             <matrix>
+                                                  <Matrix a="1.00796508789062" tx="190" ty="60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>

@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "build --dir"
+  },
+  "author": "Bubbles",
+  "license": "private",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  },
+  "build": {
+    "appId": "bubbles",
+    "category": "bubbles"
+  },
+  "dependencies": {
+    "pixi-animate": "^1.1.1",
+    "pixi.js": "^4.3.0"
+  }
+}
