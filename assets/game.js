@@ -2,14 +2,14 @@
 class Game {
     // Set board size based on input
     constructor() {
-        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 4;
+        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 3;
 
         this.directions = ['N', 'S', 'E', 'W'];
         this.board = [];
         this.spot = {};
         this.visited = [];
     
-        this.createBoard(BOARD_SIZE);
+        this.createBoard(this.BOARD_SIZE);
     }
 
     getRandomFromArr(arr) {
@@ -22,12 +22,12 @@ class Game {
      *
      */
     createBoard(size) {
-        for (let x = 0; x < BOARD_SIZE; ++x) {
-            board[x] = [];
-            for (let y = 0; y < BOARD_SIZE; ++y) {
+        for (let x = 0; x < this.BOARD_SIZE; ++x) {
+            this.board[x] = [];
+            for (let y = 0; y < this.BOARD_SIZE; ++y) {
                 
                 // Fill board with random directions
-                board[x][y] = this.getRandomFromArr(directions);
+                this.board[x][y] = this.getRandomFromArr(this.directions);
                 
                 // Checker pattern
                 // if ((x + y) % 2 === 0) {
@@ -37,7 +37,7 @@ class Game {
                 // }
             }
             // Debug - array string outputs with line breaks
-            board[x].push('\n');
+            // this.board[x].push('\n');
         }
     }
     
@@ -47,9 +47,9 @@ class Game {
      *
      */
     randomSpot() {
-        visited.length = 0;
-        spot.x = Math.floor(Math.random() * BOARD_SIZE);
-        spot.y = Math.floor(Math.random() * BOARD_SIZE);
+        this.visited.length = 0;
+        this.spot.x = Math.floor(Math.random() * this.BOARD_SIZE);
+        this.spot.y = Math.floor(Math.random() * this.BOARD_SIZE);
         // console.log(spot.y, spot.x);
     }
     
@@ -61,33 +61,33 @@ class Game {
     walk(arr) {
         
         // Add prev position to array
-        visited.push(`${spot.y} ${spot.x}`);
+        this.visited.push(`${this.spot.y} ${this.spot.x}`);
         
         // Move based on direction
-        switch(arr[spot.x][spot.y]){
+        switch(arr[this.spot.x][this.spot.y]){
           case 'N':
-            spot.x -= 1;
+            this.spot.x -= 1;
             break;
           case 'S':
-            spot.x += 1;
+            this.spot.x += 1;
             break;
           case 'W':
-            spot.y -= 1;
+            this.spot.y -= 1;
             break;
           case 'E':
-            spot.y += 1;
+            this.spot.y += 1;
             break;
         }
         
         // If the new position is on the board, compare it to previous spots
-        if (spot.x >=0 && spot.x < BOARD_SIZE && spot.y >= 0 && spot.y < BOARD_SIZE) {
-            visited.forEach((visit) => {
+        if (this.spot.x >=0 && this.spot.x < this.BOARD_SIZE && this.spot.y >= 0 && this.spot.y < this.BOARD_SIZE) {
+            this.visited.forEach((visit) => {
                 console.log(visit);
             });
-            console.log('Location After:', spot.y, spot.x);
-            console.log('Direction After:', arr[spot.x][spot.y]);
+            console.log('Location After:', this.spot.y, this.spot.x);
+            console.log('Direction After:', arr[this.spot.x][this.spot.y]);
             // If spot has already been visited, we know we're in a loop
-            if (visited.indexOf(`${spot.y} ${spot.x}`) >= 0) {
+            if (this.visited.indexOf(`${this.spot.y} ${this.spot.x}`) >= 0) {
                 // TODO: Set this up to turn visited squares green
                 // TODO: Other loop animation?
                 console.log('LOOP MOTHAFUCKAAAAA');

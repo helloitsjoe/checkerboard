@@ -61,7 +61,7 @@
             framerate: 30
         });
         var instance1 = this.square = new lib.squareOdd()
-            .setTransform(190, 60, 1.008);
+            .setTransform(0, 0, 1.008);
         this.addChild(instance1);
     });
 

@@ -19,9 +19,9 @@
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="squareOdd" name="square">
+                                        <DOMSymbolInstance libraryItemName="squareOdd" name="square" selected="true">
                                              <matrix>
-                                                  <Matrix a="1.00796508789062" tx="190" ty="60"/>
+                                                  <Matrix a="1.00796508789062"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
