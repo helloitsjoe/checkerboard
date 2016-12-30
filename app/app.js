@@ -65,24 +65,8 @@ function addSquare(x, y) {
         
         square.interactive = true;
 
-        square.on('click', () => {
-            // frame = frame < 3 ? frame + 1 : 0;
-            //
-            // state.gotoAndStop(frame);
-            if (!board.children[board.children.length - 1].checker) {
-                dropChecker(x, y);
-                // TODO: is this removing from memory as well? Is there a better way to do this?
-                // PIXI.animate.Animator.play(board.children[board.children.length - 1], 'dropOut', ()=>{
-                //     board.removeChildAt(board.children.length - 1);
-                //     dropChecker(x, y);
-                // });
-            } else {
-                let checker = board.children[board.children.length - 1];
-                PIXI.animate.Animator.play(checker, 'move' + game.board[x][y], ()=>{
-                    checker.x = x;
-                    checker.y = y;
-                });
-            }
+        square.on('click', ()=>{
+            dropChecker(x, y);
         });
         
         PIXI.animate.Animator.play(square, 'fadeIn');
@@ -91,11 +75,37 @@ function addSquare(x, y) {
 
 function dropChecker(x, y) {
     PIXI.animate.load(lib.checker, board, (checker)=>{
-        checker.x = ( x - y ) * xOffset;
-        checker.y = ( y + x ) * yOffset;
+        placeChecker(checker, x, y);
         
-        PIXI.animate.Animator.play(checker, 'dropIn');
+        PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
+            moveChecker(checker, x, y);
+        });
     }, 'assets');
+}
+
+function moveChecker(instance, x, y) {
+    // frame = frame < 3 ? frame + 1 : 0;
+    //
+    // state.gotoAndStop(frame);
+    // let checker = board.children[board.children.length - 1];
+    PIXI.animate.Animator.play(instance, 'move' + game.board[x][y], ()=>{
+        // TODO: is this removing from memory as well? Is there a better way to do this?
+        // board.removeChildAt(board.children.length - 1);
+        if (!game.spot.x) {
+            game.spot.x = x;
+            game.spot.y = y;
+        }
+        game.walk(game.board, x, y);
+        console.log(game.spot);
+        instance.gotoAndStop('pause');
+        placeChecker(instance, game.spot.x, game.spot.y);
+        moveChecker(instance, game.spot.x, game.spot.y);
+    });
+}
+
+function placeChecker(instance, x, y) {
+    instance.x = ( x - y ) * xOffset;
+    instance.y = ( y + x ) * yOffset;
 }
 
 function update() {

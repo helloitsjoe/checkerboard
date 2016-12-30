@@ -14,7 +14,7 @@
 
     lib.checker = MovieClip.extend(function () {
         MovieClip.call(this, {
-            duration: 48,
+            duration: 49,
             framerate: 30,
             labels: {
                 dropIn: 0,
@@ -28,11 +28,12 @@
                 moveW: 33,
                 moveW_stop: 40,
                 dropOut: 41,
-                dropOut_stop: 47
+                dropOut_stop: 47,
+                pause: 48
             }
         });
         var instance1 = this.checker = new lib.checker_1();
-        this.addTimedChild(instance1, 0, 48, {
+        this.addTimedChild(instance1, 0, 49, {
             "0": {
                 x: 0,
                 y: -423.8,
@@ -197,32 +198,38 @@
                 y: -120
             },
             "41": {
-                x: 0.05,
-                y: -55.7
+                x: 0,
+                y: -60
             },
             "42": {
-                y: -59.35,
-                a: 0.99
-            },
-            "43": {
-                y: -72.1,
+                y: -76.25,
                 a: 0.96
             },
+            "43": {
+                y: -136.7,
+                a: 0.79
+            },
             "44": {
-                y: -98.05,
-                a: 0.89
+                x: 0.05,
+                y: -246.85,
+                a: 0.49
             },
             "45": {
-                y: -144.9,
-                a: 0.76
+                y: -352.75,
+                a: 0.2
             },
             "46": {
-                y: -230.6,
-                a: 0.52
+                y: -408.75,
+                a: 0.04
             },
             "47": {
                 y: -423.8,
                 a: 0
+            },
+            "48": {
+                x: 0,
+                y: -60,
+                a: 1
             }
         });
     });
@@ -239,7 +246,7 @@ if (typeof module !== 'undefined' && module.exports) {
         width: 1280,
         height: 720,
         framerate: 30,
-        totalFrames: 48,
+        totalFrames: 49,
         library: lib
     };
 }
