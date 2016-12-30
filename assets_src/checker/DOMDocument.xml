@@ -1,0 +1,266 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="1280" height="720" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
+     <media>
+          <DOMBitmapItem name="checker1" itemID="5865bbdf-0000015a" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/checker/LIBRARY/checker1.png" sourceLastImported="1483062115" sourcePlatform="macintosh" externalFileSize="7236" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="checker1.png" bitmapDataHRef="M 3 1483062070.dat" frameRight="3780" frameBottom="3480"/>
+     </media>
+     <symbols>
+          <Include href="checker.xml" loadImmediate="false" itemID="5865bb31-0000014e" lastModified="1483062069"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" currentFrame="40">
+               <layers>
+                    <DOMLayer name="labels" color="#9933CC" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="7" name="dropIn" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="7" name="dropIn_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="8" duration="8" name="moveN" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="16" name="moveN_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="17" duration="8" name="moveS" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="25" name="moveS_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="26" duration="6" name="moveE" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="32" name="moveE_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="33" duration="7" name="moveW" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="40" name="moveW_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="41" duration="6" name="dropOut" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="47" name="dropOut_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="checker" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.0764" y="0.5523"/>
+                                             <Point x="0.4694" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-423.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="7" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="8" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.4933"/>
+                                             <Point x="0.4887" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="16" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="200.15" centerPoint3DY="-120">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="200" ty="-120"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.4933"/>
+                                             <Point x="0.4887" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" selected="true" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="25" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-199.85">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-200"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="26" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.4933"/>
+                                             <Point x="0.4887" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="32" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="200.15">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="200"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="33" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.4933"/>
+                                             <Point x="0.4887" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" selected="true" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="40" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-199.85" centerPoint3DY="-120">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-200" ty="-120"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="41" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.5762"/>
+                                             <Point x="0.8756" y="0.3203"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.2" centerPoint3DY="-55.7">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="0.05" ty="-55.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.0764" y="0.5523"/>
+                                             <Point x="0.4694" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="0.05" ty="-423.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>

@@ -1,0 +1,54 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="1280" height="720" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
+     <media>
+          <DOMBitmapItem name="cube1" itemID="5865a6cc-00000136" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/cube/LIBRARY/cube1.png" sourceLastImported="1483056826" sourcePlatform="macintosh" externalFileSize="7236" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="cube1.png" bitmapDataHRef="M 2 1483056806.dat" frameRight="3780" frameBottom="3480"/>
+     </media>
+     <symbols>
+          <Include href="cube.xml" loadImmediate="false" itemID="5854d029-0000013a" lastModified="1483056806"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1" currentFrame="15">
+               <layers>
+                    <DOMLayer name="Layer 2" color="#9933CC">
+                         <frames>
+                              <DOMFrame index="0" duration="15" name="dropIn" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="15" name="dropIn_stop" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="cube" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="cube" name="cube" selected="true">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="0.05" ty="-803.8"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="15" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="cube" name="cube" selected="true" centerPoint3DX="0.2" centerPoint3DY="-55.7">
+                                             <matrix>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="0.05" ty="-55.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>

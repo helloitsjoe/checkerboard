@@ -10,9 +10,9 @@
      </media>
      <symbols>
           <Include href="bg.xml" itemIcon="1" loadImmediate="false" itemID="5854cc67-0000010f" lastModified="1482518824"/>
+          <Include href="checker.xml" loadImmediate="false" itemID="5865bb05-0000014c" lastModified="1483062021"/>
           <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1482518666"/>
           <Include href="color02.xml" loadImmediate="false" itemID="5854ce25-0000012e" lastModified="1482518676"/>
-          <Include href="cube.xml" loadImmediate="false" itemID="5854d029-0000013a" lastModified="1482518656"/>
           <Include href="squareEven.xml" loadImmediate="false" itemID="58618942-000000ad" lastModified="1482787138"/>
           <Include href="squareOdd.xml" itemIcon="1" loadImmediate="false" itemID="5854cd46-0000011b" lastModified="1482522404"/>
           <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1482518813"/>
@@ -20,11 +20,11 @@
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="cube" color="#FF800A" autoNamed="false" layerType="guide">
+                    <DOMLayer name="checker" color="#FF800A" current="true" isSelected="true" autoNamed="false" layerType="guide">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="cube" name="cube">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker">
                                              <matrix>
                                                   <Matrix a="0.792343139648438" d="0.792343139648438" tx="639.95" ty="279.3"/>
                                              </matrix>
@@ -52,7 +52,7 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="bg" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="bg" color="#4F80FF" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>

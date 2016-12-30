@@ -1,0 +1,118 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="directions" itemID="5865e38f-00000163" lastModified="1483072941">
+  <timeline>
+    <DOMTimeline name="directions">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" name="N" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" name="S" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" name="E" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" name="W" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="10">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-107 -331|1067 -349!1067 -349|853 29!-1067 349|1067 -349"/>
+                    <Edge cubics="!-1067 349(;-1067,349 1067,-349 1067,-349q-1067 349 1067 -349);"/>
+                    <Edge cubics="!1067 -349(;1067,-349 853,29 853,29q1067 -349 853 29);"/>
+                    <Edge cubics="!-107 -331(-107,-331;-107,-331 1067,-349 1067,-349q-107 -331 1067 -349);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="10">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!107 331|-1067 349!-1067 349|-853 -29!1067 -349|-1067 349"/>
+                    <Edge cubics="!-1067 349(;-1067,349 1067,-349 1067,-349q-1067 349 1067 -349);"/>
+                    <Edge cubics="!-1067 349(;-1067,349 -853,-29 -853,-29q-1067 349 -853 -29);"/>
+                    <Edge cubics="!107 331(107,331;107,331 -1067,349 -1067,349q107 331 -1067 349);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="10">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-107 331|1067 349!-1067 -349|1067 349!1067 349|853 -29"/>
+                    <Edge cubics="!1067 349(;1067,349 -1067,-349 -1067,-349q1067 349 -1067 -349);"/>
+                    <Edge cubics="!1067 349(;1067,349 853,-29 853,-29q1067 349 853 -29);"/>
+                    <Edge cubics="!-107 331(-107,331;-107,331 1067,349 1067,349q-107 331 1067 349);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="10">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!1067 349S4|-1067 -349!-1067 -349|-853 29!107 -331|-1067 -349"/>
+                    <Edge cubics="!1067 349(;1067,349 -1067,-349 -1067,-349q1067 349 -1067 -349);"/>
+                    <Edge cubics="!-1067 -349(;-1067,-349 -853,29 -853,29q-1067 -349 -853 29);"/>
+                    <Edge cubics="!107 -331(107,-331;107,-331 -1067,-349 -1067,-349q107 -331 -1067 -349);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,85 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="checker" itemID="5865bb31-0000014e" lastModified="1483062069">
+  <persistentData>
+    <PD n="copyLayersToBitmapScale" t="d" v="0.792340"/>
+  </persistentData>
+  <timeline>
+    <DOMTimeline name="checker">
+      <layers>
+        <DOMLayer name="vectors" color="#FF4FFF" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.072662353515625" d="0.11083984375" tx="59.5" ty="19.05"/>
+                        </matrix>
+                        <GradientEntry color="#A2AFCA" ratio="0"/>
+                        <GradientEntry color="#EFEFEF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.05120849609375" c="0.102325439453125" d="0" tx="0.1" ty="-72"/>
+                        </matrix>
+                        <GradientEntry color="#A2AFCA" ratio="0"/>
+                        <GradientEntry color="#4F6369" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="3">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.0713043212890625" b="-0.013214111328125" c="0.0201873779296875" d="0.10888671875" tx="-58.8" ty="21.75"/>
+                        </matrix>
+                        <GradientEntry color="#A2AFCA" ratio="0"/>
+                        <GradientEntry color="#4F6369" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!2375 -1435|9 -684!9 -684|0 -687"/>
+                    <Edge fillStyle1="2" edges="!-2371 -1440|-2380 -1443!-2380 -1443|-9 -2196!-9 -2196|2381 -1437!2381 -1437|2375 -1435"/>
+                    <Edge fillStyle1="1" edges="!2375 -1435|2381 1444!2381 1444|9 2197!9 2197|0 2194"/>
+                    <Edge fillStyle0="3" fillStyle1="1" edges="!0 2194|0 -687"/>
+                    <Edge fillStyle1="3" edges="!0 2194|-2380 1438!-2380 1438|-2371 -1440"/>
+                    <Edge fillStyle0="3" fillStyle1="2" edges="!0 -687|-2371 -1440"/>
+                    <Edge cubics="!-9 -2196(;-9,-2196 2381,-1437 2381,-1437q-9 -2196 2381 -1437);"/>
+                    <Edge cubics="!-2380 -1443(;-2380,-1443 -9,-2196 -9,-2196q-2380 -1443 -9 -2196)-9,-2196;"/>
+                    <Edge cubics="!2381 1444(;2381,1444 9,2197 9,2197q2381 1444 9 2197);"/>
+                    <Edge cubics="!2381 -1437(;2381,-1437 2375,-1435 2375,-1435q2381 -1437 2375 -1435);"/>
+                    <Edge cubics="!-2371 -1440(;-2371,-1440 -2380,-1443 -2380,-1443q-2371 -1440 -2380 -1443);"/>
+                    <Edge cubics="!9 -684(;9,-684 0,-687 0,-687q9 -684 0 -687);"/>
+                    <Edge cubics="!9 2197(;9,2197 0,2194 0,2194q9 2197 0 2194);"/>
+                    <Edge cubics="!0 2194(;0,2194 0,-687 0,-687q0 2194 0 -687)0,-687;"/>
+                    <Edge cubics="!0 2194(;0,2194 -2380,1438 -2380,1438q0 2194 -2380 1438);"/>
+                    <Edge cubics="!2375 -1435(;2375,-1435 9,-684 9,-684q2375 -1435 9 -684);"/>
+                    <Edge cubics="!2375 -1435(;2375,-1435 2381,1444 2381,1444q2375 -1435 2381 1444);"/>
+                    <Edge cubics="!0 -687(;0,-687 -2371,-1440 -2371,-1440q0 -687 -2371 -1440);"/>
+                    <Edge cubics="!-2380 1438(;-2380,1438 -2371,-1440 -2371,-1440q-2380 1438 -2371 -1440)-2371,-1440;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bitmap" color="#009999" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="checker1">
+                  <matrix>
+                    <Matrix a="1.26206970214844" d="1.26206970214844" tx="-119.05" ty="-109.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

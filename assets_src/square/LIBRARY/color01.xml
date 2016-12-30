@@ -1,11 +1,11 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1482518666">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1483061412">
   <persistentData>
-    <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
+    <PD n="copyLayersToBitmapScale" t="d" v="1.061000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="color01">
       <layers>
-        <DOMLayer name="vectors" color="#9933CC" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="vectors" color="#FF4FFF" locked="true" autoNamed="false" visible="false" layerType="folder"/>
         <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
@@ -30,13 +30,13 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bitmap" color="#009999" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
                 <DOMBitmapInstance selected="true" libraryItemName="color011">
                   <matrix>
-                    <Matrix tx="-188.3" ty="-59.8"/>
+                    <Matrix a="0.9425048828125" d="0.9425048828125" tx="-188.3" ty="-59.8"/>
                   </matrix>
                 </DOMBitmapInstance>
               </elements>

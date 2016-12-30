@@ -2,7 +2,7 @@
 class Game {
     // Set board size based on input
     constructor() {
-        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 3;
+        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 4;
 
         this.directions = ['N', 'S', 'E', 'W'];
         this.board = [];
@@ -16,6 +16,7 @@ class Game {
         return arr[Math.floor(Math.random() * arr.length)];
     }
     
+    
     /*
      *
      *
@@ -25,16 +26,8 @@ class Game {
         for (let x = 0; x < this.BOARD_SIZE; ++x) {
             this.board[x] = [];
             for (let y = 0; y < this.BOARD_SIZE; ++y) {
-                
                 // Fill board with random directions
                 this.board[x][y] = this.getRandomFromArr(this.directions);
-                
-                // Checker pattern
-                // if ((x + y) % 2 === 0) {
-                //     board[x][y] = 'X'
-                // } else {
-                //     board[x][y] = '•'
-                // }
             }
             // Debug - array string outputs with line breaks
             // this.board[x].push('\n');

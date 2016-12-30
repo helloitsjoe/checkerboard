@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color02" itemID="5854ce25-0000012e" lastModified="1482518676">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color02" itemID="5854ce25-0000012e" lastModified="1483055025">
   <persistentData>
-    <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
+    <PD n="copyLayersToBitmapScale" t="d" v="1.061000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="color02">
@@ -23,7 +23,7 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!-14 -1196S2|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-14 -1196"/>
+                    <Edge fillStyle1="1" edges="!-14 -1196|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-14 -1196"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -36,7 +36,7 @@
               <elements>
                 <DOMBitmapInstance selected="true" libraryItemName="color021">
                   <matrix>
-                    <Matrix tx="-188.3" ty="-59.8"/>
+                    <Matrix a="0.9425048828125" d="0.9425048828125" tx="-188.3" ty="-59.8"/>
                   </matrix>
                 </DOMBitmapInstance>
               </elements>
