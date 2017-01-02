@@ -1,6 +1,6 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="380" height="120" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" timelineLabelWidth="300" viewAngle3D="17.5703612046931" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
      <media>
-          <DOMBitmapItem name="color011" itemID="5865e31a-0000015f" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square/LIBRARY/color011.png" sourceLastImported="1483061483" sourcePlatform="macintosh" externalFileSize="3451" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color011.png" bitmapDataHRef="M 8 1483061412.dat" frameRight="8000" frameBottom="2540"/>
+          <DOMBitmapItem name="color011" itemID="5865e31a-0000015f" sourceExternalFilepath="../square/LIBRARY/color011.png" sourceLastImported="1483061483" sourcePlatform="macintosh" externalFileSize="3451" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color011.png" bitmapDataHRef="M 8 1483061412.dat" frameRight="8000" frameBottom="2540"/>
           <DOMBitmapItem name="color021" itemID="5865a6c1-00000134" sourceExternalFilepath="../square/LIBRARY/color021.png" sourceLastImported="1483055039" sourcePlatform="macintosh" externalFileSize="3510" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color021.png" bitmapDataHRef="M 7 1483055025.dat" frameRight="8000" frameBottom="2540"/>
           <DOMBitmapItem name="states2" itemID="585d711d-00000115" sourceExternalFilepath="../square/LIBRARY/states2.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states2.png" bitmapDataHRef="M 1 1482786094.dat" frameRight="7560" frameBottom="4880"/>
           <DOMBitmapItem name="states3" itemID="585d711d-0000010c" sourceExternalFilepath="../square/LIBRARY/states3.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states3.png" bitmapDataHRef="M 2 1482786094.dat" frameRight="7560" frameBottom="4880"/>
@@ -14,7 +14,7 @@
           <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1482518813"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1">
+          <DOMTimeline name="Scene 1" currentFrame="20">
                <layers>
                     <DOMLayer name="Layer 5" color="#009999">
                          <frames>
@@ -33,7 +33,7 @@
                          <frames>
                               <DOMFrame index="0" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="directions" name="directions" selected="true">
+                                        <DOMSymbolInstance libraryItemName="directions" name="directions">
                                              <matrix>
                                                   <Matrix tx="2.35" ty="-51.45"/>
                                              </matrix>

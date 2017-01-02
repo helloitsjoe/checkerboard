@@ -17,7 +17,8 @@ let board = new PIXI.Container();
 PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
 
 
-function setTheTable() {
+function setTheTable(test) {
+    test.bg.gotoAndStop(0);
     stage.addChild(board);
     
     // This is gnarly. Is there a better way to stagger animation of squares appearing?
@@ -96,6 +97,9 @@ function moveChecker(instance, x, y) {
             game.spot.y = y;
         }
         game.walk(game.board, x, y);
+        if (game.state.length) {
+            stage.children[0].bg.gotoAndStop(game.state);
+        }
         console.log(game.spot);
         instance.gotoAndStop('pause');
         placeChecker(instance, game.spot.x, game.spot.y);

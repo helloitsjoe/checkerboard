@@ -1,8 +1,13 @@
+const states = {
+    OFF: 'off',
+    LOOP: 'loop'
+};
 
 class Game {
+    
     // Set board size based on input
     constructor() {
-        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 4;
+        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 6;
 
         this.directions = ['N', 'S', 'E', 'W'];
         this.board = [];
@@ -10,6 +15,7 @@ class Game {
         this.visited = [];
     
         this.createBoard(this.BOARD_SIZE);
+        this.state = '';
     }
 
     getRandomFromArr(arr) {
@@ -19,7 +25,7 @@ class Game {
     
     /*
      *
-     *
+     * 
      *
      */
     createBoard(size) {
@@ -41,7 +47,7 @@ class Game {
         this.visited.length = 0;
         this.spot.x = Math.floor(Math.random() * this.BOARD_SIZE);
         this.spot.y = Math.floor(Math.random() * this.BOARD_SIZE);
-        // console.log(spot.y, spot.x);
+        // console.log(this.spot.x, this.spot.y);
     }
     
     /*
@@ -50,9 +56,10 @@ class Game {
      *
      */
     walk(arr, x, y) {
-        console.log(this.spot);
+        // TODO: Do I need to have a this.spot or can I just use x, y?
+        console.log("Spot:", this.spot);
         // Add prev position to array
-        this.visited.push(`${this.spot.y} ${this.spot.x}`);
+        this.visited.push(`${this.spot.x} ${this.spot.y}`);
         
         // Move based on direction
         switch(arr[x][y]){
@@ -70,33 +77,32 @@ class Game {
             break;
         }
         
-        // // If the new position is on the board, compare it to previous spots
-        // if (this.spot.x >=0 && this.spot.x < this.BOARD_SIZE && this.spot.y >= 0 && this.spot.y < this.BOARD_SIZE) {
-        //     this.visited.forEach((visit) => {
-        //         console.log(visit);
-        //     });
-        //     console.log('Location After:', this.spot.y, this.spot.x);
-        //     console.log('Direction After:', arr[this.spot.x][this.spot.y]);
-        //     // If spot has already been visited, we know we're in a loop
-        //     if (this.visited.indexOf(`${this.spot.y} ${this.spot.x}`) >= 0) {
-        //         // TODO: Set this up to turn visited squares green
-        //         // TODO: Other loop animation?
-        //         console.log('LOOP MOTHAFUCKAAAAA');
-        //         this.done();
-        //     // Otherwise, we're not in a loop, keep walking
-        //     } else {
-        //         // Turn this on/off to make this recursive and
-        //         // keep walking until it either loops or falls off
-        //         console.log('next!');
-        //         this.walk(arr);
-        //     }
-        // // If it's not on the board, you fell off the edge!
-        // } else {
-        //     // TODO: Set this up to turn visited squares red
-        //     // TODO: Other fall-off-edge animation?
-        //     console.log('YOU FELL OFF THE EDGEEEEE');
-        //     this.done();
-        // }
+        // If the new position is on the board, compare it to previous spots
+        if (this.spot.x >=0 && this.spot.x < this.BOARD_SIZE && this.spot.y >= 0 && this.spot.y < this.BOARD_SIZE) {
+
+            // If spot has already been visited, we know we're in a loop
+            if (this.visited.indexOf(`${this.spot.x} ${this.spot.y}`) >= 0) {
+                // TODO: Set this up to turn visited squares green
+                // TODO: Other loop animation?
+                console.log('LOOP MOTHAFUCKAAAAA');
+                this.state = states.LOOP;
+                this.done();
+            // Otherwise, we're not in a loop, keep walking
+            } else {
+                // Turn this on/off to make this recursive and
+                // keep walking until it either loops or falls off
+                console.log('next!');
+                // this.walk(arr, this.spot.y, this.spot.x);
+                return;
+            }
+        // If it's not on the board, you fell off the edge!
+        } else {
+            // TODO: Set this up to turn visited squares red
+            // TODO: Other fall-off-edge animation?
+            console.log('YOU FELL OFF THE EDGEEEEE');
+            this.state = states.OFF;
+            this.done();
+        }
     }
     
     // Break out of recursive loop
