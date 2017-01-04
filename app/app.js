@@ -6,6 +6,7 @@ const BOARD_SCALE_PCT = 0.8;
 
 let xOffset;
 let yOffset;
+let bg;
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),
@@ -18,7 +19,8 @@ PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
 
 
 function setTheTable(test) {
-    test.bg.gotoAndStop(0);
+    bg = test.bg;
+    bg.gotoAndStop(0);
     stage.addChild(board);
     
     // This is gnarly. Is there a better way to stagger animation of squares appearing?
@@ -44,6 +46,7 @@ function setTheTable(test) {
 }
 
 function addSquare(x, y) {
+    // TODO: Combine test.js, square.js, checker.js, reference library? How?
     PIXI.animate.load(lib.square, board, (square) => {
 
         xOffset = square.width / 2;
@@ -67,6 +70,7 @@ function addSquare(x, y) {
         square.interactive = true;
 
         square.on('click', ()=>{
+            // TODO: remove click listener from other squares
             dropChecker(x, y);
         });
         
@@ -76,6 +80,8 @@ function addSquare(x, y) {
 
 function dropChecker(x, y) {
     PIXI.animate.load(lib.checker, board, (checker)=>{
+    // let checker = lib.checkerAnim;
+    // console.log(checker);
         placeChecker(checker, x, y);
         
         PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
@@ -85,20 +91,17 @@ function dropChecker(x, y) {
 }
 
 function moveChecker(instance, x, y) {
-    // frame = frame < 3 ? frame + 1 : 0;
-    //
-    // state.gotoAndStop(frame);
-    // let checker = board.children[board.children.length - 1];
     PIXI.animate.Animator.play(instance, 'move' + game.board[x][y], ()=>{
-        // TODO: is this removing from memory as well? Is there a better way to do this?
-        // board.removeChildAt(board.children.length - 1);
         if (!game.spot.x) {
             game.spot.x = x;
             game.spot.y = y;
         }
         game.walk(game.board, x, y);
         if (game.state.length) {
-            stage.children[0].bg.gotoAndStop(game.state);
+            bg.gotoAndStop(game.state);
+            if (game.state === 'off') {
+                return;
+            }
         }
         console.log(game.spot);
         instance.gotoAndStop('pause');
