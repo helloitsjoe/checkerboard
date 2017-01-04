@@ -80,7 +80,7 @@
         var instance4 = this.color01 = new lib.color02();
         var instance3 = this.color02 = new lib.color01();
         var instance2 = this.state = new lib.states();
-        var instance1 = this.directions = new lib.directions();
+        var instance1 = this.arrows = new lib.directions();
         this.addTimedChild(instance4, 0, 31, {
                 "0": {
                     y: 20,

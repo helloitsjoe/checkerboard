@@ -14,7 +14,7 @@
           <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1482518813"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="20">
+          <DOMTimeline name="Scene 1" currentFrame="17">
                <layers>
                     <DOMLayer name="Layer 5" color="#009999">
                          <frames>
@@ -29,11 +29,11 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="directions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="arrows" color="#9933CC" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="directions" name="directions">
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" selected="true">
                                              <matrix>
                                                   <Matrix tx="2.35" ty="-51.45"/>
                                              </matrix>
@@ -56,7 +56,7 @@
                                         </CustomEase>
                                    </tweens>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="directions" name="directions" selected="true" centerPoint3DX="2.35" centerPoint3DY="-51.45">
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" selected="true" centerPoint3DX="2.35" centerPoint3DY="-51.45">
                                              <matrix>
                                                   <Matrix tx="2.35" ty="-51.45"/>
                                              </matrix>
@@ -71,7 +71,7 @@
                               </DOMFrame>
                               <DOMFrame index="17" duration="14" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="directions" name="directions" centerPoint3DX="2.35" centerPoint3DY="-1.45">
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" selected="true" centerPoint3DX="2.35" centerPoint3DY="-1.45">
                                              <matrix>
                                                   <Matrix tx="2.35" ty="-1.45"/>
                                              </matrix>

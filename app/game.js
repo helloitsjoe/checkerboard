@@ -18,12 +18,12 @@ class Game {
         this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 6;
 
         this.directions = ['N', 'S', 'E', 'W'];
-        this.boardArr = [];
         this.spot = {};
         this.visited = [];
         this.squares = [];
-    
-        this.create2dArr(this.boardArr, 'directions');
+        
+        // initializes empty array
+        this.create2dArr(this.squares);
         this.state = '';
     }
     
@@ -32,17 +32,11 @@ class Game {
      *
      *
      */
-    create2dArr(arr, item) {
+    create2dArr(arr) {
         for (let x = 0; x < this.BOARD_SIZE; ++x) {
             arr[x] = [];
             for (let y = 0; y < this.BOARD_SIZE; ++y) {
-                if (item === 'directions') {
-                    // Fill board with random directions
-                    arr[x][y] = this.getRandomFromArr(this.directions);
-                } else {
-                    // Fill array with items
-                    arr[x][y] = item;
-                }
+                arr[x][y] = [];
             }
         }
     }
@@ -65,7 +59,9 @@ class Game {
             let frame = 0;
             state.gotoAndStop(frame);
             
-            square.directions.gotoAndStop(this.boardArr[x][y]);
+            // Set direction arrow on square
+            square.direction = this.getRandomFromArr(this.directions);
+            square.arrows.gotoAndStop(square.direction);
             
             if (( x + y ) % 2 === 0) {
                 square.color02.visible = false;
@@ -75,8 +71,7 @@ class Game {
             
             square.interactive = true;
             
-            // TODO: This is setting all squares to the last x, y coord. FIX!
-            this.create2dArr(this.squares, square);
+            this.squares[x][y] = square;
 
             square.on('click', ()=>{
                 // TODO: remove click listener from other squares
@@ -116,16 +111,22 @@ class Game {
     }
 
     moveChecker(instance, x, y) {
-        let moveAnimLabel = 'move' + this.boardArr[x][y];
+        console.log("Spot:", {x, y});
+        
+        // Add prev position to array
+        this.visited.push({x, y});
+
+        let lastVisited = this.visited.length - 1;
+        let currSquare = this.squares[this.visited[lastVisited].x][this.visited[lastVisited].y]
+        if (currSquare.state.currentFrame < 1) {
+            currSquare.state.gotoAndStop(1);
+        }
+        
+        let moveAnimLabel = 'move' + this.squares[x][y].direction;
         PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
 
-            console.log("Spot:", {x, y});
-            // Add prev position to array
-            // TODO: Fix this so it's comparing an array instead of a string
-            this.visited.push(`${x} ${y}`);
-            
             // Move based on direction
-            switch(this.boardArr[x][y]){
+            switch(this.squares[x][y].direction){
               case 'N':
                 y -= 1;
                 break;
@@ -149,12 +150,19 @@ class Game {
         if (x >=0 && x < this.BOARD_SIZE && y >= 0 && y < this.BOARD_SIZE) {
             
             // If spot has already been visited, we know we're in a loop
-            if (this.visited.indexOf(`${x} ${y}`) >= 0) {
-                // TODO: Set this up to turn visited squares green
-                // TODO: Other loop animation?
-                console.log('LOOP MOTHAFUCKAAAAA');
-                bg.gotoAndStop(states.LOOP);
-            }
+            // if (this.visited.indexOf(`${x} ${y}`) >= 0) {
+            this.visited.forEach((spot) => {
+                if (spot.x === x && spot.y === y){
+                    // Turn visited squares green
+                    this.visited.forEach((spot) => {
+                        this.squares[spot.x][spot.y].state.gotoAndStop(2);
+                    });
+                    
+                    console.log('LOOP MOTHAFUCKAAAAA');
+                    // Turn BG green
+                    bg.gotoAndStop(states.LOOP);
+                }
+            })
             
             // Otherwise, we're not in a loop, keep walking
             this.placeChecker(instance, x, y);
@@ -162,10 +170,15 @@ class Game {
             
         // If it's not on the board, you fell off the edge!
         } else {
-            // TODO: Set this up to turn visited squares red
-            // TODO: Other fall-off-edge animation?
             console.log('YOU FELL OFF THE EDGEEEEE');
+            
+            // Turn BG red
             bg.gotoAndStop(states.OFF);
+            
+            // Turn squares red
+            this.visited.forEach((spot) => {
+                this.squares[spot.x][spot.y].state.gotoAndStop(3);
+            });
             return;
         }
     }
