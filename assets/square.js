@@ -70,18 +70,20 @@
 
     lib.square = MovieClip.extend(function () {
         MovieClip.call(this, {
-            duration: 31,
+            duration: 34,
             framerate: 30,
             labels: {
                 fadeIn: 0,
-                fadeIn_stop: 17
+                fadeIn_stop: 17,
+                fadeOut: 18,
+                fadeOut_stop: 33
             }
         });
         var instance4 = this.color01 = new lib.color02();
         var instance3 = this.color02 = new lib.color01();
         var instance2 = this.state = new lib.states();
         var instance1 = this.arrows = new lib.directions();
-        this.addTimedChild(instance4, 0, 31, {
+        this.addTimedChild(instance4, 0, 34, {
                 "0": {
                     y: 20,
                     sx: 1.061,
@@ -133,9 +135,56 @@
                 },
                 "14": {
                     y: 0
+                },
+                "21": {
+                    y: 0.05
+                },
+                "22": {
+                    y: 0.3,
+                    a: 0.98
+                },
+                "23": {
+                    y: 0.65,
+                    a: 0.97
+                },
+                "24": {
+                    y: 1.15,
+                    a: 0.95
+                },
+                "25": {
+                    y: 1.8,
+                    a: 0.91
+                },
+                "26": {
+                    y: 2.65,
+                    a: 0.87
+                },
+                "27": {
+                    y: 3.7,
+                    a: 0.82
+                },
+                "28": {
+                    y: 5.05,
+                    a: 0.75
+                },
+                "29": {
+                    y: 6.85,
+                    a: 0.66
+                },
+                "30": {
+                    y: 9.2,
+                    a: 0.54
+                },
+                "31": {
+                    y: 12.65,
+                    a: 0.37
+                },
+                "32": {
+                    y: 20,
+                    a: 0
                 }
             })
-            .addTimedChild(instance3, 0, 31, {
+            .addTimedChild(instance3, 0, 34, {
                 "0": {
                     y: 20,
                     sx: 1.061,
@@ -187,10 +236,57 @@
                 },
                 "14": {
                     y: 0
+                },
+                "21": {
+                    y: 0.05
+                },
+                "22": {
+                    y: 0.3,
+                    a: 0.98
+                },
+                "23": {
+                    y: 0.65,
+                    a: 0.97
+                },
+                "24": {
+                    y: 1.15,
+                    a: 0.95
+                },
+                "25": {
+                    y: 1.8,
+                    a: 0.91
+                },
+                "26": {
+                    y: 2.65,
+                    a: 0.87
+                },
+                "27": {
+                    y: 3.7,
+                    a: 0.82
+                },
+                "28": {
+                    y: 5.05,
+                    a: 0.75
+                },
+                "29": {
+                    y: 6.85,
+                    a: 0.66
+                },
+                "30": {
+                    y: 9.2,
+                    a: 0.54
+                },
+                "31": {
+                    y: 12.65,
+                    a: 0.37
+                },
+                "32": {
+                    y: 20,
+                    a: 0
                 }
             })
             .addTimedChild(instance2)
-            .addTimedChild(instance1, 0, 31, {
+            .addTimedChild(instance1, 0, 34, {
                 "0": {
                     x: 2.35,
                     y: -51.45,
@@ -238,6 +334,49 @@
                 },
                 "17": {
                     y: -1.45
+                },
+                "19": {
+                    y: -1.7
+                },
+                "20": {
+                    y: -2.35,
+                    a: 0.98
+                },
+                "21": {
+                    y: -3.5,
+                    a: 0.96
+                },
+                "22": {
+                    y: -5.15,
+                    a: 0.93
+                },
+                "23": {
+                    y: -7.3,
+                    a: 0.88
+                },
+                "24": {
+                    y: -10.1,
+                    a: 0.83
+                },
+                "25": {
+                    y: -13.7,
+                    a: 0.75
+                },
+                "26": {
+                    y: -18.35,
+                    a: 0.66
+                },
+                "27": {
+                    y: -24.6,
+                    a: 0.54
+                },
+                "28": {
+                    y: -33.75,
+                    a: 0.36
+                },
+                "29": {
+                    y: -51.45,
+                    a: 0
                 }
             });
     });
@@ -255,7 +394,7 @@ if (typeof module !== 'undefined' && module.exports) {
         width: 380,
         height: 120,
         framerate: 30,
-        totalFrames: 31,
+        totalFrames: 34,
         library: lib
     };
 }

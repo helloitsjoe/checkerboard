@@ -1,4 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
 body {
     margin: 0;
     width: 100%;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+p {
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 80%;
+    color: white;
+}
+
+#gui {
+    position: relative;
+    top: 20px;
+    left: 40px;
+    width: 190px;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 0.5;
+    transition: all 0.2s ease 0.2s;
+    box-shadow: 0px 3px white;
+    /*transition-delay: height 0.2s;*/
+    /*transition-timing-function: ease-out;*/
+}
+
+#gui:hover {
+    height: 226px;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+    transform: translateY(5px);
+}
+
+#gui:hover > * {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: visible;
+    transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s;
+}
+
+.gui-element {
+    visibility: hidden;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 15px;
+    opacity: 0;
+    width: 160px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    box-shadow: 0px 2px white;
+    transform: translateY(-20px);
+    transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
+}
+
+.gui-element:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
