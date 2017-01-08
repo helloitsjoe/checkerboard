@@ -1,50 +1,124 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="1280" height="720" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="380" height="120" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" timelineLabelWidth="300" viewAngle3D="17.5703612046931" vanishingPoint3DX="640" vanishingPoint3DY="360" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
      <media>
-          <DOMBitmapItem name="bg1" itemID="58726529-00000778" sourceExternalFilepath="../test/LIBRARY/bg1.png" sourceLastImported="1483892007" sourcePlatform="macintosh" externalFileSize="5565" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="bg1.png" bitmapDataHRef="M 14 1483891942.dat" frameRight="25600" frameBottom="14400"/>
-          <DOMBitmapItem name="bg2" itemID="58726529-00000779" sourceExternalFilepath="../test/LIBRARY/bg2.png" sourceLastImported="1483892007" sourcePlatform="macintosh" externalFileSize="5307" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="bg2.png" bitmapDataHRef="M 13 1483891942.dat" frameRight="25600" frameBottom="14400"/>
-          <DOMBitmapItem name="bg3" itemID="58726529-0000077a" sourceExternalFilepath="../test/LIBRARY/bg3.png" sourceLastImported="1483892007" sourcePlatform="macintosh" externalFileSize="5307" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="bg3.png" bitmapDataHRef="M 12 1483891941.dat" frameRight="25600" frameBottom="14400"/>
-          <DOMBitmapItem name="Bitmap 1" itemID="5871ad78-000003a5" sourceExternalFilepath="../test/LIBRARY/Bitmap 1.png" sourceLastImported="1483844977" sourcePlatform="macintosh" externalFileSize="5307" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Bitmap 1.png" bitmapDataHRef="M 10 1483844936.dat" frameRight="25600" frameBottom="14400"/>
-          <DOMBitmapItem name="boardBase1" itemID="58726ea2-0000089e" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/test/LIBRARY/boardBase1.png" sourceLastImported="1483892010" sourcePlatform="macintosh" externalFileSize="22314" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="boardBase1.png" bitmapDataHRef="M 15 1483892009.dat" frameRight="21760" frameBottom="9720"/>
-          <DOMBitmapItem name="color021" itemID="58725e63-00000592" sourceExternalFilepath="../test/LIBRARY/color021.png" sourceLastImported="1483890201" sourcePlatform="macintosh" externalFileSize="3251" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color021.png" bitmapDataHRef="M 23 1483890037.dat" frameRight="7540" frameBottom="2400"/>
-          <DOMBitmapItem name="cube1" itemID="585d7081-000000ab" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1482518657" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="cube1.png" bitmapDataHRef="M 1 1482787137.dat" frameRight="3780" frameBottom="3480"/>
-          <DOMBitmapItem name="states2" itemID="585d711d-00000115" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states2.png" bitmapDataHRef="M 2 1482787137.dat" frameRight="7560" frameBottom="4880"/>
-          <DOMBitmapItem name="states3" itemID="585d711d-0000010c" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states3.png" bitmapDataHRef="M 3 1482787137.dat" frameRight="7560" frameBottom="4880"/>
-          <DOMBitmapItem name="states4" itemID="585d711d-00000103" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1482518813" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="states4.png" bitmapDataHRef="M 4 1482787137.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="color011" itemID="587271b1-00000904" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square_v02/LIBRARY/color011.png" sourceLastImported="1483895196" sourcePlatform="macintosh" externalFileSize="17701" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color011.png" bitmapDataHRef="M 80 1483895193.dat" frameRight="7640" frameBottom="2880"/>
+          <DOMBitmapItem name="color012" itemID="587271b1-00000905" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square_v02/LIBRARY/color012.png" sourceLastImported="1483895196" sourcePlatform="macintosh" externalFileSize="17918" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color012.png" bitmapDataHRef="M 79 1483895193.dat" frameRight="7640" frameBottom="2880"/>
+          <DOMBitmapItem name="fall1" itemID="5871de08-000004ff" sourceExternalFilepath="../square/LIBRARY/fall1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="2486" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="fall1.png" bitmapDataHRef="M 18 1483857401.dat" frameRight="7560" frameBottom="4880"/>
      </media>
      <symbols>
-          <Include href="bg.xml" itemIcon="1" loadImmediate="false" itemID="5854cc67-0000010f" lastModified="1483891941"/>
-          <Include href="boardBase.xml" itemIcon="1" loadImmediate="false" itemID="58725c97-0000052d" lastModified="1483892009"/>
-          <Include href="checker.xml" loadImmediate="false" itemID="5865bb05-0000014c" lastModified="1483062021"/>
-          <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1483890259"/>
-          <Include href="color02.xml" loadImmediate="false" itemID="5854ce25-0000012e" lastModified="1483890037"/>
-          <Include href="squareEven.xml" loadImmediate="false" itemID="58618942-000000ad" lastModified="1482787138"/>
-          <Include href="squareOdd.xml" itemIcon="1" loadImmediate="false" itemID="5854cd46-0000011b" lastModified="1482522404"/>
-          <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1482518813"/>
+          <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1483895193"/>
+          <Include href="color02.xml" loadImmediate="false" itemID="5854ce25-0000012e" lastModified="1483856237"/>
+          <Include href="directions.xml" loadImmediate="false" itemID="5865e38f-00000163" lastModified="1483894907"/>
+          <Include href="fall.xml" loadImmediate="false" itemID="5871dd98-000004c2" lastModified="1483857401"/>
+          <Include href="loop.xml" loadImmediate="false" itemID="5871dd95-000004be" lastModified="1483895415"/>
+          <Include href="square.xml" itemIcon="1" loadImmediate="false" itemID="58659f18-000000dd" lastModified="1483054872"/>
+          <Include href="states.xml" itemIcon="1" loadImmediate="false" itemID="585d7103-000000f3" lastModified="1483895279"/>
+          <Include href="visited.xml" loadImmediate="false" itemID="5871dd77-000004b7" lastModified="1483895171"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="Layer 1" color="#4F80FF">
+                    <DOMLayer name="Layer 5" color="#009999">
                          <frames>
-                              <DOMFrame index="0" keyMode="9728">
+                              <DOMFrame index="0" duration="17" name="fadeIn" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="1" name="loop" labelType="name" keyMode="9728">
+                              <DOMFrame index="17" name="fadeIn_stop" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
-                              <DOMFrame index="2" name="off" labelType="name" keyMode="9728">
+                              <DOMFrame index="18" duration="15" name="fadeOut" labelType="name" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                              <DOMFrame index="33" name="fadeOut_stop" labelType="name" keyMode="9728">
                                    <elements/>
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="checker" color="#FF800A" autoNamed="false" visible="false" layerType="guide">
+                    <DOMLayer name="arrows" color="#9933CC" autoNamed="false">
                          <frames>
-                              <DOMFrame index="0" duration="3" keyMode="9728">
+                              <DOMFrame index="0" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" selected="true">
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows">
                                              <matrix>
-                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="639.95" ty="279.3"/>
+                                                  <Matrix tx="2.35" ty="-51.45"/>
                                              </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="6" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.1617" y="0.8607"/>
+                                             <Point x="0.6667" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" selected="true" centerPoint3DX="2.35" centerPoint3DY="-51.45">
+                                             <matrix>
+                                                  <Matrix tx="2.35" ty="-51.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="17" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" centerPoint3DX="2.35" centerPoint3DY="-1.45">
+                                             <matrix>
+                                                  <Matrix tx="2.35" ty="-1.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="18" duration="11" tweenType="motion" keyMode="17921" acceleration="100">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" centerPoint3DX="2.35" centerPoint3DY="-1.45">
+                                             <matrix>
+                                                  <Matrix tx="2.35" ty="-1.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="29" duration="5" keyMode="13824">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="directions" name="arrows" centerPoint3DX="2.35" centerPoint3DY="-51.45">
+                                             <matrix>
+                                                  <Matrix tx="2.35" ty="-51.45"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="state" color="#808080" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="34" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="states" name="state" selected="true">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>
@@ -53,46 +127,94 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="square" color="#9933CC" autoNamed="false" visible="false" layerType="guide">
+                    <DOMLayer name="hitBox" color="#4F80FF" autoNamed="false" visible="false" layerType="guide">
                          <frames>
-                              <DOMFrame index="0" duration="3" keyMode="9728">
+                              <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="squareOdd" name="square">
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#FF0000"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!-15 -1200|4000 4!4000 4|16 1200!16 1200|-3999 -5!-3999 -5|-15 -1200"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="base" color="#669900" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" duration="2" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DY="20">
                                              <matrix>
-                                                  <Matrix tx="639.65" ty="338.15"/>
+                                                  <Matrix ty="20"/>
                                              </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="2" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+                                   <tweens>
+                                        <CustomEase target="all">
+                                             <Point/>
+                                             <Point x="0.1578" y="0.7"/>
+                                             <Point x="0.4098" y="1"/>
+                                             <Point x="1" y="1"/>
+                                        </CustomEase>
+                                   </tweens>
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DY="20">
+                                             <matrix>
+                                                  <Matrix ty="20"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                              <DOMFrame index="14" duration="6" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DX="0.2" centerPoint3DY="0.2">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                         </frames>
-                    </DOMLayer>
-                    <DOMLayer name="board" color="#9933CC" current="true" isSelected="true" autoNamed="false">
-                         <frames>
-                              <DOMFrame index="0" duration="3" keyMode="9728">
+                              <DOMFrame index="20" duration="12" tweenType="motion" keyMode="17921" acceleration="100">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="boardBase" name="boardBase" selected="true" centerPoint3DX="640.2" centerPoint3DY="435.7">
-                                             <matrix>
-                                                  <Matrix a="2.88864135742188" d="2.861328125" tx="639.65" ty="435.15"/>
-                                             </matrix>
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DX="0.2" centerPoint3DY="0.2">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
-                         </frames>
-                    </DOMLayer>
-                    <DOMLayer name="bg" color="#4F80FF" autoNamed="false">
-                         <frames>
-                              <DOMFrame index="0" duration="3" keyMode="9728">
+                              <DOMFrame index="32" duration="2" keyMode="13824">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="bg" name="bg">
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DY="20">
+                                             <matrix>
+                                                  <Matrix ty="20"/>
+                                             </matrix>
                                              <transformationPoint>
-                                                  <Point x="640" y="360"/>
+                                                  <Point/>
                                              </transformationPoint>
+                                             <color>
+                                                  <Color alphaMultiplier="0"/>
+                                             </color>
                                         </DOMSymbolInstance>
                                    </elements>
                               </DOMFrame>
@@ -360,7 +482,9 @@
                     <SolidSwatchItem color="#FF99FF" hue="200" saturation="239" brightness="192"/>
                     <SolidSwatchItem color="#FFCCFF" hue="200" saturation="239" brightness="216"/>
                     <SolidSwatchItem color="#FFFFFF" brightness="240"/>
-                    <SolidSwatchItem color="#530D3B" hue="213" saturation="176" brightness="45"/>
+                    <SolidSwatchItem color="#9C5AAB" hue="193" saturation="78" brightness="123"/>
+                    <SolidSwatchItem color="#6F0F92" hue="189" saturation="195" brightness="76"/>
+                    <SolidSwatchItem color="#320745" hue="188" saturation="193" brightness="36"/>
                </swatches>
           </swatchList>
      </swatchLists>
@@ -409,8 +533,17 @@
                          <GradientEntry color="#FF0000" ratio="1"/>
                     </LinearGradientSwatchItem>
                     <LinearGradientSwatchItem>
-                         <GradientEntry color="#611145" ratio="0"/>
-                         <GradientEntry color="#0F0315" ratio="1"/>
+                         <GradientEntry color="#1E171C" ratio="0"/>
+                         <GradientEntry color="#0F0315" ratio="0.682352941176471"/>
+                         <GradientEntry color="#0F0315" alpha="0" ratio="1"/>
+                    </LinearGradientSwatchItem>
+                    <LinearGradientSwatchItem>
+                         <GradientEntry color="#8B13B4" ratio="0.101960784313725"/>
+                         <GradientEntry color="#270637" ratio="1"/>
+                    </LinearGradientSwatchItem>
+                    <LinearGradientSwatchItem>
+                         <GradientEntry color="#8B13B4" ratio="0"/>
+                         <GradientEntry color="#270637" ratio="1"/>
                     </LinearGradientSwatchItem>
                </swatches>
           </swatchList>

@@ -1,0 +1,108 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="boardBase" itemID="58725c97-0000052d" symbolType="graphic" lastModified="1483892009">
+  <persistentData>
+    <PD n="copyLayersToBitmapScale" t="d" v="2.888640"/>
+  </persistentData>
+  <timeline>
+    <DOMTimeline name="boardBase">
+      <layers>
+        <DOMLayer name="vectors" color="#808080" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="Layer 7" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.05291748046875" c="0.128952026367188" d="0" tx="-1.65" ty="88.05"/>
+                        </matrix>
+                        <GradientEntry color="#611145" ratio="0"/>
+                        <GradientEntry color="#611145" alpha="0" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-3751 376|3761 376!3761 376|3761 2168!3761 2168|-3751 2168!-3751 2168|-3751 376"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#009999" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.0518341064453125" c="-0.16192626953125" d="0"/>
+                        </matrix>
+                        <GradientEntry color="#120516" ratio="0"/>
+                        <GradientEntry color="#312435" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-14 -1196|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-14 -1196"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#808080" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.114959716796875" d="0.066162109375" tx="94.1" ty="54.15"/>
+                        </matrix>
+                        <GradientEntry color="#120516" ratio="0"/>
+                        <GradientEntry color="#312435" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.11444091796875" d="0.066162109375" tx="-93.8" ty="54.15"/>
+                        </matrix>
+                        <GradientEntry color="#120516" ratio="0"/>
+                        <GradientEntry color="#312435" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|3767 0!3767 0|3767 2168!3767 2168|0 2168"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!0 0|0 2168"/>
+                    <Edge fillStyle1="2" edges="!0 2168|-3750 2168!-3750 2168|-3750 0!-3750 0|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bitmap" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="boardBase1">
+                  <matrix>
+                    <Matrix a="0.346176147460938" d="0.346176147460938" tx="-188.25" ty="-59.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

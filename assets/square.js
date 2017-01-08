@@ -31,13 +31,6 @@
             .addTimedChild(instance4, 7, 2);
     });
 
-    lib.loop = Container.extend(function () {
-        Container.call(this);
-        var instance1 = new Sprite(fromFrame("loop1"))
-            .setTransform(-188.85, -122.2);
-        this.addChild(instance1);
-    });
-
     lib.fall = Container.extend(function () {
         Container.call(this);
         var instance1 = new Sprite(fromFrame("fall1"))
@@ -45,10 +38,17 @@
         this.addChild(instance1);
     });
 
+    lib.loop = Container.extend(function () {
+        Container.call(this);
+        var instance1 = new Sprite(fromFrame("loop1"))
+            .setTransform(-143.25, -148.75);
+        this.addChild(instance1);
+    });
+
     lib.visited = Container.extend(function () {
         Container.call(this);
         var instance1 = new Sprite(fromFrame("visited1"))
-            .setTransform(-188.85, -122.2);
+            .setTransform(-144.75, -149.25);
         this.addChild(instance1);
     });
 
@@ -64,11 +64,13 @@
                 fall_stop: 30
             }
         });
-        var instance1 = new lib.visited();
+        var instance3 = new lib.visited();
         var instance2 = new lib.loop();
-        var instance3 = new lib.fall();
-        this.addTimedChild(instance1, 1, 30, {
-                "1": {
+        var instance1 = new lib.fall();
+        var instance4 = new lib.loop();
+        var instance5 = new lib.fall();
+        this.addTimedChild(instance3, 0, 31, {
+                "0": {
                     x: -0.5,
                     y: -62.4,
                     a: 0
@@ -161,7 +163,21 @@
                     a: 0
                 }
             })
-            .addTimedChild(instance2, 11, 10, {
+            .addTimedChild(instance2, 0, 1, {
+                "0": {
+                    x: -0.5,
+                    y: -62.4,
+                    a: 0
+                }
+            })
+            .addTimedChild(instance1, 0, 1, {
+                "0": {
+                    x: -0.5,
+                    y: -62.4,
+                    a: 0
+                }
+            })
+            .addTimedChild(instance4, 11, 10, {
                 "11": {
                     x: -0.5,
                     y: -62.4,
@@ -195,7 +211,7 @@
                     a: 1
                 }
             })
-            .addTimedChild(instance3, 21, 10, {
+            .addTimedChild(instance5, 21, 10, {
                 "21": {
                     x: -0.5,
                     y: -62.4,
@@ -237,11 +253,11 @@
         });
         var instance1 = new Sprite(fromFrame("color011"));
         var instance2 = new Sprite(fromFrame("color012"))
-            .setTransform(-190, -60);
+            .setTransform(-191, -61);
         this.addTimedChild(instance1, 0, 1, {
                 "0": {
-                    x: -190,
-                    y: -60
+                    x: -191,
+                    y: -61
                 }
             })
             .addTimedChild(instance2, 1, 1);
@@ -413,43 +429,44 @@
                     y: -1.45
                 },
                 "19": {
-                    y: -1.7
+                    y: -1.85,
+                    a: 0.99
                 },
                 "20": {
-                    y: -2.35,
-                    a: 0.98
+                    y: -3.1,
+                    a: 0.97
                 },
                 "21": {
-                    y: -3.5,
-                    a: 0.96
-                },
-                "22": {
                     y: -5.15,
                     a: 0.93
                 },
+                "22": {
+                    y: -8.05,
+                    a: 0.87
+                },
                 "23": {
-                    y: -7.3,
-                    a: 0.88
+                    y: -11.8,
+                    a: 0.79
                 },
                 "24": {
-                    y: -10.1,
-                    a: 0.83
+                    y: -16.35,
+                    a: 0.7
                 },
                 "25": {
-                    y: -13.7,
-                    a: 0.75
+                    y: -21.7,
+                    a: 0.59
                 },
                 "26": {
-                    y: -18.35,
-                    a: 0.66
+                    y: -27.9,
+                    a: 0.47
                 },
                 "27": {
-                    y: -24.6,
-                    a: 0.54
+                    y: -34.9,
+                    a: 0.33
                 },
                 "28": {
-                    y: -33.75,
-                    a: 0.36
+                    y: -42.75,
+                    a: 0.17
                 },
                 "29": {
                     y: -51.45,
@@ -460,8 +477,7 @@
 
     lib.square.assets = {
         "square": "images/square.shapes.json",
-        "square_atlas_1": "images/square_atlas_1.json",
-        "square_atlas_2": "images/square_atlas_2.json"
+        "square_atlas_1": "images/square_atlas_1.json"
     };
 })(PIXI, lib = lib || {});
 var lib;

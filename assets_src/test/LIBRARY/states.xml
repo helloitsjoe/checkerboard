@@ -80,7 +80,7 @@
             </DOMFrame>
             <DOMFrame index="1" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="states2">
+                <DOMBitmapInstance libraryItemName="states2">
                   <matrix>
                     <Matrix tx="-189.35" ty="-184.6"/>
                   </matrix>

@@ -1,13 +1,11 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="380" height="120" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" timelineLabelWidth="300" viewAngle3D="17.5703612046931" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
      <media>
-          <DOMBitmapItem name="color011" itemID="5871de08-00000513" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1483857416" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color011.png" bitmapDataHRef="M 20 1483857416.dat" frameRight="7600" frameBottom="8320"/>
-          <DOMBitmapItem name="color012" itemID="5871de08-0000050a" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1483857416" sourcePlatform="macintosh" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="color012.png" bitmapDataHRef="M 19 1483857416.dat" frameRight="7600" frameBottom="8320"/>
-          <DOMBitmapItem name="fall1" itemID="5871de08-000004ff" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square/LIBRARY/fall1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="2486" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="fall1.png" bitmapDataHRef="M 18 1483857401.dat" frameRight="7560" frameBottom="4880"/>
-          <DOMBitmapItem name="loop1" itemID="5871de08-00000500" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square/LIBRARY/loop1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="3732" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="loop1.png" bitmapDataHRef="M 17 1483857392.dat" frameRight="7560" frameBottom="4880"/>
-          <DOMBitmapItem name="visited1" itemID="5871de08-00000501" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/square/LIBRARY/visited1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="2572" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="visited1.png" bitmapDataHRef="M 16 1483857382.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="fall1" itemID="5871de08-000004ff" sourceExternalFilepath="../square/LIBRARY/fall1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="2486" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="fall1.png" bitmapDataHRef="M 18 1483857401.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="loop1" itemID="5871de08-00000500" sourceExternalFilepath="../square/LIBRARY/loop1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="3732" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="loop1.png" bitmapDataHRef="M 17 1483857392.dat" frameRight="7560" frameBottom="4880"/>
+          <DOMBitmapItem name="visited1" itemID="5871de08-00000501" sourceExternalFilepath="../square/LIBRARY/visited1.png" sourceLastImported="1483857407" sourcePlatform="macintosh" externalFileSize="2572" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="visited1.png" bitmapDataHRef="M 16 1483857382.dat" frameRight="7560" frameBottom="4880"/>
      </media>
      <symbols>
-          <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1483857416"/>
+          <Include href="color01.xml" loadImmediate="false" itemID="5854ce1f-0000012a" lastModified="1483890816"/>
           <Include href="color02.xml" loadImmediate="false" itemID="5854ce25-0000012e" lastModified="1483856237"/>
           <Include href="directions.xml" loadImmediate="false" itemID="5865e38f-00000163" lastModified="1483072941"/>
           <Include href="fall.xml" loadImmediate="false" itemID="5871dd98-000004c2" lastModified="1483857401"/>
@@ -17,7 +15,7 @@
           <Include href="visited.xml" loadImmediate="false" itemID="5871dd77-000004b7" lastModified="1483857382"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="20">
+          <DOMTimeline name="Scene 1">
                <layers>
                     <DOMLayer name="Layer 5" color="#009999">
                          <frames>
@@ -116,11 +114,11 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="state" color="#808080" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="state" color="#808080" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="34" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="states" name="state" selected="true">
+                                        <DOMSymbolInstance libraryItemName="states" name="state">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>
@@ -147,7 +145,7 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="base" color="#669900" autoNamed="false">
+                    <DOMLayer name="base" color="#669900" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="2" keyMode="9728">
                                    <elements>
@@ -189,7 +187,7 @@
                               </DOMFrame>
                               <DOMFrame index="14" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="color01" name="base" centerPoint3DX="0.2" centerPoint3DY="0.2">
+                                        <DOMSymbolInstance libraryItemName="color01" name="base" selected="true" centerPoint3DX="0.2" centerPoint3DY="0.2">
                                              <transformationPoint>
                                                   <Point/>
                                              </transformationPoint>

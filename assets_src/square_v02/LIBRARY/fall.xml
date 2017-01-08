@@ -1,12 +1,12 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color02" itemID="5854ce25-0000012e" lastModified="1483890037">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="fall" itemID="5871dd98-000004c2" lastModified="1483857401">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
-    <DOMTimeline name="color02">
+    <DOMTimeline name="fall">
       <layers>
         <DOMLayer name="vectors" color="#9933CC" locked="true" autoNamed="false" visible="false" layerType="folder"/>
-        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" current="true" isSelected="true" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -15,28 +15,28 @@
                     <FillStyle index="1">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="0" b="0.0518341064453125" c="-0.16192626953125" d="0"/>
+                          <Matrix a="0" b="-0.16912841796875" c="0.16192626953125" d="0" tx="-2.75" ty="0.55"/>
                         </matrix>
-                        <GradientEntry color="#8731FE" ratio="0"/>
-                        <GradientEntry color="#480EC7" ratio="1"/>
+                        <GradientEntry color="#FF0000" ratio="0"/>
+                        <GradientEntry color="#FF0000" alpha="0" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!-14 -1196|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-14 -1196"/>
+                    <Edge fillStyle1="1" edges="!-3777 -2394S2|3744 -2444!3744 -2444|3777 1252!3777 1252|25 2444!25 2444|-3756 1243!-3756 1243|-3777 -2394"/>
                   </edges>
                 </DOMShape>
               </elements>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bitmap" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="color021">
+                <DOMBitmapInstance libraryItemName="fall1">
                   <matrix>
-                    <Matrix tx="-188.3" ty="-59.8"/>
+                    <Matrix tx="-188.85" ty="-122.2"/>
                   </matrix>
                 </DOMBitmapInstance>
               </elements>

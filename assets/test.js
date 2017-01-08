@@ -4,6 +4,15 @@
     var Sprite = PIXI.Sprite;
     var fromFrame = PIXI.Texture.fromFrame;
 
+    lib.boardBase = MovieClip.extend(function () {
+        MovieClip.call(this, {
+            duration: 4
+        });
+        var instance1 = new Sprite(fromFrame("boardBase1"))
+            .setTransform(-188.25, -59.8, 0.346, 0.346);
+        this.addTimedChild(instance1);
+    });
+
     lib.bg = MovieClip.extend(function () {
         MovieClip.call(this, {
             duration: 3
@@ -25,11 +34,15 @@
                 off: 2
             }
         });
-        var instance1 = this.bg = new lib.bg();
-        this.addTimedChild(instance1);
+        var instance2 = this.bg = new lib.bg();
+        var instance1 = this.boardBase = new lib.boardBase()
+            .setTransform(639.65, 435.15, 2.889, 2.861);
+        this.addTimedChild(instance2)
+            .addTimedChild(instance1);
     });
 
     lib.test.assets = {
+        "boardBase1": "images/boardBase1.png",
         "bg1": "images/bg1.png",
         "bg2": "images/bg2.png",
         "bg3": "images/bg3.png"

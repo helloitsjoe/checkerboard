@@ -19,13 +19,20 @@ p {
     color: #fee;
 }
 
+#resize-input {
+    width: 50px;
+    height: 12px;
+    display: inline;
+    box-sizing: border-box;
+}
+
 #border {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 1240px;
     height: 680px;
-    border: 1px solid #713;
+    border: 1px solid #a24;
     border-radius: 3px;
     pointer-events: none;
 }
@@ -36,8 +43,8 @@ p {
     left: 40px;
     width: 190px;
     height: 25px;
-    box-shadow: 0px 3px #713;
-    border: 1px solid #713;
+    box-shadow: 0px 3px #a24;
+    border: 1px solid #a24;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0);
     /*opacity: 0.2;*/

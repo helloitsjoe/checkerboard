@@ -1,12 +1,11 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1483857416">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1483890816">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="color01">
       <layers>
-        <DOMLayer name="vectors" color="#009999" locked="true" autoNamed="false" visible="false" layerType="folder"/>
-        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -15,15 +14,19 @@
                     <FillStyle index="1">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="0.115966796875" b="0.03662109375" c="-0.115966796875" d="0.03662109375" tx="-0.05"/>
+                          <Matrix a="-0.169876098632812" b="-0.119140625" c="0.121505737304688" d="0" tx="-0.05"/>
                         </matrix>
-                        <GradientEntry color="#611145" ratio="0"/>
-                        <GradientEntry color="#0F0315" ratio="1"/>
+                        <GradientEntry color="#513C4A" ratio="0"/>
+                        <GradientEntry color="#140C18" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!0 -1200S2|3800 0!3800 0|0 1200!0 1200|-3800 0!-3800 0|0 -1200"/>
+                    <Edge fillStyle1="1" edges="!0 -1200|3800 0!3800 0|0 1200!0 1200|-3800 0!-3800 0|0 -1200"/>
+                    <Edge cubics="!3800 0(;3800,0 0,1200 0,1200q3800 0 0 1200);"/>
+                    <Edge cubics="!0 -1200(;0,-1200 3800,0 3800,0q0 -1200 3800 0);"/>
+                    <Edge cubics="!-3800 0(;-3800,0 0,-1200 0,-1200q-3800 0 0 -1200);"/>
+                    <Edge cubics="!0 1200(;0,1200 -3800,0 -3800,0q0 1200 -3800 0);"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -35,10 +38,10 @@
                     <FillStyle index="1">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="0.115966796875" b="0.03662109375" c="-0.115966796875" d="0.03662109375" tx="-0.05"/>
+                          <Matrix a="-0.09942626953125" b="-0.06982421875" c="0.121490478515625" d="6.103515625e-05" tx="-0.05"/>
                         </matrix>
-                        <GradientEntry color="#1E1161" ratio="0"/>
-                        <GradientEntry color="#0F0315" ratio="1"/>
+                        <GradientEntry color="#444750" ratio="0"/>
+                        <GradientEntry color="#070919" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                   </fills>
@@ -50,7 +53,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 4" color="#808080" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+        <DOMLayer name="Layer 4" color="#808080">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
               <elements>
@@ -59,52 +62,35 @@
                     <FillStyle index="1">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="-0.004150390625" b="0.196044921875" c="-0.146484375" d="-0.044036865234375" tx="-99.8" ty="123.45"/>
+                          <Matrix a="0.018157958984375" b="0.0404052734375" c="-0.137481689453125" d="0.0474395751953125" tx="66.25" ty="36.2"/>
                         </matrix>
-                        <GradientEntry color="#1E171C" ratio="0"/>
-                        <GradientEntry color="#0F0315" ratio="0.682352941176471"/>
-                        <GradientEntry color="#0F0315" alpha="0" ratio="1"/>
+                        <GradientEntry color="#3F3A3E" ratio="0"/>
+                        <GradientEntry color="#0F0315" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                     <FillStyle index="2">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="0.0064697265625" b="0.212997436523438" c="-0.14532470703125" d="0.0398712158203125" tx="64.7" ty="133.75"/>
+                          <Matrix a="0.015899658203125" b="-0.0660552978515625" c="0.143890380859375" d="0.0279083251953125" tx="-80.9" ty="1.75"/>
                         </matrix>
-                        <GradientEntry color="#1E171C" ratio="0"/>
-                        <GradientEntry color="#0F0315" ratio="0.682352941176471"/>
-                        <GradientEntry color="#0F0315" alpha="0" ratio="1"/>
+                        <GradientEntry color="#3A3539" ratio="0"/>
+                        <GradientEntry color="#0F0315" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!0 6968S2|0 7127!0 7127|-3800 7127!-3800 7127|-3800 22!-3800 22|0 22"/>
-                    <Edge fillStyle0="2" fillStyle1="1" edges="!0 22S3|0 6968"/>
-                    <Edge fillStyle1="2" edges="!0 22S2|3800 22!3800 22|3800 6968!3800 6968|0 6968"/>
+                    <Edge fillStyle1="1" edges="!0 22|3800 22!3800 22/3800 452!3800 452/0 1652"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!0 22/0 1652"/>
+                    <Edge fillStyle1="2" edges="!0 1652/-3800 452!-3800 452/-3800 22!-3800 22|0 22"/>
+                    <Edge cubics="!3800 22(;3800,22 3800,452 3800,452q3800 22 3800 452);"/>
+                    <Edge cubics="!0 22(;0,22 0,1652 0,1652q0 22 0 1652);"/>
+                    <Edge cubics="!3800 452(;3800,452 0,1652 0,1652p3800 452 0 1652);"/>
+                    <Edge cubics="!0 22(;0,22 3800,22 3800,22q0 22 3800 22);"/>
+                    <Edge cubics="!-3800 452(;-3800,452 -3800,22 -3800,22p-3800 452q-3800 22);"/>
+                    <Edge cubics="!-3800 22(;-3800,22 0,22 0,22q-3800 22 0 22);"/>
+                    <Edge cubics="!0 1652(;0,1652 -3800,452 -3800,452p0 1652 -3800 452);"/>
                   </edges>
                 </DOMShape>
-              </elements>
-            </DOMFrame>
-          </frames>
-        </DOMLayer>
-        <DOMLayer name="bitmap" color="#808080" current="true" isSelected="true" autoNamed="false">
-          <frames>
-            <DOMFrame index="0" keyMode="9728">
-              <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="color011">
-                  <matrix>
-                    <Matrix tx="-190" ty="-60"/>
-                  </matrix>
-                </DOMBitmapInstance>
-              </elements>
-            </DOMFrame>
-            <DOMFrame index="1" keyMode="9728">
-              <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="color012">
-                  <matrix>
-                    <Matrix tx="-190" ty="-60"/>
-                  </matrix>
-                </DOMBitmapInstance>
               </elements>
             </DOMFrame>
           </frames>

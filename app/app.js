@@ -19,9 +19,10 @@ function setTheTable(test) {
     bg = test.bg;
     bg.gotoAndStop(0);
     stage.addChild(board);
-
+    
     board.x = stage.width / 2;
-    board.y = stage.height / 2 - 50;
+    board.y = stage.height / 2 - 100;
+    test.boardBase.y = stage.height / 2 + 54;
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.squares.length)) * BOARD_SCALE_PCT;
     
     staggerSquares();

@@ -5,11 +5,11 @@
   <timeline>
     <DOMTimeline name="squareOdd">
       <layers>
-        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+        <DOMLayer name="Layer 2" color="#9933CC">
           <frames>
             <DOMFrame index="0" duration="4" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="states" name="state" selected="true">
+                <DOMSymbolInstance libraryItemName="states" name="state">
                   <matrix>
                     <Matrix tx="0.8" ty="-0.65"/>
                   </matrix>
@@ -21,11 +21,11 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="color02" color="#FF800A" autoNamed="false">
+        <DOMLayer name="color02" color="#FF800A" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="4" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="color01" name="color02">
+                <DOMSymbolInstance libraryItemName="color01" name="color02" selected="true">
                   <transformationPoint>
                     <Point/>
                   </transformationPoint>

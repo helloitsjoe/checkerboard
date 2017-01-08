@@ -1,11 +1,11 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bg" itemID="5854cc67-0000010f" symbolType="graphic" lastModified="1483856019">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bg" itemID="5854cc67-0000010f" symbolType="graphic" lastModified="1483891941">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="bg">
       <layers>
-        <DOMLayer name="vectors" color="#FF4F4F" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="vectors" color="#9933CC" locked="true" autoNamed="false" visible="false" layerType="folder"/>
         <DOMLayer name="labels" color="#9933CC" parentLayerIndex="0" locked="true" autoNamed="false" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
@@ -36,7 +36,7 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!0 0|25600 0!25600 0|25600 14400!25600 14400|0 14400!0 14400|0 0"/>
+                    <Edge fillStyle1="1" edges="!0 0S2|25600 0!25600 0|25600 14400!25600 14400|0 14400!0 14400|0 0"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -71,11 +71,11 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bitmap" color="#FF800A" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance libraryItemName="bg1"/>
+                <DOMBitmapInstance selected="true" libraryItemName="bg1"/>
               </elements>
             </DOMFrame>
             <DOMFrame index="1" keyMode="9728">

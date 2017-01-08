@@ -56,7 +56,7 @@ class Game {
         // TODO: Combine test.js, square.js, checker.js, reference library? How?
         PIXI.animate.load(lib.square, board, (square) => {
 
-            xOffset = square.width / 2;
+            xOffset = SQUARE_WIDTH / 2;
             yOffset = SQUARE_HEIGHT / 2;
             square.x = ( x - y ) * xOffset;
             square.y = ( y + x ) * yOffset;
