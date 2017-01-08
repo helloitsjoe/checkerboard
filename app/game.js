@@ -5,6 +5,7 @@ const frameLabels = {
 
 const STAGGER_TIME = 30;
 const SQUARE_WIDTH = 380;
+const SQUARE_HEIGHT = 120;
 const BOARD_SCALE_PCT = 0.85;
 
 let xOffset;
@@ -15,6 +16,8 @@ let checker;
 let clickedX;
 let clickedY;
 let tableSetInProgress;
+let visitedEnd;
+let currSquare;
 
 class Game {
     
@@ -26,6 +29,7 @@ class Game {
         this.visited = [];
         this.squares = [];
         this.pauseClicked = false;
+        this.looping = 0;
         
         // initializes empty array
         this.create2dArr(this.squares);
@@ -42,14 +46,18 @@ class Game {
             }
         }
     }
-        
+    
+    /*
+     * Add each square and its direction to the array and screen
+     * Set up click listener
+     */
     addSquare(x, y) {
         this.tableSetInProgress = true;
         // TODO: Combine test.js, square.js, checker.js, reference library? How?
         PIXI.animate.load(lib.square, board, (square) => {
 
             xOffset = square.width / 2;
-            yOffset = square.height / 2;
+            yOffset = SQUARE_HEIGHT / 2;
             square.x = ( x - y ) * xOffset;
             square.y = ( y + x ) * yOffset;
             square.hitArea = new PIXI.Polygon([-xOffset, 0, 0, yOffset, xOffset, 0, 0, -yOffset]);
@@ -64,9 +72,9 @@ class Game {
             
             // Checkerboard pattern
             if (( x + y ) % 2 === 0) {
-                square.color02.visible = false;
+                square.base.gotoAndStop(0);
             } else {
-                square.color01.visible = false;
+                square.base.gotoAndStop(1);
             }
             
             square.interactive = true;
@@ -79,6 +87,7 @@ class Game {
                 this.eachSquare((square) => {
                     square.interactive = false;
                 })
+                
                 // Save reference to clicked position in case 'Restart' button is clicked
                 this.clickedX = x;
                 this.clickedY = y;
@@ -94,6 +103,9 @@ class Game {
         }, 'assets');
     }
     
+    /*
+     * Generic function for when I need to do something to every square
+     */
     eachSquare(cb) {
         this.squares.forEach((row)=>{
             row.forEach((square)=>{
@@ -102,11 +114,17 @@ class Game {
         });
     }
     
+    /*
+     * Remove board before resetting - called by 'Shuffle Arrows'
+     */
     removeBoard() {
         this.tableSetInProgress = true;
         
         if (this.visited.length && this.checker) {
-            PIXI.animate.Animator.play(this.checker, 'dropOut');
+            PIXI.animate.Animator.play(this.checker, 'dropOut', () => {
+                this.checker.destroy();
+                this.checker = null;
+            });
         }
         this.eachSquare((square)=>{
             // Turn off all squares lit state
@@ -121,8 +139,25 @@ class Game {
             PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
         }, 500)
     }
+    
+    /*
+     * Reset states of elements, call dropChecker with same start coords
+     * Called by 'Restart' button
+     */
+    restartSetup() {
+        this.eachSquare((square)=>{
+            square.interactive = false;
+            square.state.gotoAndStop(0);
+        });
+        bg.gotoAndStop(0);
+        this.visited.length = 0;
+    }
 
+    /*
+     * Initial placement of checker on board
+     */
     dropChecker(x, y) {
+        this.restartSetup();
         PIXI.animate.load(lib.checker, board, (checker)=>{
             this.checker = checker;
             this.placeChecker(checker, x, y);
@@ -137,35 +172,38 @@ class Game {
      * Sets x/y position on stage
      */
     placeChecker(instance, x, y) {
+        instance.gotoAndStop('pause');
+        
+        // Add first position to array
+        this.visited.push({x, y});
+
         instance.x = ( x - y ) * xOffset;
         instance.y = ( y + x ) * yOffset;
     }
     
     play(instance, x, y) {
-        
+        this.pauseClicked = false;
+        let lastVisited = this.visited[this.visited.length - 1];
+        this.placeChecker(this.checker, lastVisited.x, lastVisited.y);
+        this.moveChecker(this.checker, lastVisited.x, lastVisited.y);
     }
-    
-    // pause(instance, x, y) {
-    //     this.placeChecker(instance, x, y);
-    //     return;
-    // }
-    
+        
+    /*
+     * Move the checker one space
+     */
     moveChecker(instance, x, y) {
         
-        // Add prev position to array
-        this.visited.push({x, y});
-        console.log("Spot:", {x, y});
-        
         // Set current position to the last visited position
-        let lastVisited = this.visited.length - 1;
-        let currSquare = this.squares[this.visited[lastVisited].x][this.visited[lastVisited].y]
+        visitedEnd = this.visited.length - 1;
+        currSquare = this.squares[this.visited[visitedEnd].x][this.visited[visitedEnd].y]
         
         // If the square isn't lit up yet, light it up neutral color
         if (currSquare.state.currentFrame < 1) {
-            currSquare.state.gotoAndStop(1);
+            PIXI.animate.Animator.play(currSquare.state, 'visited');
         }
         
         let moveAnimLabel = 'move' + this.squares[x][y].direction;
+
         PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
 
             // Move based on direction
@@ -185,24 +223,18 @@ class Game {
             }
             
             if (this.pauseClicked) {
+                this.visited.push({x, y});
+                console.log('NewXY:', x, y )
                 this.placeChecker(instance, x, y);
                 return;
             }
-            
             this.checkPosition(instance, x, y);
         });
     }
     
-    restartSetup() {
-        this.eachSquare((square)=>{
-            square.state.gotoAndStop(0);
-        });
-        bg.gotoAndStop(0);
-        this.visited.length = 0;
-        this.dropChecker(this.clickedX, this.clickedY);
-    }
-
-    
+    /*
+     * Check if we're still on the board or in a loop, call moveChecker again if so
+     */
     checkPosition(instance, x, y) {
         
         // If the new position is on the board, compare it to previous spots
@@ -211,16 +243,25 @@ class Game {
             // If spot has already been visited, we know we're in a loop
             this.visited.forEach((spot) => {
                 if (spot.x === x && spot.y === y){
-                    // Turn visited squares green
-                    this.visited.forEach((spot) => {
-                        this.squares[spot.x][spot.y].state.gotoAndStop(2);
-                    });
-                    
-                    console.log('LOOP MOTHAFUCKAAAAA');
-                    // Turn BG green
-                    bg.gotoAndStop(frameLabels.LOOP);
+                    this.looping++;
                 }
             })
+            
+            if (this.looping === 1) {
+                // Turn visited squares green
+                this.visited.forEach((spot) => {
+                    PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, 'looping');
+                });
+                
+                // Turn BG green
+                bg.gotoAndStop(frameLabels.LOOP);
+            } if (this.looping > 1) {
+                console.log(this.looping)
+                this.visited.forEach((spot) => {
+                    this.squares[spot.x][spot.y].state.gotoAndStop('looping_stop');
+                });
+
+            }
             
             // Set checker's onscreen position at new spot
             this.placeChecker(instance, x, y);
@@ -230,17 +271,24 @@ class Game {
             
         // If it's not on the board, you fell off the edge!
         } else {
-            console.log('YOU FELL OFF THE EDGEEEEE');
+            this.checker.destroy();
+            this.checker = null;
             
             // Turn squares red
             this.visited.forEach((spot) => {
-                this.squares[spot.x][spot.y].state.gotoAndStop(3);
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, 'fall');
+            });
+            
+            this.visited.push('OFF');
+            
+            this.eachSquare((square) => {
+                square.interactive = true;
             });
             
             // Turn BG red
             bg.gotoAndStop(frameLabels.OFF);
             // this.placeChecker(instance, x, y);
-            this.visited.push('OFF');
+
             return;
         }
     }

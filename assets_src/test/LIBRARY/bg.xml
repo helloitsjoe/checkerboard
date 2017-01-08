@@ -1,11 +1,12 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bg" itemID="5854cc67-0000010f" symbolType="graphic" lastModified="1483845047">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="bg" itemID="5854cc67-0000010f" symbolType="graphic" lastModified="1483856019">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="bg">
       <layers>
-        <DOMLayer name="labels" color="#9933CC" autoNamed="false">
+        <DOMLayer name="vectors" color="#FF4F4F" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="labels" color="#9933CC" parentLayerIndex="0" locked="true" autoNamed="false" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements/>
@@ -18,7 +19,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -29,8 +30,8 @@
                         <matrix>
                           <Matrix a="0" b="-0.556640625" c="0.439453125" d="0" tx="640" ty="360"/>
                         </matrix>
-                        <GradientEntry color="#990063" ratio="0"/>
-                        <GradientEntry color="#1D1023" ratio="1"/>
+                        <GradientEntry color="#611145" ratio="0"/>
+                        <GradientEntry color="#0F0315" ratio="1"/>
                       </LinearGradient>
                     </FillStyle>
                   </fills>
@@ -66,6 +67,25 @@
                     <Edge fillStyle1="1" edges="!0 0|25600 0!25600 0|25600 14400!25600 14400|0 14400!0 14400|0 0"/>
                   </edges>
                 </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bitmap" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="bg1"/>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="bg2"/>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="bg3"/>
               </elements>
             </DOMFrame>
           </frames>

@@ -12,6 +12,9 @@ PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
 
 update();
 
+/*
+ * Build the board
+ */
 function setTheTable(test) {
     bg = test.bg;
     bg.gotoAndStop(0);
@@ -24,8 +27,12 @@ function setTheTable(test) {
     staggerSquares();
 }
 
+/*
+ * Stagger animation of squares appearing
+ */
 function staggerSquares(){
     // This is gnarly. Is there a better way to stagger animation of squares appearing?
+    // Also, I tried moving this to the Game class, but I couldn't get it working
     for (let i = 0; i < game.squares.length; i++){
         (function (idx) {
             setTimeout(()=>{

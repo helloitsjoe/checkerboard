@@ -1,108 +1,168 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="states" itemID="585d7103-000000f3" symbolType="graphic" lastModified="1482518813">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="states" itemID="585d7103-000000f3" symbolType="graphic" lastModified="1483857405" lastUniqueIdentifier="3">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
-    <DOMTimeline name="states">
+    <DOMTimeline name="states" currentFrame="20">
       <layers>
-        <DOMLayer name="vectors" color="#9933CC" locked="true" autoNamed="false" visible="false" layerType="folder"/>
-        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements/>
             </DOMFrame>
-            <DOMFrame index="1" keyMode="9728">
+            <DOMFrame index="1" duration="9" name="visited" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" name="visited_stop" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="9" name="looping" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" name="looping_stop" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="9" name="fall" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" name="fall_stop" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMShape>
-                  <fills>
-                    <FillStyle index="1">
-                      <LinearGradient>
-                        <matrix>
-                          <Matrix a="0" b="-0.16912841796875" c="0.16192626953125" d="0" tx="-3.25" ty="-61.85"/>
-                        </matrix>
-                        <GradientEntry color="#FFFFFF" ratio="0"/>
-                        <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
-                      </LinearGradient>
-                    </FillStyle>
-                  </fills>
-                  <edges>
-                    <Edge fillStyle1="1" edges="!-3787 -3642|3734 -3692!3734 -3692|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-3787 -3642"/>
-                  </edges>
-                </DOMShape>
+                <DOMSymbolInstance libraryItemName="loop">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="2" keyMode="9728">
+            <DOMFrame index="20" keyMode="9728">
               <elements>
-                <DOMShape>
-                  <fills>
-                    <FillStyle index="1">
-                      <LinearGradient>
-                        <matrix>
-                          <Matrix a="0" b="-0.16912841796875" c="0.16192626953125" d="0" tx="-3.25" ty="-61.85"/>
-                        </matrix>
-                        <GradientEntry color="#0AAE00" ratio="0"/>
-                        <GradientEntry color="#00E233" alpha="0" ratio="1"/>
-                      </LinearGradient>
-                    </FillStyle>
-                  </fills>
-                  <edges>
-                    <Edge fillStyle1="1" edges="!-3787 -3642|3734 -3692!3734 -3692|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-3787 -3642"/>
-                  </edges>
-                </DOMShape>
+                <DOMSymbolInstance libraryItemName="loop" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="3" keyMode="9728">
+            <DOMFrame index="21" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMShape>
-                  <fills>
-                    <FillStyle index="1">
-                      <LinearGradient>
-                        <matrix>
-                          <Matrix a="0" b="-0.16912841796875" c="0.16192626953125" d="0" tx="-3.25" ty="-61.85"/>
-                        </matrix>
-                        <GradientEntry color="#FF0000" ratio="0"/>
-                        <GradientEntry color="#FF0000" alpha="0" ratio="1"/>
-                      </LinearGradient>
-                    </FillStyle>
-                  </fills>
-                  <edges>
-                    <Edge fillStyle1="1" edges="!-3787 -3642|3734 -3692!3734 -3692|3767 4!3767 4|15 1196!15 1196|-3766 -5!-3766 -5|-3787 -3642"/>
-                  </edges>
-                </DOMShape>
+                <DOMSymbolInstance libraryItemName="fall" selected="true">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="fall" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Layer 1" color="#4F80FF">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements/>
             </DOMFrame>
-            <DOMFrame index="1" keyMode="9728">
+            <DOMFrame index="1" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMBitmapInstance libraryItemName="states2">
+                <DOMSymbolInstance libraryItemName="visited" selected="true">
                   <matrix>
-                    <Matrix tx="-189.35" ty="-184.6"/>
+                    <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
-                </DOMBitmapInstance>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="2" keyMode="9728">
+            <DOMFrame index="10" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="states3">
+                <DOMSymbolInstance libraryItemName="visited" selected="true" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
                   <matrix>
-                    <Matrix tx="-189.35" ty="-184.6"/>
+                    <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
-                </DOMBitmapInstance>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
-            <DOMFrame index="3" keyMode="9728">
+            <DOMFrame index="20" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="states4">
+                <DOMSymbolInstance libraryItemName="visited" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
                   <matrix>
-                    <Matrix tx="-189.35" ty="-184.6"/>
+                    <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
-                </DOMBitmapInstance>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="visited" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="visited" selected="true" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-62.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
           </frames>

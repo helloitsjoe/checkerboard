@@ -16,7 +16,7 @@ p {
     margin-top: 5px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 80%;
-    color: white;
+    color: #fee;
 }
 
 #border {
@@ -27,12 +27,13 @@ p {
     height: 680px;
     border: 1px solid #713;
     border-radius: 3px;
+    pointer-events: none;
 }
 
 #gui {
     position: relative;
-    top: 30px;
-    left: 30px;
+    top: 40px;
+    left: 40px;
     width: 190px;
     height: 25px;
     box-shadow: 0px 3px #713;
@@ -69,7 +70,7 @@ p {
     width: 160px;
     height: 25px;
     border: 1px solid #f79;
-    background-color: rgba(255, 180, 200, 0.2);
+    background-color: rgba(255, 200, 200, 0.2);
     border-radius: 3px;
     box-shadow: 0px 2px #f79;
     transform: translateY(-20px);
@@ -77,5 +78,5 @@ p {
 }
 
 .gui-element:hover {
-    background-color: rgba(255, 180, 220, 0.6);
+    background-color: rgba(255, 200, 220, 0.5);
 }

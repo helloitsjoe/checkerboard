@@ -1,14 +1,14 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#000000" width="1280" height="720" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" objectsSnapTo="false" vanishingPoint3DX="640" vanishingPoint3DY="360" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="D30F8A0D-8234-44E1-9E30-EE48B415BE9D" filetypeName="PixiAnimate">
      <media>
-          <DOMBitmapItem name="checker1" itemID="5865bbdf-0000015a" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/checker/LIBRARY/checker1.png" sourceLastImported="1483062115" sourcePlatform="macintosh" externalFileSize="7236" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="checker1.png" bitmapDataHRef="M 3 1483062070.dat" frameRight="3780" frameBottom="3480"/>
+          <DOMBitmapItem name="checker1" itemID="5871dae2-00000473" sourceExternalFilepath="/Users/joeboylejibo/Desktop/MISC/checkerboard/assets_src/checker/LIBRARY/checker1.png" sourceLastImported="1483856577" sourcePlatform="macintosh" externalFileSize="3025" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="checker1.png" bitmapDataHRef="M 7 1483856574.dat" frameRight="3880" frameBottom="3580"/>
      </media>
      <symbols>
-          <Include href="checker.xml" loadImmediate="false" itemID="5865bb31-0000014e" lastModified="1483062069"/>
+          <Include href="checker.xml" loadImmediate="false" itemID="5865bb31-0000014e" lastModified="1483856574"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Scene 1" currentFrame="68">
+          <DOMTimeline name="Scene 1" currentFrame="57">
                <layers>
-                    <DOMLayer name="labels" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+                    <DOMLayer name="labels" color="#9933CC" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="7" name="dropIn" labelType="name" keyMode="9728">
                                    <elements/>
@@ -51,7 +51,7 @@
                               </DOMFrame>
                          </frames>
                     </DOMLayer>
-                    <DOMLayer name="checker" color="#4F80FF" autoNamed="false">
+                    <DOMLayer name="checker" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
                          <frames>
                               <DOMFrame index="0" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
                                    <tweens>
@@ -110,9 +110,9 @@
                               </DOMFrame>
                               <DOMFrame index="16" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="200.15" centerPoint3DY="-120">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="190.15" centerPoint3DY="-120">
                                              <matrix>
-                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="200" ty="-120"/>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="190" ty="-120"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
@@ -130,7 +130,7 @@
                                         </CustomEase>
                                    </tweens>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" selected="true" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.15" centerPoint3DY="-60">
                                              <matrix>
                                                   <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
                                              </matrix>
@@ -142,9 +142,9 @@
                               </DOMFrame>
                               <DOMFrame index="30" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-199.85">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-189.85">
                                              <matrix>
-                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-200"/>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-190"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
@@ -174,9 +174,9 @@
                               </DOMFrame>
                               <DOMFrame index="42" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="200.15">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="190.15">
                                              <matrix>
-                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="200"/>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="190"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
@@ -206,9 +206,9 @@
                               </DOMFrame>
                               <DOMFrame index="55" duration="6" keyMode="9728">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-199.85" centerPoint3DY="-120">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="-189.85" centerPoint3DY="-120">
                                              <matrix>
-                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-200" ty="-120"/>
+                                                  <Matrix a="0.792343139648438" d="0.792343139648438" tx="-190" ty="-120"/>
                                              </matrix>
                                              <transformationPoint>
                                                   <Point/>
@@ -226,7 +226,7 @@
                                         </CustomEase>
                                    </tweens>
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="checker" name="checker" selected="true" centerPoint3DX="0.15" centerPoint3DY="-60">
+                                        <DOMSymbolInstance libraryItemName="checker" name="checker" centerPoint3DX="0.15" centerPoint3DY="-60">
                                              <matrix>
                                                   <Matrix a="0.792343139648438" d="0.792343139648438" ty="-60"/>
                                              </matrix>

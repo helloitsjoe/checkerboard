@@ -2,30 +2,25 @@ class GUI {
     
     constructor() {
         this.staggerGUI();
-        document.getElementById('playPause').addEventListener('click', this.playPause);
-        document.getElementById('restart').addEventListener('click', this.restart);
-        document.getElementById('resize').addEventListener('click', this.resize);
-        document.getElementById('shuffle').addEventListener('click', this.shuffle); // DONE
-        document.getElementById('random').addEventListener('click', this.randomStart); // DONE
+        document.getElementById('playPause').addEventListener('click', this.playPause.bind(this));
+        document.getElementById('restart').addEventListener('click', this.restart.bind(this));
+        document.getElementById('resize').addEventListener('click', this.resize.bind(this));
+        document.getElementById('shuffle').addEventListener('click', this.shuffle.bind(this));
+        document.getElementById('random').addEventListener('click', this.randomStart.bind(this));
     }
     
     /*
-     * Starts checker moving from current spot
-     */
-    play() {
-        
-    }
-    
-    /*
-     * Stops checker from moving
+     * Pause/resume checker
      */
     playPause() {
+        if (!game.visited.length || game.visited[game.visited.length - 1] === 'OFF') {
+            return;
+        }
         game.pauseClicked = !game.pauseClicked;
         if (game.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            // // game.play();
-            // update();
+            game.play();
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
@@ -34,18 +29,21 @@ class GUI {
      * Resets current turn
      */
     restart() {
+        if (game.pauseClicked) {
+            this.playPause();
+        }
         if (!game.visited.length) {
             return;
         }
         if (game.visited[game.visited.length - 1] === 'OFF') {
-            game.restartSetup();
+            game.dropChecker(game.clickedX, game.clickedY);
         } else {
             PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
-                game.restartSetup();
+                game.dropChecker(game.clickedX, game.clickedY);
             });
         }
     }
-    
+        
     /*
      * Resizes board
      */
@@ -57,7 +55,9 @@ class GUI {
      * Shuffles arrows
      */
     shuffle() {
-        console.log(game.tableSetInProgress);
+        if (game.pauseClicked) {
+            this.playPause();
+        }
         if (!game.tableSetInProgress) {
             game.removeBoard();
             game.create2dArr(game.squares);
@@ -68,7 +68,12 @@ class GUI {
      * Starts player at a random square on the board
      */
     randomStart() {
-        game.visited.length = 0;
+        if (game.pauseClicked) {
+            this.playPause();
+        }
+        if (game.checker) {
+            PIXI.animate.Animator.play(game.checker, 'dropOut');
+        }
         let x = Math.floor(Math.random() * game.BOARD_SIZE);
         let y = Math.floor(Math.random() * game.BOARD_SIZE);
         game.clickedX = x;
