@@ -3,7 +3,7 @@
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
-    <DOMTimeline name="bg" currentFrame="18">
+    <DOMTimeline name="bg">
       <layers>
         <DOMLayer name="labels" color="#9933CC" autoNamed="false">
           <frames>
@@ -99,7 +99,7 @@
           <frames>
             <DOMFrame index="0" duration="19" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="bgColor" symbolType="graphic" loop="single frame">
+                <DOMSymbolInstance libraryItemName="bgColor" selected="true" symbolType="graphic" loop="single frame">
                   <matrix>
                     <Matrix tx="640" ty="360"/>
                   </matrix>

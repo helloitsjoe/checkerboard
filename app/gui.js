@@ -4,9 +4,9 @@ class GUI {
         this.staggerGUI();
         document.getElementById('playPause').addEventListener('click', this.playPause.bind(this));
         document.getElementById('restart').addEventListener('click', this.restart.bind(this));
-        document.getElementById('resize').addEventListener('click', this.resize.bind(this));
         document.getElementById('shuffle').addEventListener('click', this.shuffle.bind(this));
         document.getElementById('random').addEventListener('click', this.randomStart.bind(this));
+        document.getElementById('resize').addEventListener('click', this.resize.bind(this));
     }
     
     /*
@@ -53,6 +53,16 @@ class GUI {
     }
     
     /*
+     * Resizes board when enter is pressed
+     */
+    resizeOnEnter(el) {
+        if(event.keyCode == 13) {
+            game.BOARD_SIZE = el.value;
+            this.shuffle();
+        }
+    }
+    
+    /*
      * Shuffles arrows
      */
     shuffle() {
@@ -86,7 +96,7 @@ class GUI {
      * Style for GUI motion
      */
     staggerGUI() {
-        let guiElems = document.querySelectorAll('.gui-element');
+        let guiElems = document.querySelectorAll('.gui-element .box-resize');
         let gui = document.getElementById('gui');
 
         // Stagger GUI motion

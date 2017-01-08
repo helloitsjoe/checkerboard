@@ -18,7 +18,8 @@
             <div class="gui-element" id="random"><p>RANDOM SQUARE</p></div>
             <div class="gui-element" id="resize"><p>RESIZE BOARD</p></div>
             <div class="resize-box">
-                <input id="resize-input" type="number" value="4" />
+                <span id="size-text">BOARD SIZE</span>
+                <input id="resize-input" type="number" value="4" onkeydown="gui.resizeOnEnter(this)"/>
             </div>
         </div>
         <script src="assets/libs/pixi.js"></script>

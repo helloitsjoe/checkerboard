@@ -23,8 +23,7 @@ let currSquare;
 class Game {
     
     constructor() {
-        // TODO: Set board size based on input
-        this.BOARD_SIZE = /*document.getElementById('resize-input').value;*/ 6;
+        this.BOARD_SIZE = document.getElementById('resize-input').value;
 
         this.directions = ['N', 'S', 'E', 'W'];
         this.visited = [];
@@ -53,6 +52,10 @@ class Game {
      * Set up click listener
      */
     addSquare(x, y) {
+        // This is to avoid interrupting the board reset
+        // when 'Shuffle Arrows' is clicked. It works most
+        // of the time but I'm not sure how to make it more robust.
+
         this.tableSetInProgress = true;
         // TODO: Combine test.js, square.js, checker.js, reference library? How?
         PIXI.animate.load(lib.square, board, (square) => {
@@ -96,9 +99,6 @@ class Game {
             });
 
             PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
-                // This is to avoid interrupting the board reset
-                // when 'Shuffle Arrows' is clicked. It works most
-                // of the time but I'm not sure how to make it more robust.
                 this.tableSetInProgress = false;
             });
         }, 'assets');
@@ -130,7 +130,11 @@ class Game {
         this.eachSquare((square)=>{
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
-            PIXI.animate.Animator.play(square, 'fadeOut');
+            PIXI.animate.Animator.play(square, 'fadeOut', () => {
+                stage.removeChild(board);
+                board.destroy();
+
+            });
         })
         
         this.squares.length = 0;

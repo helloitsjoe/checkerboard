@@ -11,7 +11,7 @@ canvas {
     left: 0;
 }
 
-p, input {
+p, a, span, input {
     text-align: center;
     margin-top: 5px;
     font-family: 'Share Tech Mono', monospace;
@@ -82,17 +82,25 @@ p, input {
 }
 
 .resize-box {
-    width: 40px;
+    visibility: hidden;
+    display: inline;
+    width: 100px;
     height: 30px;
-    margin: auto;
+    margin-left: 25px;
     margin-top: 12px;
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
 }
 
+#size-text {
+    width: 100px;
+}
+
 #resize-input {
-    width: 40px;
+    margin-top: 15px;
+    margin-left: 18px;
+    width: 60px;
     height: 30px;
     border: 1px solid #f79;
     background-color: transparent;

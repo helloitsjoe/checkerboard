@@ -7,7 +7,7 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     antialias: true
 });
 const stage = new PIXI.Container();
-let board = new PIXI.Container();
+let board;
 PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
 
 update();
@@ -18,12 +18,15 @@ update();
 function setTheTable(test) {
     bg = test.bg;
     bg.gotoAndStop(0);
+    
+    board = new PIXI.Container();
     stage.addChild(board);
     
     board.x = stage.width / 2;
     board.y = stage.height / 2 - 60;
-    test.boardBase.y = board.y + 160;
+    test.boardBase.y = 440 + (5 * game.BOARD_SIZE);
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.squares.length)) * BOARD_SCALE_PCT;
+    console.log(stage.width);
     
     staggerSquares();
 }
