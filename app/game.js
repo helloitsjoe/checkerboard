@@ -1,6 +1,7 @@
 const frameLabels = {
-    OFF: 'off',
-    LOOP: 'loop'
+    FALL: 'fall',
+    LOOPING: 'looping',
+    VISITED: 'visited'
 };
 
 const STAGGER_TIME = 30;
@@ -23,7 +24,7 @@ class Game {
     
     constructor() {
         // TODO: Set board size based on input
-        this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 6;
+        this.BOARD_SIZE = /*document.getElementById('resize-input').value;*/ 6;
 
         this.directions = ['N', 'S', 'E', 'W'];
         this.visited = [];
@@ -134,6 +135,7 @@ class Game {
         
         this.squares.length = 0;
         this.visited.length = 0;
+        this.looping = 0;
         
         setTimeout(()=>{
             PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
@@ -151,6 +153,7 @@ class Game {
         });
         bg.gotoAndStop(0);
         this.visited.length = 0;
+        this.looping = 0;
     }
 
     /*
@@ -199,7 +202,7 @@ class Game {
         
         // If the square isn't lit up yet, light it up neutral color
         if (currSquare.state.currentFrame < 1) {
-            PIXI.animate.Animator.play(currSquare.state, 'visited');
+            PIXI.animate.Animator.play(currSquare.state, frameLabels.VISITED);
         }
         
         let moveAnimLabel = 'move' + this.squares[x][y].direction;
@@ -250,11 +253,12 @@ class Game {
             if (this.looping === 1) {
                 // Turn visited squares green
                 this.visited.forEach((spot) => {
-                    PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, 'looping');
+                    PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.LOOPING);
                 });
                 
                 // Turn BG green
-                bg.gotoAndStop(frameLabels.LOOP);
+                PIXI.animate.Animator.play(bg, frameLabels.LOOPING);
+                
             } if (this.looping > 1) {
                 console.log(this.looping)
                 this.visited.forEach((spot) => {
@@ -276,7 +280,7 @@ class Game {
             
             // Turn squares red
             this.visited.forEach((spot) => {
-                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, 'fall');
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.FALL);
             });
             
             this.visited.push('OFF');
@@ -286,8 +290,7 @@ class Game {
             });
             
             // Turn BG red
-            bg.gotoAndStop(frameLabels.OFF);
-            // this.placeChecker(instance, x, y);
+            PIXI.animate.Animator.play(bg, frameLabels.FALL);
 
             return;
         }

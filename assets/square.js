@@ -34,14 +34,14 @@
     lib.fall = Container.extend(function () {
         Container.call(this);
         var instance1 = new Sprite(fromFrame("fall1"))
-            .setTransform(-188.85, -122.2);
+            .setTransform(-144.75, -149.25);
         this.addChild(instance1);
     });
 
     lib.loop = Container.extend(function () {
         Container.call(this);
         var instance1 = new Sprite(fromFrame("loop1"))
-            .setTransform(-143.25, -148.75);
+            .setTransform(-144.75, -149.25);
         this.addChild(instance1);
     });
 

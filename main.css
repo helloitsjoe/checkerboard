@@ -11,19 +11,12 @@ canvas {
     left: 0;
 }
 
-p {
+p, input {
     text-align: center;
     margin-top: 5px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 80%;
     color: #fee;
-}
-
-#resize-input {
-    width: 50px;
-    height: 12px;
-    display: inline;
-    box-sizing: border-box;
 }
 
 #border {
@@ -39,7 +32,7 @@ p {
 
 #gui {
     position: relative;
-    top: 40px;
+    top: 35px;
     left: 40px;
     width: 190px;
     height: 25px;
@@ -52,7 +45,7 @@ p {
 }
 
 #gui:hover {
-    height: 226px;
+    height: 270px;
     /*opacity: 1;*/
     box-shadow: 0px 3px #f79;
     border: 1px solid #f79;
@@ -86,4 +79,25 @@ p {
 
 .gui-element:hover {
     background-color: rgba(255, 200, 220, 0.5);
+}
+
+.resize-box {
+    width: 40px;
+    height: 30px;
+    margin: auto;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
+}
+
+#resize-input {
+    width: 40px;
+    height: 30px;
+    border: 1px solid #f79;
+    background-color: transparent;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 120%;
 }

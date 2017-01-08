@@ -1,11 +1,11 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1483895193">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="color01" itemID="5854ce1f-0000012a" lastModified="1483903959">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="color01">
       <layers>
-        <DOMLayer name="vectors" color="#669900" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="vectors" color="#4F80FF" locked="true" autoNamed="false" visible="false" layerType="folder"/>
         <DOMLayer name="Layer 25" color="#808080" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
@@ -35,9 +35,9 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!2468 0S4|0 780!0 780|-2468 0"/>
-                    <Edge strokeStyle="3" edges="!0 -780S4|2468 0"/>
-                    <Edge strokeStyle="2" edges="!-2468 0S4|0 -780"/>
+                    <Edge strokeStyle="1" edges="!2468 0|0 780!0 780|-2468 0"/>
+                    <Edge strokeStyle="2" edges="!-2468 0|0 -780"/>
+                    <Edge strokeStyle="3" edges="!0 -780|2468 0"/>
                     <Edge cubics="!2468 0(;2468,0 0,780 0,780q2468 0 0 780);"/>
                     <Edge cubics="!0 -780(;0,-780 2468,0 2468,0q0 -780 2468 0);"/>
                     <Edge cubics="!-2468 0(;-2468,0 0,-780 0,-780q-2468 0 0 -780);"/>
@@ -57,7 +57,7 @@
                     <FillStyle index="1">
                       <LinearGradient>
                         <matrix>
-                          <Matrix a="0.0708770751953125" b="0.0497283935546875" c="-0.0789337158203125" d="0" tx="34.7" ty="-24.55"/>
+                          <Matrix a="0.113006591796875" b="0.07928466796875" c="-0.0789337158203125" d="0" tx="1.45" ty="-47.6"/>
                         </matrix>
                         <GradientEntry color="#ECC5E7" ratio="0"/>
                         <GradientEntry color="#ECC5E7" alpha="0" ratio="1"/>
@@ -65,7 +65,7 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!371 -662S2|718 -553!718 -553|718 553!718 553|371 664!371 664|371 -662!1374 -346|2162 -96!2162 -96|2162 97!2162 97|1374 346!1374 346|1374 -346!-1266 -379|-275 -692!-275 -692|-275 694!-275 694|-1266 380!-1266 380|-1266 -379"/>
+                    <Edge fillStyle1="1" edges="!371 -662|718 -553!718 -553|718 553!718 553|371 664!371 664|371 -662!1374 -346|2162 -96!2162 -96|2162 97!2162 97|1374 346!1374 346|1374 -346!-1266 -379|-275 -692!-275 -692|-275 694!-275 694|-1266 380!-1266 380|-1266 -379"/>
                     <Edge cubics="!2162 97(;2162,97 1374,346 1374,346q2162 97 1374 346);"/>
                     <Edge cubics="!718 553(;718,553 371,664 371,664q718 553 371 664);"/>
                     <Edge cubics="!371 -662(;371,-662 718,-553 718,-553q371 -662 718 -553);"/>
@@ -128,12 +128,12 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle0="1" fillStyle1="2" edges="!0 -518|0 -517"/>
                     <Edge fillStyle0="1" fillStyle1="3" edges="!0 -780|0 -518"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!0 -518|0 -517"/>
                     <Edge fillStyle1="1" edges="!0 -780|2468 0!2468 0|2058 130"/>
                     <Edge fillStyle1="4" edges="!2058 130|0 780"/>
-                    <Edge fillStyle0="1" fillStyle1="4" edges="!0 -517|2058 130"/>
                     <Edge fillStyle0="4" fillStyle1="2" edges="!0 -517|0 780"/>
+                    <Edge fillStyle0="1" fillStyle1="4" edges="!0 -517|2058 130"/>
                     <Edge fillStyle1="3" edges="!-2036 137|-2468 0!-2468 0|0 -780"/>
                     <Edge fillStyle0="3" fillStyle1="2" edges="!-2036 137|-2 -517!-2 -517|0 -518"/>
                     <Edge fillStyle1="2" edges="!0 780|-2036 137"/>
@@ -195,12 +195,12 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle0="1" fillStyle1="3" edges="!0 -518S3|0 -517"/>
                     <Edge fillStyle0="1" fillStyle1="2" edges="!0 -780S3|0 -518"/>
+                    <Edge fillStyle0="1" fillStyle1="3" edges="!0 -518S3|0 -517"/>
                     <Edge fillStyle1="1" edges="!0 -780S2|2468 0!2468 0|2058 130"/>
                     <Edge fillStyle1="4" edges="!2058 130S2|0 780"/>
-                    <Edge fillStyle0="1" fillStyle1="4" edges="!0 -517S3|2058 130"/>
                     <Edge fillStyle0="4" fillStyle1="3" edges="!0 -517S3|0 780"/>
+                    <Edge fillStyle0="1" fillStyle1="4" edges="!0 -517S3|2058 130"/>
                     <Edge fillStyle1="2" edges="!-2036 137S2|-2468 0!-2468 0|0 -780"/>
                     <Edge fillStyle0="2" fillStyle1="3" edges="!-2036 137S3|-2 -517!-2 -517|0 -518"/>
                     <Edge fillStyle1="3" edges="!0 780S2|-2036 137"/>
@@ -345,7 +345,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#FF4F4F" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bitmap" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>

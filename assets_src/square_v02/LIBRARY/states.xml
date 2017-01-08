@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="states" itemID="585d7103-000000f3" symbolType="graphic" lastModified="1483895279" lastUniqueIdentifier="3">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="states" itemID="585d7103-000000f3" symbolType="graphic" lastModified="1483896381" lastUniqueIdentifier="3">
   <persistentData>
     <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
   </persistentData>
@@ -30,7 +30,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 4" color="#FF4FFF" visible="false">
+        <DOMLayer name="Layer 4" color="#FF4FFF">
           <frames>
             <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
@@ -52,11 +52,11 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+        <DOMLayer name="Layer 3" color="#FF800A">
           <frames>
             <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMSymbolInstance libraryItemName="loop" selected="true">
+                <DOMSymbolInstance libraryItemName="loop">
                   <matrix>
                     <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
@@ -89,7 +89,7 @@
             </DOMFrame>
             <DOMFrame index="20" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="loop" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                <DOMSymbolInstance libraryItemName="loop" selected="true" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
                   <matrix>
                     <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
@@ -128,11 +128,11 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4F80FF" visible="false">
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMSymbolInstance libraryItemName="visited" selected="true">
+                <DOMSymbolInstance libraryItemName="visited">
                   <matrix>
                     <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>
@@ -162,7 +162,7 @@
             </DOMFrame>
             <DOMFrame index="10" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
               <elements>
-                <DOMSymbolInstance libraryItemName="visited" selected="true" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
+                <DOMSymbolInstance libraryItemName="visited" centerPoint3DX="-0.5" centerPoint3DY="-62.4">
                   <matrix>
                     <Matrix tx="-0.5" ty="-62.4"/>
                   </matrix>

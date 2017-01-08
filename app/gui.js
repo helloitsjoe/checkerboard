@@ -48,7 +48,8 @@ class GUI {
      * Resizes board
      */
     resize() {
-        
+        game.BOARD_SIZE = document.getElementById('resize-input').value;
+        this.shuffle();
     }
     
     /*

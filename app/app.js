@@ -21,8 +21,8 @@ function setTheTable(test) {
     stage.addChild(board);
     
     board.x = stage.width / 2;
-    board.y = stage.height / 2 - 100;
-    test.boardBase.y = stage.height / 2 + 54;
+    board.y = stage.height / 2 - 60;
+    test.boardBase.y = board.y + 160;
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.squares.length)) * BOARD_SCALE_PCT;
     
     staggerSquares();
