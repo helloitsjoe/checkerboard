@@ -6,11 +6,7 @@
 
     lib.bg = MovieClip.extend(function () {
         MovieClip.call(this, {
-            duration: 3,
-            labels: {
-                loop: 1,
-                off: 2
-            }
+            duration: 3
         });
         var instance1 = new Sprite(fromFrame("bg1"));
         var instance2 = new Sprite(fromFrame("bg2"));

@@ -17,13 +17,11 @@ function setTheTable(test) {
     bg.gotoAndStop(0);
     stage.addChild(board);
 
-    staggerSquares();
-    
     board.x = stage.width / 2;
     board.y = stage.height / 2 - 50;
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.squares.length)) * BOARD_SCALE_PCT;
-
-    console.log(game.squares);
+    
+    staggerSquares();
 }
 
 function staggerSquares(){
@@ -35,7 +33,6 @@ function staggerSquares(){
                     (function (idx) {
                         setTimeout(()=>{
                             game.addSquare(j, i);
-                            // game.squares[j][i] = game.getRandomFromArr(game.directions);
                         }, STAGGER_TIME * idx);
                     }(j));
                 }

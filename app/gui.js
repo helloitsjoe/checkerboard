@@ -3,7 +3,7 @@ class GUI {
     constructor() {
         this.staggerGUI();
         document.getElementById('playPause').addEventListener('click', this.playPause);
-        document.getElementById('reset').addEventListener('click', this.reset);
+        document.getElementById('restart').addEventListener('click', this.restart);
         document.getElementById('resize').addEventListener('click', this.resize);
         document.getElementById('shuffle').addEventListener('click', this.shuffle); // DONE
         document.getElementById('random').addEventListener('click', this.randomStart); // DONE
@@ -33,8 +33,17 @@ class GUI {
     /*
      * Resets current turn
      */
-    reset() {
-        
+    restart() {
+        if (!game.visited.length) {
+            return;
+        }
+        if (game.visited[game.visited.length - 1] === 'OFF') {
+            game.restartSetup();
+        } else {
+            PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
+                game.restartSetup();
+            });
+        }
     }
     
     /*
@@ -48,12 +57,11 @@ class GUI {
      * Shuffles arrows
      */
     shuffle() {
-        game.removeBoard(() => {
-            PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
-        });
-        game.remove = true;
-        game.squares = [];
-        game.create2dArr(game.squares);
+        console.log(game.tableSetInProgress);
+        if (!game.tableSetInProgress) {
+            game.removeBoard();
+            game.create2dArr(game.squares);
+        }
     }
     
     /*
@@ -63,6 +71,8 @@ class GUI {
         game.visited.length = 0;
         let x = Math.floor(Math.random() * game.BOARD_SIZE);
         let y = Math.floor(Math.random() * game.BOARD_SIZE);
+        game.clickedX = x;
+        game.clickedY = y;
         game.dropChecker(x, y);
     }
     

@@ -19,25 +19,35 @@ p {
     color: white;
 }
 
+#border {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 1240px;
+    height: 680px;
+    border: 1px solid #713;
+    border-radius: 3px;
+}
+
 #gui {
     position: relative;
-    top: 20px;
-    left: 40px;
+    top: 30px;
+    left: 30px;
     width: 190px;
     height: 25px;
-    border: 1px solid white;
+    box-shadow: 0px 3px #713;
+    border: 1px solid #713;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0);
-    opacity: 0.5;
+    /*opacity: 0.2;*/
     transition: all 0.2s ease 0.2s;
-    box-shadow: 0px 3px white;
-    /*transition-delay: height 0.2s;*/
-    /*transition-timing-function: ease-out;*/
 }
 
 #gui:hover {
     height: 226px;
-    opacity: 1;
+    /*opacity: 1;*/
+    box-shadow: 0px 3px #f79;
+    border: 1px solid #f79;
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.2s;
     transform: translateY(5px);
@@ -58,14 +68,14 @@ p {
     opacity: 0;
     width: 160px;
     height: 25px;
-    border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #f79;
+    background-color: rgba(255, 180, 200, 0.2);
     border-radius: 3px;
-    box-shadow: 0px 2px white;
+    box-shadow: 0px 2px #f79;
     transform: translateY(-20px);
     transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s, visibility 0.2s ease 0.1s;
 }
 
 .gui-element:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 180, 220, 0.6);
 }

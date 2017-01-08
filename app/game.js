@@ -5,7 +5,7 @@ const frameLabels = {
 
 const STAGGER_TIME = 30;
 const SQUARE_WIDTH = 380;
-const BOARD_SCALE_PCT = 0.9;
+const BOARD_SCALE_PCT = 0.85;
 
 let xOffset;
 let yOffset;
@@ -14,6 +14,7 @@ let stop;
 let checker;
 let clickedX;
 let clickedY;
+let tableSetInProgress;
 
 class Game {
     
@@ -22,7 +23,6 @@ class Game {
         this.BOARD_SIZE = /*document.getElementById('resize').value;*/ 6;
 
         this.directions = ['N', 'S', 'E', 'W'];
-        this.spot = {};
         this.visited = [];
         this.squares = [];
         this.pauseClicked = false;
@@ -44,6 +44,7 @@ class Game {
     }
         
     addSquare(x, y) {
+        this.tableSetInProgress = true;
         // TODO: Combine test.js, square.js, checker.js, reference library? How?
         PIXI.animate.load(lib.square, board, (square) => {
 
@@ -75,28 +76,49 @@ class Game {
 
             square.on('click', ()=>{
                 // Remove click listener from other squares
-                this.squares.forEach((row)=>{
-                    row.forEach((square)=>{
-                        square.interactive = false;
-                    });
-                });
+                this.eachSquare((square) => {
+                    square.interactive = false;
+                })
+                // Save reference to clicked position in case 'Restart' button is clicked
                 this.clickedX = x;
                 this.clickedY = y;
                 this.dropChecker(x, y);
             });
-            
-            PIXI.animate.Animator.play(square, 'fadeIn');
+
+            PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
+                // This is to avoid interrupting the board reset
+                // when 'Shuffle Arrows' is clicked. It works most
+                // of the time but I'm not sure how to make it more robust.
+                this.tableSetInProgress = false;
+            });
         }, 'assets');
     }
     
-    removeBoard(cb) {
-        this.squares.forEach((row) => {
-            row.forEach((square) => {
-                PIXI.animate.Animator.play(square, 'fadeOut');
+    eachSquare(cb) {
+        this.squares.forEach((row)=>{
+            row.forEach((square)=>{
+                cb(square);
             });
         });
+    }
+    
+    removeBoard() {
+        this.tableSetInProgress = true;
+        
+        if (this.visited.length && this.checker) {
+            PIXI.animate.Animator.play(this.checker, 'dropOut');
+        }
+        this.eachSquare((square)=>{
+            // Turn off all squares lit state
+            square.state.gotoAndStop(0);
+            PIXI.animate.Animator.play(square, 'fadeOut');
+        })
+        
+        this.squares.length = 0;
+        this.visited.length = 0;
+        
         setTimeout(()=>{
-            cb();
+            PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
         }, 500)
     }
 
@@ -123,17 +145,12 @@ class Game {
         
     }
     
-    pause(instance, x, y) {
-        this.placeChecker(instance, x, y);
-        return;
-    }
+    // pause(instance, x, y) {
+    //     this.placeChecker(instance, x, y);
+    //     return;
+    // }
     
     moveChecker(instance, x, y) {
-
-        if (this.pauseClicked) {
-            this.pause(instance, x, y);
-            return;
-        }
         
         // Add prev position to array
         this.visited.push({x, y});
@@ -167,9 +184,24 @@ class Game {
                 break;
             }
             
+            if (this.pauseClicked) {
+                this.placeChecker(instance, x, y);
+                return;
+            }
+            
             this.checkPosition(instance, x, y);
         });
     }
+    
+    restartSetup() {
+        this.eachSquare((square)=>{
+            square.state.gotoAndStop(0);
+        });
+        bg.gotoAndStop(0);
+        this.visited.length = 0;
+        this.dropChecker(this.clickedX, this.clickedY);
+    }
+
     
     checkPosition(instance, x, y) {
         
@@ -190,8 +222,10 @@ class Game {
                 }
             })
             
-            // Otherwise, we're not in a loop, keep walking
+            // Set checker's onscreen position at new spot
             this.placeChecker(instance, x, y);
+            
+            // Make another move
             this.moveChecker(instance, x, y);
             
         // If it's not on the board, you fell off the edge!
@@ -205,6 +239,8 @@ class Game {
             
             // Turn BG red
             bg.gotoAndStop(frameLabels.OFF);
+            // this.placeChecker(instance, x, y);
+            this.visited.push('OFF');
             return;
         }
     }
