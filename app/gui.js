@@ -1,5 +1,4 @@
 class GUI {
-    
     constructor() {
         this.staggerGUI();
         document.getElementById('playPause').addEventListener('click', this.playPause.bind(this));
@@ -13,6 +12,7 @@ class GUI {
      * Pause/resume checker
      */
     playPause() {
+        // Turn off button if there's no checker or if it fell off the edge
         if (!game.visited.length || game.visited[game.visited.length - 1] === 'OFF') {
             return;
         }
@@ -26,21 +26,65 @@ class GUI {
     }
     
     /*
-     * Resets current turn
+     * Plays current turn again from the same start spot
      */
     restart() {
         if (game.pauseClicked) {
+            // Reset pause button
             this.playPause();
         }
         if (!game.visited.length) {
+            // Turn off button if there's no checker
             return;
         }
         if (game.visited[game.visited.length - 1] === 'OFF') {
-            game.dropChecker(game.clickedX, game.clickedY);
+            // If the checker fell off, don't play 'dropOut' animation
+            game.dropChecker(clickedX, clickedY);
         } else {
             PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
-                game.dropChecker(game.clickedX, game.clickedY);
+                game.dropChecker(clickedX, clickedY);
             });
+        }
+    }
+    
+    /*
+     * Shuffles arrows
+     */
+    shuffle() {
+        if (game.pauseClicked) {
+            // Reset pause button
+            this.playPause();
+        }
+        // Don't reshuffle if shuffle is already in progress
+        if (!game.tableSetInProgress) {
+            game.removeBoard();
+            game.createSquareArr();
+        }
+    }
+    
+    /*
+     * Starts player at a random square on the board
+     */
+    randomStart() {
+        if (game.pauseClicked) {
+            // Reset pause button
+            this.playPause();
+        }
+        // Would be nice not to have to repeat this code
+        if (game.checker) {
+            PIXI.animate.Animator.play(game.checker, 'dropOut', ()=>{
+                let x = Math.floor(Math.random() * game.BOARD_SIZE);
+                let y = Math.floor(Math.random() * game.BOARD_SIZE);
+                clickedX = x;
+                clickedY = y;
+                game.dropChecker(x, y);
+            });
+        } else {
+            let x = Math.floor(Math.random() * game.BOARD_SIZE);
+            let y = Math.floor(Math.random() * game.BOARD_SIZE);
+            clickedX = x;
+            clickedY = y;
+            game.dropChecker(x, y);
         }
     }
         
@@ -51,7 +95,7 @@ class GUI {
         game.BOARD_SIZE = document.getElementById('resize-input').value;
         this.shuffle();
     }
-    
+
     /*
      * Resizes board when enter is pressed
      */
@@ -61,37 +105,7 @@ class GUI {
             this.shuffle();
         }
     }
-    
-    /*
-     * Shuffles arrows
-     */
-    shuffle() {
-        if (game.pauseClicked) {
-            this.playPause();
-        }
-        if (!game.tableSetInProgress) {
-            game.removeBoard();
-            game.create2dArr(game.squares);
-        }
-    }
-    
-    /*
-     * Starts player at a random square on the board
-     */
-    randomStart() {
-        if (game.pauseClicked) {
-            this.playPause();
-        }
-        if (game.checker) {
-            PIXI.animate.Animator.play(game.checker, 'dropOut');
-        }
-        let x = Math.floor(Math.random() * game.BOARD_SIZE);
-        let y = Math.floor(Math.random() * game.BOARD_SIZE);
-        game.clickedX = x;
-        game.clickedY = y;
-        game.dropChecker(x, y);
-    }
-    
+
     /*
      * Style for GUI motion
      */
@@ -101,7 +115,6 @@ class GUI {
 
         // Stagger GUI motion
         gui.addEventListener('mouseover', () => {
-            
             for ( let i = 0; i < guiElems.length; i++ ) {
                 let elem = guiElems[i];
                 let delay = guiElems.length - i - 1;

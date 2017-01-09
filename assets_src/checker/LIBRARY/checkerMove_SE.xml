@@ -1,0 +1,1367 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="checkerMove_SE" itemID="5872df06-00000b4a" lastModified="1483925469">
+  <timeline>
+    <DOMTimeline name="checkerMove_SE" currentFrame="33">
+      <layers>
+        <DOMLayer name="side" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="236.15" centerPoint3DY="-48.3">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-48.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="236.15" centerPoint3DY="-48.3">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-48.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="236.15" centerPoint3DY="-48.9">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-48.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="45.65" centerPoint3DY="11.55">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="45.65" ty="11.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="45.65" centerPoint3DY="11.55">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="45.65" ty="11.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="236.15" centerPoint3DY="-162.75">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-162.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="236.15" centerPoint3DY="-162.75">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-162.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="236.15" centerPoint3DY="-49.65">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="236.15" ty="-49.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="45.65" centerPoint3DY="10.8">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="45.65" ty="10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="45.65" centerPoint3DY="-102.9">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="45.65" ty="-102.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.8" centerPoint3DY="-18.25">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-18.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="141.8" centerPoint3DY="-18.25">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-18.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.8" centerPoint3DY="-18.85">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-18.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-48.7" centerPoint3DY="41.6">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="-48.7" ty="41.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-48.7" centerPoint3DY="41.6">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="-48.7" ty="41.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.8" centerPoint3DY="-132.7">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-132.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="141.8" centerPoint3DY="-132.7">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-132.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.8" centerPoint3DY="-19.6">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="141.8" ty="-19.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-48.7" centerPoint3DY="40.85">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="-48.7" ty="40.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-48.7" centerPoint3DY="-72.85">
+                  <matrix>
+                    <Matrix a="0.301025390625" b="-0.953598022460938" c="-0.825103759765625" d="-0.260482788085938" tx="-48.7" ty="-72.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.45" centerPoint3DY="-48.3">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-48.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="141.45" centerPoint3DY="-48.3">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-48.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.45" centerPoint3DY="-48.9">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-48.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-49.05" centerPoint3DY="11.55">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="-49.05" ty="11.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-49.05" centerPoint3DY="11.55">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="-49.05" ty="11.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.45" centerPoint3DY="-162.75">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-162.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="141.45" centerPoint3DY="-162.75">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-162.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="141.45" centerPoint3DY="-49.65">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="141.45" ty="-49.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-49.05" centerPoint3DY="10.8">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="-49.05" ty="10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-49.05" centerPoint3DY="-102.9">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="-49.05" ty="-102.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="235.8" centerPoint3DY="-18.25">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-18.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="235.8" centerPoint3DY="-18.25">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-18.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="235.8" centerPoint3DY="-18.85">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-18.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="45.3" centerPoint3DY="41.6">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="45.3" ty="41.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="45.3" centerPoint3DY="41.6">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="45.3" ty="41.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="235.8" centerPoint3DY="-132.7">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-132.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="235.8" centerPoint3DY="-132.7">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-132.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="235.8" centerPoint3DY="-19.6">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="235.8" ty="-19.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="45.3" centerPoint3DY="40.85">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="45.3" ty="40.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="45.3" centerPoint3DY="-72.85">
+                  <matrix>
+                    <Matrix a="-0.301025390625" b="-0.953598022460938" c="0.825103759765625" d="-0.260482788085938" tx="45.3" ty="-72.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="189.15" centerPoint3DY="-60.5">
+                  <matrix>
+                    <Matrix tx="189.15" ty="-60.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="189.15" centerPoint3DY="-60.5">
+                  <matrix>
+                    <Matrix tx="189.15" ty="-60.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="189.15" centerPoint3DY="-69.65">
+                  <matrix>
+                    <Matrix d="0.031036376953125" tx="189.15" ty="-4.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-1.35" centerPoint3DY="-9.2">
+                  <matrix>
+                    <Matrix d="0.031036376953125" tx="-1.35" ty="55.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-1.35" centerPoint3DY="-0.65">
+                  <matrix>
+                    <Matrix tx="-1.35" ty="-0.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="95" centerPoint3DY="-90.9">
+                  <matrix>
+                    <Matrix tx="95" ty="-90.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="95" centerPoint3DY="-90.9">
+                  <matrix>
+                    <Matrix tx="95" ty="-90.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="95" centerPoint3DY="-90.45">
+                  <matrix>
+                    <Matrix d="0.016815185546875" tx="95" ty="-34.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-95.5" centerPoint3DY="-30">
+                  <matrix>
+                    <Matrix d="0.016815185546875" tx="-95.5" ty="26.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-95.5" centerPoint3DY="-31.05">
+                  <matrix>
+                    <Matrix tx="-95.5" ty="-31.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="283.25" centerPoint3DY="-90.9">
+                  <matrix>
+                    <Matrix tx="283.25" ty="-90.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="283.25" centerPoint3DY="-90.9">
+                  <matrix>
+                    <Matrix tx="283.25" ty="-90.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="283.25" centerPoint3DY="-93.1">
+                  <matrix>
+                    <Matrix d="0.024139404296875" tx="283.25" ty="-34.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="92.75" centerPoint3DY="-32.65">
+                  <matrix>
+                    <Matrix d="0.024139404296875" tx="92.75" ty="25.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="92.75" centerPoint3DY="-31.05">
+                  <matrix>
+                    <Matrix tx="92.75" ty="-31.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="side" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="189.15" centerPoint3DY="-120.05">
+                  <matrix>
+                    <Matrix tx="189.15" ty="-120.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="189.15" centerPoint3DY="-120.05">
+                  <matrix>
+                    <Matrix tx="189.15" ty="-120.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="189.15" centerPoint3DY="-121.25">
+                  <matrix>
+                    <Matrix d="0.031036376953125" tx="189.15" ty="-64.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" centerPoint3DX="-1.35" centerPoint3DY="-60.8">
+                  <matrix>
+                    <Matrix d="0.031036376953125" tx="-1.35" ty="-3.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="side" selected="true" centerPoint3DX="-1.35" centerPoint3DY="-60.2">
+                  <matrix>
+                    <Matrix tx="-1.35" ty="-60.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="whiteSquare01" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="142.25" centerPoint3DY="-74.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" b="-0.31842041015625" d="1.15380859375" tx="142.25" ty="-74.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" centerPoint3DX="142.25" centerPoint3DY="-74.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" b="-0.31842041015625" d="1.15380859375" tx="142.25" ty="-74.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="142.55" centerPoint3DY="-72.05" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.915618896484375" b="-0.291549682617188" d="0.02789306640625" tx="140.05" ty="-18.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="-47.75" centerPoint3DY="-13.15" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.979721069335938" b="-0.311981201171875" d="0.02789306640625" tx="-47.6" ty="41.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.55"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.976852416992188" b="-0.31103515625" d="1.15380859375" tx="-46.6" ty="-15.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="whiteSquare01" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="196.95" centerPoint3DY="-146.95" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94317626953125" b="0.306442260742188" c="-0.92578125" d="0.30078125" tx="189.05" ty="-147.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="0.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" centerPoint3DX="196.95" centerPoint3DY="-146.95" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94317626953125" b="0.306442260742188" c="-0.92578125" d="0.30078125" tx="189.05" ty="-147.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="0.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="196.95" centerPoint3DY="-33.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94317626953125" b="0.306442260742188" c="-0.92578125" d="0.30078125" tx="189.05" ty="-33.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="6.45" centerPoint3DY="26.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94317626953125" b="0.306442260742188" c="-0.92578125" d="0.30078125" tx="-1.45" ty="25.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" centerPoint3DX="7" centerPoint3DY="-88.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94317626953125" b="0.306442260742188" c="-0.92578125" d="0.30078125" tx="-0.9" ty="-88.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="0.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="whiteSquare01" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="237.85" centerPoint3DY="-74.65" loop="loop">
+                  <matrix>
+                    <Matrix b="-0.31842041015625" d="1.15380859375" tx="237.85" ty="-74.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="7" tweenType="motion" hasCustomEase="true" keyMode="17921">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" centerPoint3DX="237.85" centerPoint3DY="-74.65" loop="loop">
+                  <matrix>
+                    <Matrix b="-0.31842041015625" d="1.15380859375" tx="237.85" ty="-74.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="238.4" centerPoint3DY="-75.1" loop="loop">
+                  <matrix>
+                    <Matrix b="-0.31842041015625" d="0.0308380126953125" tx="238.4" ty="-17.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5169"/>
+                  <Point x="0.4605" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" symbolType="graphic" centerPoint3DX="47.9" centerPoint3DY="-16.15" loop="loop">
+                  <matrix>
+                    <Matrix b="-0.31842041015625" d="0.0308380126953125" tx="47.9" ty="41"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="whiteSquare01" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.970672607421875" b="-0.30908203125" d="1.15380859375" tx="46.45" ty="-15.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

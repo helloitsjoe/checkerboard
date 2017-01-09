@@ -1,11 +1,11 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="side" itemID="58727a1a-00000a08" lastModified="1483911417">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="side" itemID="58727a1a-00000a08" lastModified="1483926420">
   <persistentData>
-    <PD n="copyLayersToBitmapScale" t="d" v="1.000000"/>
+    <PD n="copyLayersToBitmapScale" t="d" v="0.999980"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="side">
       <layers>
-        <DOMLayer name="vectors" color="#FF4FFF" locked="true" autoNamed="false" visible="false" layerType="folder"/>
+        <DOMLayer name="vectors" color="#FF4F4F" locked="true" autoNamed="false" visible="false" layerType="folder"/>
         <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="0" locked="true" visible="false" layerType="guide">
           <frames>
             <DOMFrame index="0" keyMode="9728">
@@ -13,7 +13,7 @@
                 <DOMShape>
                   <strokes>
                     <StrokeStyle index="1">
-                      <SolidStroke scaleMode="normal" weight="3">
+                      <SolidStroke scaleMode="normal" weight="5">
                         <fill>
                           <SolidColor color="#FFFFFF"/>
                         </fill>
@@ -21,7 +21,7 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!-2 -1127S4|3 1127"/>
+                    <Edge strokeStyle="1" edges="!-2 -1127|3 1127"/>
                     <Edge cubics="!-2 -1127(;-2,-1127 3,1127 3,1127q-2 -1127 3 1127);"/>
                   </edges>
                 </DOMShape>
@@ -29,13 +29,13 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bitmap" color="#009999" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bitmap" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
                 <DOMBitmapInstance selected="true" libraryItemName="side1">
                   <matrix>
-                    <Matrix tx="-1.6" ty="-57.85"/>
+                    <Matrix a="1.00001525878906" d="1.00001525878906" tx="-2.6" ty="-58.85"/>
                   </matrix>
                 </DOMBitmapInstance>
               </elements>

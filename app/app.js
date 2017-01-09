@@ -9,8 +9,12 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 const stage = new PIXI.Container();
 let board;
 PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
-
 update();
+
+function update() {
+    renderer.render(stage);
+    requestAnimationFrame(update);
+}
 
 /*
  * Build the board
@@ -25,8 +29,7 @@ function setTheTable(test) {
     board.x = stage.width / 2;
     board.y = stage.height / 2 - 60;
     test.boardBase.y = 440 + (5 * game.BOARD_SIZE);
-    board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.squares.length)) * BOARD_SCALE_PCT;
-    console.log(stage.width);
+    board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.BOARD_SIZE)) * BOARD_SCALE_PCT;
     
     staggerSquares();
 }
@@ -35,7 +38,7 @@ function setTheTable(test) {
  * Stagger animation of squares appearing
  */
 function staggerSquares(){
-    // This is gnarly. Is there a better way to stagger animation of squares appearing?
+    // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
     // Also, I tried moving this to the Game class, but I couldn't get it working
     for (let i = 0; i < game.squares.length; i++){
         (function (idx) {
@@ -50,12 +53,4 @@ function staggerSquares(){
             }, STAGGER_TIME * (idx + (game.squares.length * idx)));
         }(i));
     }
-}
-
-function update() {
-    // if (game.pauseClicked) {
-    //     return;
-    // }
-    renderer.render(stage);
-    requestAnimationFrame(update);
 }
