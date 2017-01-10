@@ -131,7 +131,7 @@ class Game {
             zap.src = './audio/zap.wav'
             game.playAudio(zap, 200);
 
-            PIXI.animate.Animator.play(this.checker, frameLabels.FALL);
+            PIXI.animate.Animator.play(this.checker, frameLabels.FALL)
         }
         
         let remove = new Audio();
@@ -142,6 +142,8 @@ class Game {
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
+                this.checker.destroy();
+                this.checker = null;
                 stage.removeChild(board);
                 board.destroy();
             });
@@ -284,7 +286,7 @@ class Game {
                 PIXI.animate.Animator.play(bg, frameLabels.LOOPING);
                 
                 // Show text onscreen
-                this.text.innerHTML = 'CHECKER IS IN A LOOP';
+                this.text.innerHTML = 'YOU ARE IN A LOOP';
                 this.text.classList.add('text-end');
                 
             } if (this.looping > 1) {
@@ -312,7 +314,7 @@ class Game {
             PIXI.animate.Animator.play(bg, frameLabels.FALL);
             
             // Show text onscreen
-            this.text.innerHTML = 'CHECKER FELL OFF THE EDGE';
+            this.text.innerHTML = 'YOU FELL OFF THE EDGE';
             this.text.classList.add('text-end');
             
             this.placeChecker(instance, x, y);
