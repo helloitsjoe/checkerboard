@@ -34,6 +34,15 @@ class Game {
     }
     
     /*
+     * Plays audio after timeout
+     */
+    playAudio(sound, ms) {
+        setTimeout(()=>{
+            sound.play();
+        }, ms)
+    }
+    
+    /*
      * Create an array to fill with squares/directions
      */
     createSquareArr() {
@@ -88,6 +97,10 @@ class Game {
                 clickedY = y;
                 this.dropChecker(x, y);
             });
+            
+            let set = new Audio();
+            set.src = './audio/set.wav'
+            game.playAudio(set, 200);
 
             PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
                 this.tableSetInProgress = false;
@@ -114,8 +127,17 @@ class Game {
         
         // If we've started a round, remove the checker
         if (this.visited.length && this.checker) {
+            let zap = new Audio();
+            zap.src = './audio/zap.wav'
+            game.playAudio(zap, 200);
+
             PIXI.animate.Animator.play(this.checker, frameLabels.FALL);
         }
+        
+        let remove = new Audio();
+        remove.src = './audio/remove02.wav'
+        game.playAudio(remove, 200);
+
         this.eachSquare((square)=>{
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
@@ -159,6 +181,10 @@ class Game {
         PIXI.animate.load(lib.checker, board, (checker)=>{
             this.checker = checker;
             this.placeChecker(checker, x, y);
+            
+            let whoosh = new Audio();
+            whoosh.src = `./audio/whoosh.wav`;
+            this.playAudio(whoosh, 0);
             
             PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
                 this.moveChecker(checker, x, y);
@@ -205,6 +231,9 @@ class Game {
         if (this.pauseClicked) {
             return;
         }
+        
+        let shift;
+        // this.playAudio(shift, 350);
         
         let moveAnimLabel = 'move' + this.squares[x][y].direction;
         PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
@@ -287,6 +316,10 @@ class Game {
             this.text.classList.add('text-end');
             
             this.placeChecker(instance, x, y);
+            
+            let zap = new Audio();
+            zap.src = './audio/zap.wav'
+            game.playAudio(zap, 200);
             
             PIXI.animate.Animator.play(this.checker, frameLabels.FALL, () => {
                 this.checker.destroy();

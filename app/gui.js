@@ -1,6 +1,7 @@
 class GUI {
     constructor() {
         this.staggerGUI();
+        this.bipListener();
         document.getElementById('playPause').addEventListener('click', this.playPause.bind(this));
         document.getElementById('restart').addEventListener('click', this.restart.bind(this));
         document.getElementById('shuffle').addEventListener('click', this.shuffle.bind(this));
@@ -41,6 +42,10 @@ class GUI {
             // If the checker fell off, don't play 'dropOut' animation
             game.dropChecker(clickedX, clickedY);
         } else {
+            let whooshOut = new Audio();
+            whooshOut.src = './audio/whooshOut.wav'
+            game.playAudio(whooshOut, 200);
+            
             PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
                 game.dropChecker(clickedX, clickedY);
             });
@@ -70,8 +75,12 @@ class GUI {
             // Reset pause button
             this.playPause();
         }
-        // Would be nice not to have to repeat this code
         if (game.checker) {
+            let whooshOut = new Audio();
+            whooshOut.src = './audio/whooshOut.wav'
+            game.playAudio(whooshOut, 200);
+
+            // Would be nice not to have to repeat this code
             PIXI.animate.Animator.play(game.checker, 'dropOut', ()=>{
                 let x = Math.floor(Math.random() * game.BOARD_SIZE);
                 let y = Math.floor(Math.random() * game.BOARD_SIZE);
@@ -103,6 +112,19 @@ class GUI {
         if(event.keyCode == 13) {
             game.BOARD_SIZE = el.value;
             this.shuffle();
+        }
+    }
+    
+    bipListener() {
+        let beep = new Audio();
+        beep.src = './audio/bip.wav';
+        
+        let guiElems = document.getElementsByClassName('gui-element');
+        console.log(guiElems)
+        for (let i = 0; i < guiElems.length; i++) {
+            guiElems[i].addEventListener('mouseenter', ()=>{
+                beep.play();
+            })
         }
     }
 

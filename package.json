@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "Checkerboard",
   "version": "1.0.0",
-  "description": "test",
+  "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -13,8 +13,8 @@
     "electron": "^1.4.1"
   },
   "build": {
-    "appId": "bubbles",
-    "category": "bubbles"
+    "appId": "checkerboard",
+    "category": "test"
   },
   "dependencies": {
     "pixi-animate": "^1.1.1",

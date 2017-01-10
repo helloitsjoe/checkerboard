@@ -31,7 +31,16 @@ function setTheTable(test) {
     test.boardBase.y = 440 + (5 * game.BOARD_SIZE);
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.BOARD_SIZE)) * BOARD_SCALE_PCT;
     
+    // let setIn = new Audio();
+    // setIn.src = './audio/setIn.wav'
+    // game.playAudio(setIn, 200);
+
     staggerSquares();
+    
+    // let setOut = new Audio();
+    // setOut.src = './audio/setOut.wav'
+    // game.playAudio(setOut, 200);
+
 }
 
 /*
