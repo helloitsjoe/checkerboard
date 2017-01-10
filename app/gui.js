@@ -116,14 +116,13 @@ class GUI {
     }
     
     bipListener() {
-        let beep = new Audio();
-        beep.src = './audio/bip.wav';
+        let bip = new Audio();
+        bip.src = './audio/bip.wav';
         
         let guiElems = document.getElementsByClassName('gui-element');
-        console.log(guiElems)
         for (let i = 0; i < guiElems.length; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
-                beep.play();
+                bip.play();
             })
         }
     }

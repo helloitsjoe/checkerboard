@@ -31,6 +31,16 @@ class Game {
         
         // initializes empty array
         this.createSquareArr();
+        // this.playMusic();
+        
+    }
+    
+    playMusic() {
+        let music = new Audio();
+        music.loop = true;
+        music.volume = 0.8;
+        music.src = `./audio/CheckerboardMusic.mp3`;
+        music.play();
     }
     
     /*
@@ -234,8 +244,9 @@ class Game {
             return;
         }
         
-        let shift;
-        // this.playAudio(shift, 350);
+        let shift = new Audio();
+        shift.src = `./audio/shift.wav`;
+        this.playAudio(shift, 400);
         
         let moveAnimLabel = 'move' + this.squares[x][y].direction;
         PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
