@@ -244,6 +244,7 @@ class Game {
             return;
         }
         
+        // Note: My dog Olive HATES this sound.
         let shift = new Audio();
         shift.src = `./audio/shift.wav`;
         this.playAudio(shift, 400);
