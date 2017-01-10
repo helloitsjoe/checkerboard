@@ -282,6 +282,10 @@ class Game {
                     PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.LOOPING);
                 });
                 
+                let bell = new Audio();
+                bell.src = './audio/bell.wav'
+                game.playAudio(bell, 200);
+                
                 // Turn BG green
                 PIXI.animate.Animator.play(bg, frameLabels.LOOPING);
                 
