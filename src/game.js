@@ -234,7 +234,7 @@ class Game {
         
 
         // Note: My dog Olive HATES this sound.
-        // this.playAudio('shift', 400);
+        this.playAudio('shift', 400);
         
         // this.moving = true;
         PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
