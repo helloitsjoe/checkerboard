@@ -62,6 +62,7 @@ class GUI {
             this.playPause();
         }
         // Don't reshuffle if shuffle is already in progress
+        // This works most of the time, but not perfectly... how to make it better?
         if (!game.tableSetInProgress) {
             game.removeBoard();
             game.createSquareArr();

@@ -29,8 +29,19 @@ class Game {
         this.pauseClicked = false;
         this.looping = 0;
         
-        // initializes empty array
         this.createSquareArr();
+    }
+    
+    /*
+    * Create an array to fill with squares/directions
+    */
+    createSquareArr() {
+        for (let x = 0; x < this.BOARD_SIZE; ++x) {
+            this.squares[x] = [];
+            for (let y = 0; y < this.BOARD_SIZE; ++y) {
+                this.squares[x][y] = [];
+            }
+        }
     }
         
     /*
@@ -43,15 +54,14 @@ class Game {
     }
     
     /*
-     * Create an array to fill with squares/directions
+     * Generic function for when I need to do something to every square
      */
-    createSquareArr() {
-        for (let x = 0; x < this.BOARD_SIZE; ++x) {
-            this.squares[x] = [];
-            for (let y = 0; y < this.BOARD_SIZE; ++y) {
-                this.squares[x][y] = [];
-            }
-        }
+    eachSquare(cb) {
+        this.squares.forEach((row)=>{
+            row.forEach((square)=>{
+                cb(square);
+            });
+        });
     }
     
     /*
@@ -59,9 +69,6 @@ class Game {
      * Set up click listener
      */
     addSquare(x, y) {
-        // This is to avoid interrupting the board reset
-        // when 'Shuffle Arrows' is clicked. It works most
-        // of the time but I'm not sure how to make it always work.
         this.tableSetInProgress = true;
 
         PIXI.animate.load(lib.square, board, (square) => {
@@ -98,23 +105,12 @@ class Game {
                 this.dropChecker(x, y);
             });
             
-            game.playAudio('set', 200);
+            this.playAudio('set', 200);
 
             PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
                 this.tableSetInProgress = false;
             });
         }, 'assets');
-    }
-    
-    /*
-     * Generic function for when I need to do something to every square
-     */
-    eachSquare(cb) {
-        this.squares.forEach((row)=>{
-            row.forEach((square)=>{
-                cb(square);
-            });
-        });
     }
     
     /*
@@ -125,11 +121,11 @@ class Game {
         
         // If we've started a round, remove the checker
         if (this.visited.length && this.checker) {
-            game.playAudio('zap', 200);
+            this.playAudio('zap', 200);
             PIXI.animate.Animator.play(this.checker, frameLabels.FALL);
         }
         
-        game.playAudio('remove', 200);
+        this.playAudio('remove', 200);
 
         this.eachSquare((square)=>{
             // Turn off all squares lit state
@@ -138,8 +134,8 @@ class Game {
                 stage.removeChild(board);
                 board.destroy();
             });
-        })
-        
+        });
+
         this.squares.length = 0;
         this.restartSetup();
         setTimeout(()=>{
@@ -177,12 +173,12 @@ class Game {
         this.restartSetup();
         PIXI.animate.load(lib.checker, board, (checker)=>{
             this.checker = checker;
-            this.placeChecker(checker, x, y);
+            this.placeChecker(x, y);
             
             this.playAudio('whoosh', 0);
             
             PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
-                this.moveChecker(checker, x, y);
+                this.moveChecker(x, y);
             });
         }, 'assets');
     }
@@ -190,55 +186,47 @@ class Game {
     /*
      * Sets x/y position on stage
      */
-    placeChecker(instance, x, y) {
-        instance.gotoAndStop('pause');
+    placeChecker(x, y) {
+        this.checker.gotoAndStop('pause');
         
         // Add first position to array
         this.visited.push({x, y});
         if (this.squares[x] && this.squares[x][y]) {
             this.squares[x][y].visited = true;
         }
-
-        instance.x = ( x - y ) * X_OFFSET;
-        instance.y = ( y + x ) * Y_OFFSET;
+        this.checker.x = ( x - y ) * X_OFFSET;
+        this.checker.y = ( y + x ) * Y_OFFSET;
     }
     
     /*
      * Resume from pause
      */
-    play(instance, x, y) {
+    play(x, y) {
         this.pauseClicked = false;
         let lastVisited = this.visited[this.visited.length - 1];
-        this.placeChecker(this.checker, lastVisited.x, lastVisited.y);
-        this.moveChecker(this.checker, lastVisited.x, lastVisited.y);
+        this.placeChecker(lastVisited.x, lastVisited.y);
+        this.moveChecker(lastVisited.x, lastVisited.y);
     }
         
     /*
      * Move the checker one space
      */
-    moveChecker(instance, x, y) {
-        // Set current position to the last visited position
-        let visitedEnd = this.visited.length - 1;
+    moveChecker(x, y) {
+        let moveAnimLabel = 'move' + this.squares[x][y].direction;
         let currSquare = this.squares[x][y];
         
         // If the square isn't lit up yet, light it up white
         if (currSquare.state.currentFrame < 1) {
             PIXI.animate.Animator.play(currSquare.state, frameLabels.VISITED);
         }
-        
         if (this.pauseClicked) {
             return;
         }
         
-        let moveAnimLabel = 'move' + this.squares[x][y].direction;
-        
-
         // Note: My dog Olive HATES this sound.
         this.playAudio('shift', 400);
         
-        // this.moving = true;
-        PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
-            // this.moving = false;
+        PIXI.animate.Animator.play(this.checker, moveAnimLabel, ()=>{
             // Move based on direction
             switch(this.squares[x][y].direction){
               case 'N':
@@ -254,15 +242,14 @@ class Game {
                 x += 1;
                 break;
             }
-            
-            this.checkPosition(instance, x, y);
+            this.checkPosition(x, y);
         });
     }
     
     /*
      * Check if we're still on the board or in a loop, call moveChecker again if so
      */
-    checkPosition(instance, x, y) {
+    checkPosition(x, y) {
         
         // If the new position is on the board, compare it to previous spots
         if (x >=0 && x < this.BOARD_SIZE && y >= 0 && y < this.BOARD_SIZE) {
@@ -277,7 +264,7 @@ class Game {
                     PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.LOOPING);
                 });
                 
-                game.playAudio('bell', 200);
+                this.playAudio('bell', 200);
                 
                 // Turn BG green
                 PIXI.animate.Animator.play(bg, frameLabels.LOOPING);
@@ -294,10 +281,10 @@ class Game {
             }
             
             // Set checker's onscreen position at new spot
-            this.placeChecker(instance, x, y);
+            this.placeChecker(x, y);
             
             // Make another move from the new position with a recursive call
-            this.moveChecker(instance, x, y);
+            this.moveChecker(x, y);
             
         // If it's not on the board, you fell off the edge!
         } else {
@@ -314,9 +301,9 @@ class Game {
             this.text.classList.add('text-end');
             
             // Move checker's onscreen position off the board
-            this.placeChecker(instance, x, y);
+            this.placeChecker(x, y);
             
-            game.playAudio('zap', 200);
+            this.playAudio('zap', 200);
             
             PIXI.animate.Animator.play(this.checker, frameLabels.FALL, () => {
                 this.checker.destroy();
