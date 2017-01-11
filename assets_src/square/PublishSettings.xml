@@ -6,8 +6,8 @@
     <oam>0</oam>
     <jpegDefaultName>1</jpegDefaultName>
     <oamDefaultName>1</oamDefaultName>
-    <jpegFileName>square.jpg</jpegFileName>
-    <oamFileName>square.oam</oamFileName>
+    <jpegFileName>square_v02.jpg</jpegFileName>
+    <oamFileName>square_v02.oam</oamFileName>
     <publishFormat id="8F6F8054-505F-472A-B602-F78CFC350563">1</publishFormat>
     <publishFormat id="BBC1F406-65F2-4219-9304-FA48C7549E44">0</publishFormat>
   </PublishFormatProperties>
