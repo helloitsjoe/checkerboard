@@ -14,7 +14,10 @@ class GUI {
      */
     playPause() {
         // Turn off button if there's no checker or if it fell off the edge
-        if (!game.visited.length || game.visited[game.visited.length - 1] === 'OFF') {
+        if (!game.visited.length || !game.checker) {
+            // Issue: If you click pause when checker is in motion off the edge of the board,
+            // pause will stay in effect if you restart, shuffle, or resize.
+            // I haven't figured out the condition to check and see if we're in that state.
             return;
         }
         game.pauseClicked = !game.pauseClicked;
@@ -35,16 +38,14 @@ class GUI {
             this.playPause();
         }
         if (!game.visited.length) {
-            // Turn off button if there's no checker
+            // Turn off button if game hasn't started yet
             return;
         }
-        if (game.visited[game.visited.length - 1] === 'OFF') {
+        if (!game.checker) {
             // If the checker fell off, don't play 'dropOut' animation
             game.dropChecker(clickedX, clickedY);
         } else {
-            let whooshOut = new Audio();
-            whooshOut.src = './audio/whooshOut.wav'
-            game.playAudio(whooshOut, 200);
+            game.playAudio('whooshOut', 200);
             
             PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
                 game.dropChecker(clickedX, clickedY);
@@ -76,9 +77,7 @@ class GUI {
             this.playPause();
         }
         if (game.checker) {
-            let whooshOut = new Audio();
-            whooshOut.src = './audio/whooshOut.wav'
-            game.playAudio(whooshOut, 200);
+            game.playAudio('whooshOut', 200);
 
             // Would be nice not to have to repeat this code
             PIXI.animate.Animator.play(game.checker, 'dropOut', ()=>{
@@ -116,13 +115,10 @@ class GUI {
     }
     
     bipListener() {
-        let bip = new Audio();
-        bip.src = './audio/bip.wav';
-        
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0; i < guiElems.length; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
-                bip.play();
+                game.playAudio('bip', 0)
             })
         }
     }

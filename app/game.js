@@ -1,9 +1,9 @@
 const STAGGER_TIME = 30;
-const SQUARE_WIDTH = 380;
-const SQUARE_HEIGHT = 120;
+const SQUARE_WIDTH = 382;
+const SQUARE_HEIGHT = 144;
 const BOARD_SCALE_PCT = 0.85;
 const X_OFFSET = SQUARE_WIDTH / 2;
-const Y_OFFSET = SQUARE_HEIGHT / 2;
+const Y_OFFSET = (SQUARE_HEIGHT - 24) / 2;
 
 const frameLabels = {
     FALL: 'fall',
@@ -31,24 +31,14 @@ class Game {
         
         // initializes empty array
         this.createSquareArr();
-        // this.playMusic();
+    }
         
-    }
-    
-    playMusic() {
-        let music = new Audio();
-        music.loop = true;
-        music.volume = 0.8;
-        music.src = `./audio/CheckerboardMusic.mp3`;
-        music.play();
-    }
-    
     /*
      * Plays audio after timeout
      */
     playAudio(sound, ms) {
         setTimeout(()=>{
-            sound.play();
+            new Audio(`./audio/${sound}.wav`).play();
         }, ms)
     }
     
@@ -108,9 +98,7 @@ class Game {
                 this.dropChecker(x, y);
             });
             
-            let set = new Audio();
-            set.src = './audio/set.wav'
-            game.playAudio(set, 200);
+            game.playAudio('set', 200);
 
             PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
                 this.tableSetInProgress = false;
@@ -137,23 +125,16 @@ class Game {
         
         // If we've started a round, remove the checker
         if (this.visited.length && this.checker) {
-            let zap = new Audio();
-            zap.src = './audio/zap.wav'
-            game.playAudio(zap, 200);
-
-            PIXI.animate.Animator.play(this.checker, frameLabels.FALL)
+            game.playAudio('zap', 200);
+            PIXI.animate.Animator.play(this.checker, frameLabels.FALL);
         }
         
-        let remove = new Audio();
-        remove.src = './audio/remove02.wav'
-        game.playAudio(remove, 200);
+        game.playAudio('remove', 200);
 
         this.eachSquare((square)=>{
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
-                this.checker.destroy();
-                this.checker = null;
                 stage.removeChild(board);
                 board.destroy();
             });
@@ -161,8 +142,11 @@ class Game {
         
         this.squares.length = 0;
         this.restartSetup();
-        
         setTimeout(()=>{
+            if (this.checker) {
+                this.checker.destroy();
+                this.checker = null;
+            }
             PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
         }, 500)
     }
@@ -174,6 +158,7 @@ class Game {
     restartSetup() {
         this.eachSquare((square)=>{
             square.interactive = false;
+            square.visited = false;
             square.state.gotoAndStop(0);
         });
         
@@ -194,9 +179,7 @@ class Game {
             this.checker = checker;
             this.placeChecker(checker, x, y);
             
-            let whoosh = new Audio();
-            whoosh.src = `./audio/whoosh.wav`;
-            this.playAudio(whoosh, 0);
+            this.playAudio('whoosh', 0);
             
             PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
                 this.moveChecker(checker, x, y);
@@ -212,6 +195,9 @@ class Game {
         
         // Add first position to array
         this.visited.push({x, y});
+        if (this.squares[x] && this.squares[x][y]) {
+            this.squares[x][y].visited = true;
+        }
 
         instance.x = ( x - y ) * X_OFFSET;
         instance.y = ( y + x ) * Y_OFFSET;
@@ -233,7 +219,7 @@ class Game {
     moveChecker(instance, x, y) {
         // Set current position to the last visited position
         let visitedEnd = this.visited.length - 1;
-        let currSquare = this.squares[ this.visited[visitedEnd].x ][ this.visited[visitedEnd].y ]
+        let currSquare = this.squares[x][y];
         
         // If the square isn't lit up yet, light it up white
         if (currSquare.state.currentFrame < 1) {
@@ -244,14 +230,15 @@ class Game {
             return;
         }
         
-        // Note: My dog Olive HATES this sound.
-        let shift = new Audio();
-        shift.src = `./audio/shift.wav`;
-        this.playAudio(shift, 400);
-        
         let moveAnimLabel = 'move' + this.squares[x][y].direction;
-        PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
+        
 
+        // Note: My dog Olive HATES this sound.
+        // this.playAudio('shift', 400);
+        
+        // this.moving = true;
+        PIXI.animate.Animator.play(instance, moveAnimLabel, ()=>{
+            // this.moving = false;
             // Move based on direction
             switch(this.squares[x][y].direction){
               case 'N':
@@ -280,13 +267,9 @@ class Game {
         // If the new position is on the board, compare it to previous spots
         if (x >=0 && x < this.BOARD_SIZE && y >= 0 && y < this.BOARD_SIZE) {
             
-            // If spot has already been visited, we know we're in a loop
-            // TODO: This is O(n), figure out how to determine loop in O(1)
-            this.visited.forEach((spot) => {
-                if (spot.x === x && spot.y === y){
-                    this.looping++;
-                }
-            })
+            if (this.squares[x][y].visited) {
+                this.looping++;
+            }
             
             if (this.looping === 1) {
                 // Turn visited squares green
@@ -294,9 +277,7 @@ class Game {
                     PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.LOOPING);
                 });
                 
-                let bell = new Audio();
-                bell.src = './audio/bell.wav'
-                game.playAudio(bell, 200);
+                game.playAudio('bell', 200);
                 
                 // Turn BG green
                 PIXI.animate.Animator.play(bg, frameLabels.LOOPING);
@@ -310,7 +291,6 @@ class Game {
                 this.visited.forEach((spot) => {
                     this.squares[spot.x][spot.y].state.gotoAndStop('looping_stop');
                 });
-
             }
             
             // Set checker's onscreen position at new spot
@@ -333,19 +313,15 @@ class Game {
             this.text.innerHTML = 'YOU FELL OFF THE EDGE';
             this.text.classList.add('text-end');
             
+            // Move checker's onscreen position off the board
             this.placeChecker(instance, x, y);
             
-            let zap = new Audio();
-            zap.src = './audio/zap.wav'
-            game.playAudio(zap, 200);
+            game.playAudio('zap', 200);
             
             PIXI.animate.Animator.play(this.checker, frameLabels.FALL, () => {
                 this.checker.destroy();
                 this.checker = null;
             })
-            
-            // This is for an easier check in gui.restart() and gui.playPause()
-            this.visited.push('OFF');
             
             this.eachSquare((square) => {
                 // Make the squares interactive again
