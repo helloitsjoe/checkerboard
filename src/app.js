@@ -2,6 +2,7 @@ const game = new Game();
 const gui = new GUI();
 
 let board;
+let boardBase;
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),
@@ -21,15 +22,17 @@ function update() {
  * Build the board
  */
 function setTheTable(test) {
-    bg = test.bg;
+    if (test) {
+        bg = test.bg;
+        boardBase = test.boardBase;
+    }
     bg.gotoAndStop(0);
-    
     board = new PIXI.Container();
     stage.addChild(board);
     
     board.x = stage.width / 2;
     board.y = stage.height / 2 - 60;
-    test.boardBase.y = 440 + (5 * game.BOARD_SIZE);
+    boardBase.y = 440 + (5 * game.BOARD_SIZE);
     board.scale.x = board.scale.y = (stage.width / (SQUARE_WIDTH * game.BOARD_SIZE)) * BOARD_SCALE_PCT;
     
     // Stagger animation of squares appearing

@@ -131,23 +131,19 @@ class Game {
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
-                // TODO: Move this to restart setup, with a check for if shuffle has been called?
                 stage.removeChild(board);
                 board.destroy();
             });
         });
 
         this.squares.length = 0;
-        // TODO: Set this up as a callback instead of a timeout, so we wait for everything to be visually removed before we clean up?
         this.restartSetup();
         setTimeout(()=>{
-            // TODO: Move this to restartSetup?
             if (this.checker) {
                 this.checker.destroy();
                 this.checker = null;
             }
-            // TODO: Do I need to be loading this again, or can I just call setTheTable?
-            PIXI.animate.load(lib.test, stage, setTheTable, 'assets');
+            setTheTable();
         }, 500)
     }
     
