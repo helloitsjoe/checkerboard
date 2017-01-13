@@ -18,6 +18,11 @@ let clickedY;
 let tableSetInProgress;
 let text;
 
+var game = new Game();
+game.visited;
+
+Game.DIRECTIONS
+
 class Game {
     constructor() {
         this.BOARD_SIZE = document.getElementById('resize-input').value;
@@ -30,6 +35,10 @@ class Game {
         this.looping = 0;
         
         this.createSquareArr();
+    }
+    
+    static get DIRECTIONS() {
+        return ['N', 'S', 'E', 'W'];
     }
     
     /*
