@@ -13,15 +13,14 @@ class Game {
         this.looping = 0;
         
         this.bg;
+        this.board;
+        this.boardBase;
         this.checker;
         this.startX;
         this.startY;
         this.tableSetInProgress;
         this.endText;
 
-        this.board;
-        this.boardBase;
-        
         this.createSquareArr();
     }
     
@@ -45,18 +44,18 @@ class Game {
         
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
-        for (let i = 0; i < game.squares.length; i++){
+        for (let row = 0; row < game.squares.length; row++){
             (function (idx) {
                 setTimeout(()=>{
-                    for (let j = 0; j < game.squares[i].length; j++) {
+                    for (let col = 0; col < game.squares[row].length; col++) {
                         (function (idx) {
                             setTimeout(()=>{
-                                game.addSquare(j, i);
+                                game.addSquare(col, row);
                             }, config.STAGGER_TIME * idx);
-                        }(j));
+                        }(col));
                     }
                 }, config.STAGGER_TIME * (idx + (game.squares.length * idx)));
-            }(i));
+            }(row));
         }
     }
     
@@ -189,7 +188,7 @@ class Game {
      */
     restartSetup() {
         this.eachSquare((square)=>{
-            square.visited = false;
+            square.stored = false;
             square.state.gotoAndStop(0);
         });
         
@@ -227,7 +226,7 @@ class Game {
         // Add first position to array
         this.visited.push({x, y});
         if (this.squares[x] && this.squares[x][y]) {
-            this.squares[x][y].visited = true;
+            this.squares[x][y].stored = true;
         }
         this.checker.x = ( x - y ) * this.X_OFFSET;
         this.checker.y = ( y + x ) * this.Y_OFFSET;
@@ -289,7 +288,7 @@ class Game {
         // If the new position is on the board, compare it to previous spots
         if (x >=0 && x < this.BOARD_SIZE && y >= 0 && y < this.BOARD_SIZE) {
             
-            if (this.squares[x][y].visited) {
+            if (this.squares[x][y].stored) {
                 this.looping++;
             }
             
