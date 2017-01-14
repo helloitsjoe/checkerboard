@@ -43,12 +43,12 @@ class GUI {
         }
         if (!game.checker) {
             // If the checker fell off, don't play 'dropOut' animation
-            game.dropChecker(clickedX, clickedY);
+            game.dropChecker(this.clickedX, this.clickedY);
         } else {
             game.playAudio('whooshOut', 200);
             
             PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
-                game.dropChecker(clickedX, clickedY);
+                game.dropChecker(this.clickedX, this.clickedY);
             });
         }
     }
@@ -84,15 +84,15 @@ class GUI {
             PIXI.animate.Animator.play(game.checker, 'dropOut', ()=>{
                 let x = Math.floor(Math.random() * game.BOARD_SIZE);
                 let y = Math.floor(Math.random() * game.BOARD_SIZE);
-                clickedX = x;
-                clickedY = y;
+                this.clickedX = x;
+                this.clickedY = y;
                 game.dropChecker(x, y);
             });
         } else {
             let x = Math.floor(Math.random() * game.BOARD_SIZE);
             let y = Math.floor(Math.random() * game.BOARD_SIZE);
-            clickedX = x;
-            clickedY = y;
+            this.clickedX = x;
+            this.clickedY = y;
             game.dropChecker(x, y);
         }
     }
