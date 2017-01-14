@@ -52,17 +52,17 @@ class Board {
         
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
-        for (let row = 0; row < board.squares.length; row++){
+        for (let row = 0; row < game.board.squares.length; row++){
             (function (idx) {
                 setTimeout(()=>{
-                    for (let col = 0; col < board.squares[row].length; col++) {
+                    for (let col = 0; col < game.board.squares[row].length; col++) {
                         (function (idx) {
                             setTimeout(()=>{
-                                board.addSquare(col, row);
+                                game.board.addSquare(col, row);
                             }, config.STAGGER_TIME * idx);
                         }(col));
                     }
-                }, config.STAGGER_TIME * (idx + (board.squares.length * idx)));
+                }, config.STAGGER_TIME * (idx + (game.board.squares.length * idx)));
             }(row));
         }
     }
@@ -129,8 +129,8 @@ class Board {
         this.tableSetInProgress = true;
         
         // If we've started a round, remove the checker
-        if (game.visited.length && checker.checker) {
-            checker.remove();
+        if (game.visited.length && game.checker.checker) {
+            game.checker.remove();
         }
         
         playAudio('remove', 200);
@@ -147,9 +147,9 @@ class Board {
         // this.squares.length = 0;
         this.refreshBoard();
         setTimeout(()=>{
-            if (checker.checker) {
-                checker.checker.destroy();
-                checker.checker = null;
+            if (game.checker.checker) {
+                game.checker.game.checker.destroy();
+                game.checker.checker = null;
             }
             this.setTheTable();
         }, 500)
@@ -157,7 +157,7 @@ class Board {
     
     /*
      * Reset states of elements
-     * Called by this.createNew() and checker.dropOnBoard()
+     * Called by this.createNew() and game.checker.dropOnBoard()
      */
     refreshBoard() {
         this.eachSquare((square)=>{
@@ -180,7 +180,7 @@ class Board {
             board.startX = x;
             board.startY = y;
         }
-        checker.restart()
+        game.checker.restart()
     }
     
     loopState() {

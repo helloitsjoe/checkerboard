@@ -19,11 +19,11 @@ const stage = new PIXI.Container();
 
 const game = new Game();
 const gui = new Gui();
-const board = new Board();
-const checker = new Checker();
+// const board = new Board();
+// const checker = new Checker();
 
 PIXI.animate.load(lib.test, stage, (test) => {
-    board.setTheTable(test)
+    game.board.setTheTable(test)
 }, 'assets');
 update();
 

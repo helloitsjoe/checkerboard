@@ -21,7 +21,7 @@ class GUI {
      */
     playPause() {
         // Turn off button if there's no checker or if it fell off the edge
-        if (!game.visited.length || !checker.checker) {
+        if (!game.visited.length || !game.checker.checker) {
             // Issue: If you click pause when checker is in motion off the edge of the board,
             // pause will stay in effect if you restart, shuffle, or resize.
             // I haven't figured out the condition to check and see if we're in that state.
@@ -31,7 +31,7 @@ class GUI {
         if (game.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            checker.unpause();
+            game.checker.unpause();
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
@@ -48,8 +48,8 @@ class GUI {
             // Turn off button if game hasn't started yet
             return;
         }
-        board.restart();
-        checker.restart();
+        game.board.restart();
+        game.checker.restart();
     }
     
     /*
@@ -63,8 +63,8 @@ class GUI {
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!game.tableSetInProgress) {
-            board.createNew();
-            board.createSquareArr();
+            game.board.createNew();
+            game.board.createSquareArr();
         }
     }
     
@@ -76,16 +76,16 @@ class GUI {
             // Reset pause button
             this.playPause();
         }
-        board.randomClicked = true;
-        board.restart();
-        // checker.restart();
+        game.board.randomClicked = true;
+        game.board.restart();
+        // game.checker.restart();
     }
         
     /*
      * Resizes board
      */
     resize() {
-        board.BOARD_SIZE = document.getElementById('resize-input').value;
+        game.board.BOARD_SIZE = document.getElementById('resize-input').value;
         this.shuffle();
     }
 
@@ -94,7 +94,7 @@ class GUI {
      */
     resizeOnEnter(el) {
         if(event.keyCode == 13) {
-            board.BOARD_SIZE = el.value;
+            game.board.BOARD_SIZE = el.value;
             this.shuffle();
         }
     }

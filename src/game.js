@@ -1,12 +1,14 @@
-
-
 class Game {
     constructor() {
         this.visited = [];
         this.pauseClicked = false;
         this.randomClicked = false;
         this.looping = 0;
+        
+        this.board = new Board();
+        this.checker = new Checker();
     }
+    
     
     restart() {
         this.visited.length = 0;
@@ -14,27 +16,27 @@ class Game {
     }
     
     /*
-     * Check if we're still on the board or in a loop, call checker.move again if so
+     * Check if we're still on the board or in a loop, call this.checker.move again if so
      */
     checkPosition(x, y) {
         
         // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < board.BOARD_SIZE && y >= 0 && y < board.BOARD_SIZE) {
-            if (board.squares[x][y].stored) {
+        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
+            if (this.board.squares[x][y].stored) {
                 this.looping++;
             }
-            board.loopState();
+            this.board.loopState();
             
             // Set checker's onscreen position at new spot
-            checker.newPlace(x, y);
+            this.checker.newPlace(x, y);
             
             // Make another move from the new position with a recursive call
-            checker.move(x, y);
+            this.checker.move(x, y);
             
         // If it's not on the board, you fell off the edge!
         } else {
-            board.edgeState();
-            checker.edgeState(x, y);
+            this.board.edgeState();
+            this.checker.edgeState(x, y);
         }
     }
 }
