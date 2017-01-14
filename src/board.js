@@ -1,5 +1,3 @@
-
-
 class Board {
     constructor() {
         this.X_OFFSET = config.SQUARE_WIDTH / 2;
@@ -12,7 +10,6 @@ class Board {
         this.bg;
         this.board;
         this.boardBase;
-        this.checker;
         this.startX;
         this.startY;
         this.tableSetInProgress;
@@ -114,7 +111,7 @@ class Board {
                 // Save reference to clicked position in case 'Restart' button is clicked
                 this.startX = x;
                 this.startY = y;
-                game.restart();
+                this.restart();
             });
             
             playAudio('set', 200);
@@ -128,13 +125,12 @@ class Board {
     /*
      * Remove board before resetting - called by gui.shuffle()
      */
-    removeBoard() {
+    createNew() {
         this.tableSetInProgress = true;
         
         // If we've started a round, remove the checker
-        if (game.visited.length && this.checker) {
-            playAudio('zap', 200);
-            PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL);
+        if (game.visited.length && checker.checker) {
+            checker.remove();
         }
         
         playAudio('remove', 200);
@@ -148,15 +144,82 @@ class Board {
             });
         });
 
-        this.squares.length = 0;
-        game.restartSetup();
+        // this.squares.length = 0;
+        this.refreshBoard();
         setTimeout(()=>{
-            if (this.checker) {
-                this.checker.destroy();
-                this.checker = null;
+            if (checker.checker) {
+                checker.checker.destroy();
+                checker.checker = null;
             }
             this.setTheTable();
         }, 500)
+    }
+    
+    /*
+     * Reset states of elements
+     * Called by this.createNew() and checker.dropOnBoard()
+     */
+    refreshBoard() {
+        this.eachSquare((square)=>{
+            square.stored = false;
+            square.state.gotoAndStop(0);
+        });
+        
+        // Clear 'loop' or 'fall off' text from screen
+        this.endText.classList.remove('text-end');
+
+        this.bg.gotoAndStop(0);
+        game.restart();
+    }
+    
+    restart() {
+        if (this.randomClicked) {
+            this.randomClicked = false;
+            let x = Math.floor(Math.random() * board.BOARD_SIZE);
+            let y = Math.floor(Math.random() * board.BOARD_SIZE);
+            board.startX = x;
+            board.startY = y;
+        }
+        checker.restart()
+    }
+    
+    loopState() {
+        if (game.looping === 1) {
+
+            // Turn visited squares green
+            game.visited.forEach((spot) => {
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, config.frameLabels.LOOPING);
+            });
+
+            playAudio('bell', 200);
+            
+            // Turn BG green
+            PIXI.animate.Animator.play(this.bg, config.frameLabels.LOOPING);
+            
+            // Show text onscreen
+            this.endText.innerHTML = 'YOU ARE IN A LOOP';
+            this.endText.classList.add('text-end');
+            
+        } if (game.looping > 1) {
+            // This is to stop repeated animation of green squares
+            game.visited.forEach((spot) => {
+                this.squares[spot.x][spot.y].state.gotoAndStop('looping_stop');
+            });
+        }
+    }
+    
+    edgeState() {
+        // Turn squares red
+        game.visited.forEach((spot) => {
+            PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, config.frameLabels.FALL);
+        });
+        
+        // Turn BG red
+        PIXI.animate.Animator.play(this.bg, config.frameLabels.FALL);
+        
+        // Show text onscreen
+        this.endText.innerHTML = 'YOU FELL OFF THE EDGE';
+        this.endText.classList.add('text-end');
     }
 }
 

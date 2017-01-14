@@ -21,7 +21,7 @@ class GUI {
      */
     playPause() {
         // Turn off button if there's no checker or if it fell off the edge
-        if (!game.visited.length || !board.checker) {
+        if (!game.visited.length || !checker.checker) {
             // Issue: If you click pause when checker is in motion off the edge of the board,
             // pause will stay in effect if you restart, shuffle, or resize.
             // I haven't figured out the condition to check and see if we're in that state.
@@ -31,7 +31,7 @@ class GUI {
         if (game.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            checker.play();
+            checker.unpause();
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
@@ -48,7 +48,8 @@ class GUI {
             // Turn off button if game hasn't started yet
             return;
         }
-        game.restart();
+        board.restart();
+        checker.restart();
     }
     
     /*
@@ -62,7 +63,7 @@ class GUI {
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!game.tableSetInProgress) {
-            board.removeBoard();
+            board.createNew();
             board.createSquareArr();
         }
     }
@@ -75,8 +76,9 @@ class GUI {
             // Reset pause button
             this.playPause();
         }
-        game.randomClicked = true;
-        game.restart();
+        board.randomClicked = true;
+        board.restart();
+        // checker.restart();
     }
         
     /*
