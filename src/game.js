@@ -1,24 +1,12 @@
-const STAGGER_TIME = 30;
-const SQUARE_WIDTH = 382;
-const SQUARE_HEIGHT = 144;
-const BOARD_SCALE_PCT = 0.85;
-const X_OFFSET = SQUARE_WIDTH / 2;
-const Y_OFFSET = (SQUARE_HEIGHT - 24) / 2;
-
-const frameLabels = {
-    FALL: 'fall',
-    LOOPING: 'looping',
-    VISITED: 'visited'
-};
-
-// const gui = require()
+const config = require('./gameConfig.json');
 
 class Game {
     constructor() {
+        this.X_OFFSET = config.SQUARE_WIDTH / 2;
+        this.Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
         this.BOARD_SIZE = document.getElementById('resize-input').value;
-        this.text = document.getElementById('text');
+        this.endText = document.getElementById('text');
 
-        this.directions = ['N', 'S', 'E', 'W'];
         this.visited = [];
         this.squares = [];
         this.pauseClicked = false;
@@ -26,15 +14,14 @@ class Game {
         
         this.bg;
         this.checker;
-        this.clickedX;
-        this.clickedY;
+        this.startX;
+        this.startY;
         this.tableSetInProgress;
-        this.text;
+        this.endText;
 
         this.board;
         this.boardBase;
         
-        // new GUI();
         this.createSquareArr();
     }
     
@@ -43,11 +30,10 @@ class Game {
      */
     setTheTable(test) {
         if (test) {
-            // Can I remove these?
             this.bg = test.bg;
             this.boardBase = test.boardBase;
         }
-        console.log(this.boardBase)
+
         this.bg.gotoAndStop(0);
         this.board = new PIXI.Container();
         stage.addChild(this.board);
@@ -55,7 +41,7 @@ class Game {
         this.board.x = stage.width / 2;
         this.board.y = stage.height / 2 - 60;
         this.boardBase.y = 440 + (5 * this.BOARD_SIZE);
-        this.board.scale.x = this.board.scale.y = (stage.width / (SQUARE_WIDTH * this.BOARD_SIZE)) * BOARD_SCALE_PCT;
+        this.board.scale.x = this.board.scale.y = (stage.width / (config.SQUARE_WIDTH * this.BOARD_SIZE)) * config.BOARD_SCALE_PCT;
         
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
@@ -66,10 +52,10 @@ class Game {
                         (function (idx) {
                             setTimeout(()=>{
                                 game.addSquare(j, i);
-                            }, STAGGER_TIME * idx);
+                            }, config.STAGGER_TIME * idx);
                         }(j));
                     }
-                }, STAGGER_TIME * (idx + (game.squares.length * idx)));
+                }, config.STAGGER_TIME * (idx + (game.squares.length * idx)));
             }(i));
         }
     }
@@ -115,14 +101,14 @@ class Game {
 
         PIXI.animate.load(lib.square, this.board, (square) => {
 
-            square.x = ( x - y ) * X_OFFSET;
-            square.y = ( y + x ) * Y_OFFSET;
-            square.hitArea = new PIXI.Polygon([-X_OFFSET, 0, 0, Y_OFFSET, X_OFFSET, 0, 0, -Y_OFFSET]);
+            square.x = ( x - y ) * this.X_OFFSET;
+            square.y = ( y + x ) * this.Y_OFFSET;
+            square.hitArea = new PIXI.Polygon([-this.X_OFFSET, 0, 0, this.Y_OFFSET, this.X_OFFSET, 0, 0, -this.Y_OFFSET]);
             square.state.gotoAndStop(0);
             square.interactive = true;
             
             // Set direction arrow on square
-            square.direction = this.directions[Math.floor(Math.random() * this.directions.length)];;
+            square.direction = config.DIRECTIONS[Math.floor(Math.random() * config.DIRECTIONS.length)];;
             square.arrows.gotoAndStop(square.direction);
             
             // Checkerboard pattern
@@ -136,15 +122,10 @@ class Game {
             this.squares[x][y] = square;
 
             square.on('click', ()=>{
-                // Remove click listener from other squares
-                this.eachSquare((square) => {
-                    square.interactive = false;
-                })
-                
                 // Save reference to clicked position in case 'Restart' button is clicked
-                this.clickedX = x;
-                this.clickedY = y;
-                this.dropChecker(x, y);
+                this.startX = x;
+                this.startY = y;
+                this.restart();
             });
             
             this.playAudio('set', 200);
@@ -164,7 +145,7 @@ class Game {
         // If we've started a round, remove the checker
         if (this.visited.length && this.checker) {
             this.playAudio('zap', 200);
-            PIXI.animate.Animator.play(this.checker, frameLabels.FALL);
+            PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL);
         }
         
         this.playAudio('remove', 200);
@@ -189,19 +170,31 @@ class Game {
         }, 500)
     }
     
+    restart() {
+        if (!this.checker) {
+            // If the checker fell off, don't play 'dropOut' animation
+            this.dropChecker(this.startX, this.startY);
+        } else {
+            this.playAudio('whooshOut', 200);
+            
+            PIXI.animate.Animator.play(this.checker, 'dropOut', () => {
+                this.dropChecker(this.startX, this.startY);
+            });
+        }
+    }
+    
     /*
      * Reset states of elements
      * Called by removeBoard() and dropChecker()
      */
     restartSetup() {
         this.eachSquare((square)=>{
-            // square.interactive = false;
             square.visited = false;
             square.state.gotoAndStop(0);
         });
         
         // Clear 'loop' or 'fall off' text from screen
-        this.text.classList.remove('text-end');
+        this.endText.classList.remove('text-end');
 
         this.bg.gotoAndStop(0);
         this.visited.length = 0;
@@ -236,8 +229,8 @@ class Game {
         if (this.squares[x] && this.squares[x][y]) {
             this.squares[x][y].visited = true;
         }
-        this.checker.x = ( x - y ) * X_OFFSET;
-        this.checker.y = ( y + x ) * Y_OFFSET;
+        this.checker.x = ( x - y ) * this.X_OFFSET;
+        this.checker.y = ( y + x ) * this.Y_OFFSET;
     }
     
     /*
@@ -257,7 +250,7 @@ class Game {
         let currSquare = this.squares[x][y];
         // If the square isn't lit up yet, light it up white
         if (currSquare.state.currentFrame < 1) {
-            PIXI.animate.Animator.play(currSquare.state, frameLabels.VISITED);
+            PIXI.animate.Animator.play(currSquare.state, config.frameLabels.VISITED);
         }
         if (this.pauseClicked) {
             return;
@@ -301,19 +294,20 @@ class Game {
             }
             
             if (this.looping === 1) {
+
                 // Turn visited squares green
                 this.visited.forEach((spot) => {
-                    PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.LOOPING);
+                    PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, config.frameLabels.LOOPING);
                 });
-                
+
                 this.playAudio('bell', 200);
                 
                 // Turn BG green
-                PIXI.animate.Animator.play(this.bg, frameLabels.LOOPING);
+                PIXI.animate.Animator.play(this.bg, config.frameLabels.LOOPING);
                 
                 // Show text onscreen
-                this.text.innerHTML = 'YOU ARE IN A LOOP';
-                this.text.classList.add('text-end');
+                this.endText.innerHTML = 'YOU ARE IN A LOOP';
+                this.endText.classList.add('text-end');
                 
             } if (this.looping > 1) {
                 // This is to stop repeated animation of green squares
@@ -332,32 +326,25 @@ class Game {
         } else {
             // Turn squares red
             this.visited.forEach((spot) => {
-                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, frameLabels.FALL);
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, config.frameLabels.FALL);
             });
             
             // Turn BG red
-            PIXI.animate.Animator.play(this.bg, frameLabels.FALL);
+            PIXI.animate.Animator.play(this.bg, config.frameLabels.FALL);
             
             // Show text onscreen
-            this.text.innerHTML = 'YOU FELL OFF THE EDGE';
-            this.text.classList.add('text-end');
+            this.endText.innerHTML = 'YOU FELL OFF THE EDGE';
+            this.endText.classList.add('text-end');
             
             // Move checker's onscreen position off the board
             this.placeChecker(x, y);
             
             this.playAudio('zap', 200);
             
-            PIXI.animate.Animator.play(this.checker, frameLabels.FALL, () => {
+            PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL, () => {
                 this.checker.destroy();
                 this.checker = null;
             })
-            
-            this.eachSquare((square) => {
-                // Make the squares interactive again
-                square.interactive = true;
-            });
-                
-            // return;
         }
     }
 }

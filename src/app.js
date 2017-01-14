@@ -1,5 +1,11 @@
-let Game = require('./src/game');
-let Gui = require('./src/gui');
+// require('pixi.js');
+// require('pixi-animate');
+// require('../assets/test.js');
+// require('../assets/checker.js');
+// require('../assets/square.js');
+
+const Game = require('./src/game');
+const Gui = require('./src/gui');
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),
