@@ -75,10 +75,7 @@ class GUI {
             // Reset pause button
             this.playPause();
         }
-        let x = Math.floor(Math.random() * game.BOARD_SIZE);
-        let y = Math.floor(Math.random() * game.BOARD_SIZE);
-        game.startX = x;
-        game.startY = y;
+        game.randomClicked = true;
         game.restart();
     }
         

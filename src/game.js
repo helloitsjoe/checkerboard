@@ -10,6 +10,7 @@ class Game {
         this.visited = [];
         this.squares = [];
         this.pauseClicked = false;
+        this.randomClicked = false;
         this.looping = 0;
         
         this.bg;
@@ -170,6 +171,13 @@ class Game {
     }
     
     restart() {
+        if (this.randomClicked) {
+            this.randomClicked = false;
+            let x = Math.floor(Math.random() * game.BOARD_SIZE);
+            let y = Math.floor(Math.random() * game.BOARD_SIZE);
+            game.startX = x;
+            game.startY = y;
+        }
         if (!this.checker) {
             // If the checker fell off, don't play 'dropOut' animation
             this.dropChecker(this.startX, this.startY);
