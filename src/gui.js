@@ -21,7 +21,7 @@ class GUI {
      */
     playPause() {
         // Turn off button if there's no checker or if it fell off the edge
-        if (!game.visited.length || !game.checker) {
+        if (!game.visited.length || !board.checker) {
             // Issue: If you click pause when checker is in motion off the edge of the board,
             // pause will stay in effect if you restart, shuffle, or resize.
             // I haven't figured out the condition to check and see if we're in that state.
@@ -31,7 +31,7 @@ class GUI {
         if (game.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            game.play();
+            checker.play();
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
@@ -62,8 +62,8 @@ class GUI {
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!game.tableSetInProgress) {
-            game.removeBoard();
-            game.createSquareArr();
+            board.removeBoard();
+            board.createSquareArr();
         }
     }
     
@@ -83,7 +83,7 @@ class GUI {
      * Resizes board
      */
     resize() {
-        game.BOARD_SIZE = document.getElementById('resize-input').value;
+        board.BOARD_SIZE = document.getElementById('resize-input').value;
         this.shuffle();
     }
 
@@ -92,7 +92,7 @@ class GUI {
      */
     resizeOnEnter(el) {
         if(event.keyCode == 13) {
-            game.BOARD_SIZE = el.value;
+            board.BOARD_SIZE = el.value;
             this.shuffle();
         }
     }
@@ -101,7 +101,7 @@ class GUI {
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0; i < guiElems.length; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
-                game.playAudio('bip', 0)
+                playAudio('bip', 0)
             })
         }
     }
