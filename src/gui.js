@@ -2,11 +2,18 @@ class GUI {
     constructor() {
         this.staggerGUI();
         this.bipListener();
-        document.getElementById('playPause').addEventListener('click', this.playPause.bind(this));
-        document.getElementById('restart').addEventListener('click', this.restart.bind(this));
-        document.getElementById('shuffle').addEventListener('click', this.shuffle.bind(this));
-        document.getElementById('random').addEventListener('click', this.randomStart.bind(this));
-        document.getElementById('resize').addEventListener('click', this.resize.bind(this));
+        
+        this.playPauseButton = document.getElementById('playPause');
+        this.restartButton = document.getElementById('restart')
+        this.shuffleButton = document.getElementById('shuffle')
+        this.randomButton = document.getElementById('random')
+        this.resizeButton = document.getElementById('resize')
+        
+        this.playPauseButton.addEventListener('click', this.playPause.bind(this));
+        this.restartButton.addEventListener('click', this.restart.bind(this));
+        this.shuffleButton.addEventListener('click', this.shuffle.bind(this));
+        this.randomButton.addEventListener('click', this.randomStart.bind(this));
+        this.resizeButton.addEventListener('click', this.resize.bind(this));
     }
     
     /*
@@ -41,16 +48,7 @@ class GUI {
             // Turn off button if game hasn't started yet
             return;
         }
-        if (!game.checker) {
-            // If the checker fell off, don't play 'dropOut' animation
-            game.dropChecker(clickedX, clickedY);
-        } else {
-            game.playAudio('whooshOut', 200);
-            
-            PIXI.animate.Animator.play(game.checker, 'dropOut', () => {
-                game.dropChecker(clickedX, clickedY);
-            });
-        }
+        game.restart();
     }
     
     /*
@@ -77,24 +75,8 @@ class GUI {
             // Reset pause button
             this.playPause();
         }
-        if (game.checker) {
-            game.playAudio('whooshOut', 200);
-
-            // Would be nice not to have to repeat this code
-            PIXI.animate.Animator.play(game.checker, 'dropOut', ()=>{
-                let x = Math.floor(Math.random() * game.BOARD_SIZE);
-                let y = Math.floor(Math.random() * game.BOARD_SIZE);
-                clickedX = x;
-                clickedY = y;
-                game.dropChecker(x, y);
-            });
-        } else {
-            let x = Math.floor(Math.random() * game.BOARD_SIZE);
-            let y = Math.floor(Math.random() * game.BOARD_SIZE);
-            clickedX = x;
-            clickedY = y;
-            game.dropChecker(x, y);
-        }
+        game.randomClicked = true;
+        game.restart();
     }
         
     /*

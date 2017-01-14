@@ -1,0 +1,12 @@
+{
+    "STAGGER_TIME": 30,
+    "SQUARE_WIDTH": 382,
+    "SQUARE_HEIGHT": 144,
+    "BOARD_SCALE_PCT": 0.85,
+    "DIRECTIONS": [ "N", "S", "E", "W" ],
+    "frameLabels": {
+        "FALL": "fall",
+        "LOOPING": "looping",
+        "VISITED": "visited"
+    }
+}
