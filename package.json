@@ -1,23 +1,43 @@
 {
-  "name": "Checkerboard",
-  "version": "1.0.0",
-  "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "build": "build --dir"
-  },
-  "author": "Bubbles",
-  "license": "private",
-  "devDependencies": {
-    "electron": "^1.4.1"
-  },
-  "build": {
-    "appId": "checkerboard",
-    "category": "test"
-  },
-  "dependencies": {
-    "pixi-animate": "^1.1.1",
-    "pixi.js": "^4.3.0"
-  }
+    "name": "Checkerboard",
+    "version": "1.0.0",
+    "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
+    "main": "main.js",
+    "config": {
+      "watch": "src",
+      "app": "src/index.ts",
+      "bundle": "index.js",
+      "map": "index.js.map"
+    },
+    "scripts": {
+        "start": "npm run watch",
+        "clean": "cross-conf-env rimraf npm_package_config_bundle",
+        "build": "cross-conf-env browserify -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug",
+        "watch": "cross-conf-env watchify  -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug -dv"
+    },
+    "browserify": {
+        "transform": []
+    },
+    "author": "Bubbles",
+    "license": "private",
+    "devDependencies": {
+        "electron": "^1.4.1",
+        "cross-conf-env": "latest",
+        "tsify": "latest",
+        "typescript": "^2.0.0",
+        "parallelshell": "latest",
+        "preprocessify": "latest",
+        "mapstraction": "latest",
+        "rimraf": "latest",
+        "watch": "latest",
+        "watchify": "latest"
+    },
+    "build": {
+        "appId": "checkerboard",
+        "category": "test"
+    },
+    "dependencies": {
+        "pixi-animate": "^1.1.1",
+        "pixi.js": "^4.3.0"
+    }
 }

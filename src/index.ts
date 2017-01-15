@@ -1,14 +1,14 @@
-// require('pixi.js');
-// require('pixi-animate');
+// import PIXI from 'pixi.js';
+// import animate from 'pixi-animate';
 // require('../assets/test.js');
 // require('../assets/checker.js');
 // require('../assets/square.js');
 
-const Game = require('./src/game');
-const Gui = require('./src/gui');
-const Board = require('./src/board');
-const Checker = require('./src/checker');
-const config = require('./src/gameConfig.json');
+import Game from './game';
+import Gui from './gui';
+import Board from './board';
+import Checker from './checker';
+var config = require('./gameConfig.json');
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),

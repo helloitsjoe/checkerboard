@@ -1,19 +1,26 @@
+// var config = require('./gameConfig.json');
+
 class Board {
+    // private X_OFFSET: number = config.SQUARE_WIDTH / 2;
+    private BOARD_SIZE: any;
+    private bg;
+    private board;
+    private boardBase;
+    private startX;
+    private startY;
+    private tableSetInProgress;
+    private endText;
+    
+    private squares: Array<any> = [];
+    
     constructor() {
-        this.X_OFFSET = config.SQUARE_WIDTH / 2;
-        this.Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
-        this.BOARD_SIZE = document.getElementById('resize-input').value;
+        // this.X_OFFSET = config.SQUARE_WIDTH / 2;
+        // this.Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
+        // this.BOARD_SIZE = document.getElementById('resize-input').value;
         this.endText = document.getElementById('text');
         
-        this.squares = [];
+        // this.squares = [];
         
-        this.bg;
-        this.board;
-        this.boardBase;
-        this.startX;
-        this.startY;
-        this.tableSetInProgress;
-        this.endText;
         
         this.createSquareArr();
     }
