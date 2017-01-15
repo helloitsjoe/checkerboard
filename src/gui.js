@@ -9,94 +9,11 @@ class GUI {
         this.randomButton = document.getElementById('random')
         this.resizeButton = document.getElementById('resize')
         
-        this.playPauseButton.addEventListener('click', this.playPause.bind(this));
-        this.restartButton.addEventListener('click', this.restart.bind(this));
-        this.shuffleButton.addEventListener('click', this.shuffle.bind(this));
-        this.randomButton.addEventListener('click', this.randomStart.bind(this));
-        this.resizeButton.addEventListener('click', this.resize.bind(this));
-    }
-    
-    /*
-     * Pause/resume checker
-     */
-    playPause() {
-        // Turn off button if there's no checker or if it fell off the edge
-        if (!game.visited.length || !game.checker.checker) {
-            // Issue: If you click pause when checker is in motion off the edge of the board,
-            // pause will stay in effect if you restart, shuffle, or resize.
-            // I haven't figured out the condition to check and see if we're in that state.
-            return;
-        }
-        game.pauseClicked = !game.pauseClicked;
-        if (game.pauseClicked) {
-            document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
-        } else {
-            game.checker.unpause();
-            document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
-        }
-    }
-    
-    /*
-     * Plays current turn again from the same start spot
-     */
-    restart() {
-        if (game.pauseClicked) {
-            // Reset pause button
-            this.playPause();
-        }
-        if (!game.visited.length) {
-            // Turn off button if game hasn't started yet
-            return;
-        }
-        game.board.restart();
-        game.checker.restart();
-    }
-    
-    /*
-     * Shuffles arrows
-     */
-    shuffle() {
-        if (game.pauseClicked) {
-            // Reset pause button
-            this.playPause();
-        }
-        // Don't reshuffle if shuffle is already in progress
-        // This works most of the time, but not perfectly... how to make it better?
-        if (!game.tableSetInProgress) {
-            game.board.createNew();
-            game.board.createSquareArr();
-        }
-    }
-    
-    /*
-     * Starts player at a random square on the board
-     */
-    randomStart() {
-        if (game.pauseClicked) {
-            // Reset pause button
-            this.playPause();
-        }
-        game.board.randomClicked = true;
-        game.board.restart();
-        // game.checker.restart();
-    }
-        
-    /*
-     * Resizes board
-     */
-    resize() {
-        game.board.BOARD_SIZE = document.getElementById('resize-input').value;
-        this.shuffle();
-    }
-
-    /*
-     * Resizes board when enter is pressed
-     */
-    resizeOnEnter(el) {
-        if(event.keyCode == 13) {
-            game.board.BOARD_SIZE = el.value;
-            this.shuffle();
-        }
+        this.playPauseButton.addEventListener('click', game.playPause.bind(game));
+        this.restartButton.addEventListener('click', game.restart.bind(game));
+        this.shuffleButton.addEventListener('click', game.shuffle.bind(game));
+        this.randomButton.addEventListener('click', game.randomStart.bind(game));
+        this.resizeButton.addEventListener('click', game.resize.bind(game));
     }
     
     bipListener() {
