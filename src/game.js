@@ -8,9 +8,90 @@ class Game {
         this.looping = 0;
     }
     
-    restart() {
+    reInit() {
         this.visited.length = 0;
         this.looping = 0;
+    }
+    
+    /*
+     * Pause/resume checker
+     */
+    playPause() {
+        // Turn off button if there's no checker or if it fell off the edge
+        if (!this.visited.length || !checker.checker) {
+            // Issue: If you click pause when checker is in motion off the edge of the board,
+            // pause will stay in effect if you restart, shuffle, or resize.
+            // I haven't figured out the condition to check and see if we're in that state.
+            return;
+        }
+        this.pauseClicked = !this.pauseClicked;
+        if (this.pauseClicked) {
+            document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
+        } else {
+            checker.unpause();
+            document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
+        }
+    }
+    
+    
+    /*
+     * Plays current turn again from the same start spot
+     */
+    restart() {
+        if (!this.visited.length) {
+            // Turn off button if game hasn't started yet
+            return;
+        }
+        this.togglePause();
+        board.restart();
+        checker.restart();
+    }
+    
+    /*
+     * Shuffles arrows
+     */
+    shuffle() {
+        this.togglePause();
+        // Don't reshuffle if shuffle is already in progress
+        // This works most of the time, but not perfectly... how to make it better?
+        if (!this.tableSetInProgress) {
+            board.createNew();
+            board.createSquareArr();
+        }
+    }
+    
+    /*
+     * Starts player at a random square on the board
+     */
+    randomStart() {
+        this.togglePause();
+        board.randomClicked = true;
+        board.restart();
+        // checker.restart();
+    }
+        
+    /*
+     * Resizes board
+     */
+    resize() {
+        board.BOARD_SIZE = document.getElementById('resize-input').value;
+        this.shuffle();
+    }
+
+    /*
+     * Resizes board when enter is pressed
+     */
+    resizeOnEnter(el) {
+        if(event.keyCode == 13) {
+            board.BOARD_SIZE = el.value;
+            this.shuffle();
+        }
+    }
+    
+    togglePause() {
+        if (this.pauseClicked) {
+            this.playPause();
+        }
     }
     
     /*

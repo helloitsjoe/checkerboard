@@ -169,7 +169,7 @@ class Board {
         this.endText.classList.remove('text-end');
 
         this.bg.gotoAndStop(0);
-        game.restart();
+        game.reInit();
     }
     
     restart() {
