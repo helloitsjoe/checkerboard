@@ -1,24 +1,34 @@
+const Gui = require('./gui');
+const Board = require('./board');
+const Checker = require('./checker');
+
 class Game {
     constructor() {
         this.pauseClicked = false;
+        this.config = require('./gameConfig.json');
+        
+        this.gui = new Gui(this);
+        this.board = new Board(this);
+        this.checker = new Checker(this);
+        
     }
     
     /*
      * Pause/resume checker
      */
     playPause() {
-        PIXI.animate.Animator.stop(checker._checker);
+        PIXI.animate.Animator.stop(this.checker._checker);
         // Turn off button if there's no checker or if it fell off the edge
-        if (!board.visited.length) {
+        if (!this.board.visited.length) {
             return;
         }
         this.pauseClicked = !this.pauseClicked;
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (checker._checker) {
+            if (this.checker._checker) {
                 this.pauseClicked = false;
-                checker.unpause();
+                this.checker.unpause();
             }
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
@@ -29,11 +39,11 @@ class Game {
      * Plays current turn again from the same start spot
      */
     restart() {
-        if (!board.visited.length) {
+        if (!this.board.visited.length) {
             // Turn off button if game hasn't started yet
             return;
         }
-        checker.restart();
+        this.checker.restart();
     }
     
     /*
@@ -44,8 +54,8 @@ class Game {
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!this._tableSetInProgress) {
-            board.createNew();
-            board.createSquareArr();
+            this.board.createNew();
+            this.board.createSquareArr();
         }
     }
     
@@ -53,8 +63,8 @@ class Game {
      * Starts player at a random square on the board
      */
     randomStart() {
-        board.random();
-        checker.restart();
+        this.board.random();
+        this.checker.restart();
     }
         
     /*
@@ -85,21 +95,21 @@ class Game {
     }
     
     /*
-     * Check if we're still on the board or in a loop, call checker.move again if so
+     * Check if we're still on the board or in a loop, call this.checker.move again if so
      */
     checkPosition(x, y) {
         // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < board.BOARD_SIZE && y >= 0 && y < board.BOARD_SIZE) {
-            board.loopState(x, y);
+        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
+            this.board.loopState(x, y);
             
             // Set checker's onscreen position at new spot and move from there
-            checker.newPlace(x, y);
-            checker.move(x, y);
+            this.checker.newPlace(x, y);
+            this.checker.move(x, y);
             
         // If it's not on the board, you fell off the edge!
         } else {
-            board.edgeState();
-            checker.remove(x, y);
+            this.board.edgeState();
+            this.checker.remove(x, y);
         }
     }
 }
