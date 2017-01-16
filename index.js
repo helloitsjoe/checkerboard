@@ -1,3 +1,4 @@
+// TODO: figure out how to require these here, instead of including them as separate scripts in index.html
 // require('pixi.js');
 // require('pixi-animate');
 // require('../assets/test.js');
@@ -18,9 +19,9 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 const stage = new PIXI.Container();
 
 const game = new Game();
-const gui = new Gui();
-// const board = new Board();
-// const checker = new Checker();
+const gui = new Gui(game);
+const board = new Board();
+const checker = new Checker();
 
 PIXI.animate.load(lib.test, stage, (test) => {
     game.board.setTheTable(test)
