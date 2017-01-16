@@ -20,6 +20,9 @@ class Checker {
         }, 'assets');
     }
     
+    /*
+     * Restart checker's position
+     */
     restart() {
         if (!this.checker) {
             // If the checker fell off, don't play 'dropOut' animation
@@ -58,9 +61,21 @@ class Checker {
         this.move(lastVisited.x, lastVisited.y);
     }
     
-    remove() {
+    /*
+     * Remove checker when it falls off the edge or if the board gets reset
+     */
+    remove(x, y) {
+        // Move checker's onscreen position off the board
+        if (x || y) {
+            checker.newPlace(x, y);
+        }
+        
         playAudio('zap', 200);
-        PIXI.animate.Animator.play(checker.checker, config.frameLabels.FALL);
+        
+        PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL, () => {
+            this.checker.destroy();
+            this.checker = null;
+        });
     }
         
     /*
@@ -98,18 +113,6 @@ class Checker {
                 break;
             }
             game.checkPosition(x, y);
-        });
-    }
-    
-    edgeState(x, y) {
-        // Move checker's onscreen position off the board
-        checker.newPlace(x, y);
-        
-        playAudio('zap', 200);
-        
-        PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL, () => {
-            this.checker.destroy();
-            this.checker = null;
         });
     }
 }

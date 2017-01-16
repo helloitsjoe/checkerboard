@@ -15,7 +15,10 @@ class GUI {
         this.randomButton.addEventListener('click', game.randomStart.bind(game));
         this.resizeButton.addEventListener('click', game.resize.bind(game));
     }
-    
+        
+        /*
+         * Fire button audio on mouse mouseenter
+         */
     bipListener() {
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0; i < guiElems.length; i++) {

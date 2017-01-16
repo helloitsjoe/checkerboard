@@ -1,5 +1,3 @@
-
-
 class Game {
     constructor() {
         this.visited = [];
@@ -8,6 +6,9 @@ class Game {
         this.looping = 0;
     }
     
+    /*
+     * Clears visited array, resets looping check
+     */
     reInit() {
         this.visited.length = 0;
         this.looping = 0;
@@ -88,6 +89,9 @@ class Game {
         }
     }
     
+    /*
+     * Repeated logic in shuffle, restart, randomStart
+     */
     togglePause() {
         if (this.pauseClicked) {
             this.playPause();
@@ -115,7 +119,7 @@ class Game {
         // If it's not on the board, you fell off the edge!
         } else {
             board.edgeState();
-            checker.edgeState(x, y);
+            checker.remove(x, y);
         }
     }
 }

@@ -31,7 +31,6 @@ class Board {
         }
     }
 
-    
     /*
      * Build the board
      */
@@ -123,7 +122,7 @@ class Board {
     }
     
     /*
-     * Remove board before resetting - called by gui.shuffle()
+     * Remove board and create a new one - called by gui.shuffle()
      */
     createNew() {
         this.tableSetInProgress = true;
@@ -144,7 +143,8 @@ class Board {
             });
         });
 
-        // this.squares.length = 0;
+        // resizeBoard needs the array of squares to be reset
+        this.squares.length = 0;
         this.refreshBoard();
         setTimeout(()=>{
             if (checker.checker) {
@@ -172,6 +172,9 @@ class Board {
         game.reInit();
     }
     
+    /*
+     * Restart checker from same spot without rebuilding board
+     */
     restart() {
         if (this.randomClicked) {
             this.randomClicked = false;
@@ -183,6 +186,9 @@ class Board {
         checker.restart()
     }
     
+    /*
+     * State of board if checker is looping, accessed by game.checkPosition
+     */
     loopState() {
         if (game.looping === 1) {
 
@@ -208,6 +214,9 @@ class Board {
         }
     }
     
+    /*
+     * State of board if checker falls off edge, accessed by game.checkPosition
+     */
     edgeState() {
         // Turn squares red
         game.visited.forEach((spot) => {
