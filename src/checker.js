@@ -24,6 +24,7 @@ class Checker {
      * Restart checker's position
      */
     restart() {
+        game.togglePause();
         if (!this._checker) {
             // If the checker fell off, don't play 'dropOut' animation
             this.dropOnBoard(board._startX, board._startY);

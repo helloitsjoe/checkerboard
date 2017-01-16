@@ -8,17 +8,16 @@ class Game {
      */
     playPause() {
         // Turn off button if there's no checker or if it fell off the edge
-        if (!board.visited.length || !checker._checker) {
-            // Issue: If you click pause when checker is in motion off the edge of the board,
-            // pause will stay in effect if you restart, shuffle, or resize.
-            // I haven't figured out the condition to check and see if we're in that state.
+        if (!board.visited.length) {
             return;
         }
         this.pauseClicked = !this.pauseClicked;
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            checker.unpause();
+            if (checker._checker) {
+                checker.unpause();
+            }
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
@@ -32,7 +31,6 @@ class Game {
             // Turn off button if game hasn't started yet
             return;
         }
-        this.togglePause();
         checker.restart();
     }
     
@@ -53,7 +51,6 @@ class Game {
      * Starts player at a random square on the board
      */
     randomStart() {
-        this.togglePause();
         board.random();
         checker.restart();
     }
