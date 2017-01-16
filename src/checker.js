@@ -1,6 +1,6 @@
 class Checker {
     constructor() {
-        this.checker;
+        this._checker;
     }
     
     /*
@@ -9,7 +9,7 @@ class Checker {
     dropOnBoard(x, y) {
         board.refreshBoard();
         PIXI.animate.load(lib.checker, board.board, (checker)=>{
-            this.checker = checker;
+            this._checker = checker;
             this.newPlace(x, y);
             
             playAudio('whoosh', 0);
@@ -24,14 +24,14 @@ class Checker {
      * Restart checker's position
      */
     restart() {
-        if (!this.checker) {
+        if (!this._checker) {
             // If the checker fell off, don't play 'dropOut' animation
-            this.dropOnBoard(board.startX, board.startY);
+            this.dropOnBoard(board._startX, board._startY);
         } else {
             playAudio('whooshOut', 200);
             
-            PIXI.animate.Animator.play(this.checker, 'dropOut', () => {
-                this.dropOnBoard(board.startX, board.startY);
+            PIXI.animate.Animator.play(this._checker, 'dropOut', () => {
+                this.dropOnBoard(board._startX, board._startY);
             });
         }
     }
@@ -40,15 +40,15 @@ class Checker {
      * Sets x/y position on stage
      */
     newPlace(x, y) {
-        this.checker.gotoAndStop('pause');
+        this._checker.gotoAndStop('pause');
         
         // Add first position to array
-        game.visited.push({x, y});
+        board.visited.push({x, y});
         if (board.squares[x] && board.squares[x][y]) {
             board.squares[x][y].stored = true;
         }
-        this.checker.x = ( x - y ) * board.X_OFFSET;
-        this.checker.y = ( y + x ) * board.Y_OFFSET;
+        this._checker.x = ( x - y ) * board.X_OFFSET;
+        this._checker.y = ( y + x ) * board.Y_OFFSET;
     }
 
     /*
@@ -56,7 +56,7 @@ class Checker {
      */
     unpause(x, y) {
         game.pauseClicked = false;
-        let lastVisited = game.visited[game.visited.length - 1];
+        let lastVisited = board.visited[board.visited.length - 1];
         this.newPlace(lastVisited.x, lastVisited.y);
         this.move(lastVisited.x, lastVisited.y);
     }
@@ -72,10 +72,14 @@ class Checker {
         
         playAudio('zap', 200);
         
-        PIXI.animate.Animator.play(this.checker, config.frameLabels.FALL, () => {
-            this.checker.destroy();
-            this.checker = null;
+        PIXI.animate.Animator.play(this._checker, config.frameLabels.FALL, () => {
+            this.destroy();
         });
+    }
+    
+    destroy() {
+        this._checker.destroy();
+        this._checker = null;
     }
         
     /*
@@ -96,7 +100,7 @@ class Checker {
         // Note: My dog Olive HATES this sound.
         playAudio('shift', 400);
         
-        PIXI.animate.Animator.play(this.checker, moveAnimLabel, ()=>{
+        PIXI.animate.Animator.play(this._checker, moveAnimLabel, ()=>{
             // Move based on direction
             switch(board.squares[x][y].direction){
               case 'N':
