@@ -18,7 +18,7 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 const stage = new PIXI.Container();
 
 const game = new Game();
-const gui = new Gui();
+const gui = new Gui(game);
 const board = new Board();
 const checker = new Checker();
 
