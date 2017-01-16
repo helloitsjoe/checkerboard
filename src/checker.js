@@ -31,6 +31,7 @@ class Checker {
             playAudio('whooshOut', 200);
             
             PIXI.animate.Animator.play(this._checker, 'dropOut', () => {
+                this.destroy();
                 this.dropOnBoard(board._startX, board._startY);
             });
         }
@@ -67,7 +68,7 @@ class Checker {
     remove(x, y) {
         // Move checker's onscreen position off the board
         if (x || y) {
-            checker.newPlace(x, y);
+            this.newPlace(x, y);
         }
         
         playAudio('zap', 200);

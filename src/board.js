@@ -113,7 +113,7 @@ class Board {
                 // Save reference to clicked position in case 'Restart' button is clicked
                 this._startX = x;
                 this._startY = y;
-                this.restart();
+                checker.restart();
             });
             
             playAudio('set', 200);
@@ -178,15 +178,11 @@ class Board {
     /*
      * Restart checker from same spot without rebuilding board
      */
-    restart() {
-        if (this.randomClicked) {
-            this.randomClicked = false;
-            let x = Math.floor(Math.random() * board.BOARD_SIZE);
-            let y = Math.floor(Math.random() * board.BOARD_SIZE);
-            board.startX = x;
-            board.startY = y;
-        }
-        checker.restart()
+    random() {
+        let x = Math.floor(Math.random() * board.BOARD_SIZE);
+        let y = Math.floor(Math.random() * board.BOARD_SIZE);
+        this._startX = x;
+        this._startY = y;
     }
     
     /*

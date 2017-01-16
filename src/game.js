@@ -1,7 +1,6 @@
 class Game {
     constructor() {
         this.pauseClicked = false;
-        this.randomClicked = false;
     }
     
     /*
@@ -34,7 +33,6 @@ class Game {
             return;
         }
         this.togglePause();
-        board.restart();
         checker.restart();
     }
     
@@ -56,9 +54,8 @@ class Game {
      */
     randomStart() {
         this.togglePause();
-        board.randomClicked = true;
-        board.restart();
-        // checker.restart();
+        board.random();
+        checker.restart();
     }
         
     /*
