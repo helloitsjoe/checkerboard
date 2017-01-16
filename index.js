@@ -1,10 +1,3 @@
-// TODO: figure out how to require these here, instead of including them as separate scripts in index.html
-// require('pixi.js');
-// require('pixi-animate');
-// require('../assets/test.js');
-// require('../assets/checker.js');
-// require('../assets/square.js');
-
 const Game = require('./src/game');
 const Gui = require('./src/gui');
 const Board = require('./src/board');
@@ -19,7 +12,7 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 const stage = new PIXI.Container();
 
 const game = new Game();
-const gui = new Gui(game);
+const gui = new Gui();
 const board = new Board();
 const checker = new Checker();
 
