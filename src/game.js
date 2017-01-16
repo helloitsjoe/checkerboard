@@ -44,8 +44,8 @@ class Game {
             return;
         }
         this.togglePause();
-        board.restart();
-        checker.restart();
+        this.board.restart();
+        this.checker.restart();
     }
     
     /*
@@ -56,8 +56,8 @@ class Game {
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!this.tableSetInProgress) {
-            board.createNew();
-            board.createSquareArr();
+            this.board.createNew();
+            this.board.createSquareArr();
         }
     }
     
@@ -66,8 +66,8 @@ class Game {
      */
     randomStart() {
         this.togglePause();
-        board.randomClicked = true;
-        board.restart();
+        this.board.randomClicked = true;
+        this.board.restart();
         // checker.restart();
     }
         
@@ -75,7 +75,7 @@ class Game {
      * Resizes board
      */
     resize() {
-        board.BOARD_SIZE = document.getElementById('resize-input').value;
+        this.board.BOARD_SIZE = document.getElementById('resize-input').value;
         this.shuffle();
     }
 
@@ -84,7 +84,7 @@ class Game {
      */
     resizeOnEnter(el) {
         if(event.keyCode == 13) {
-            board.BOARD_SIZE = el.value;
+            this.board.BOARD_SIZE = el.value;
             this.shuffle();
         }
     }
