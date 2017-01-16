@@ -1,3 +1,4 @@
+// TODO: figure out how to require these here, instead of including them as separate scripts in index.html
 // require('pixi.js');
 // require('pixi-animate');
 // require('../assets/test.js');

@@ -220,10 +220,15 @@ class Board {
      * State of board if checker falls off edge, accessed by game.checkPosition
      */
     edgeState() {
+        // Remove "last visited" spot since it will be off the board
+        this.visited.pop();
+        
         // Turn squares red
         this.visited.forEach((spot) => {
             PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, config.frameLabels.FALL);
         });
+        
+        // this.visited.length = 0;
         
         // Turn BG red
         PIXI.animate.Animator.play(this._bg, config.frameLabels.FALL);

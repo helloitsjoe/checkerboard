@@ -1,6 +1,7 @@
 class Checker {
     constructor() {
         this._checker;
+        this._moveAnimLabel;
     }
     
     /*
@@ -10,6 +11,9 @@ class Checker {
         board.refreshBoard();
         PIXI.animate.load(lib.checker, board.board, (checker)=>{
             this._checker = checker;
+            // Add first position to array
+            board.visited.push({x, y});
+            
             this.newPlace(x, y);
             
             playAudio('whoosh', 0);
@@ -44,8 +48,6 @@ class Checker {
     newPlace(x, y) {
         this._checker.gotoAndStop('pause');
         
-        // Add first position to array
-        board.visited.push({x, y});
         if (board.squares[x] && board.squares[x][y]) {
             board.squares[x][y].stored = true;
         }
@@ -56,11 +58,16 @@ class Checker {
     /*
      * Resume from pause
      */
-    unpause(x, y) {
-        game.pauseClicked = false;
-        let lastVisited = board.visited[board.visited.length - 1];
-        this.newPlace(lastVisited.x, lastVisited.y);
-        this.move(lastVisited.x, lastVisited.y);
+    unpause() {
+        let fallStopFrame = checker._checker.labelsMap[`${config.frameLabels.FALL}_stop`];
+        let moveStopFrame = checker._checker.labelsMap[`${this._moveAnimLabel}_stop`];
+        
+        let endFrame = this._checker.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
+
+        PIXI.animate.Animator.fromTo(this._checker, this._checker.currentFrame, endFrame, false, () => {
+            let lastVisited = board.visited[board.visited.length - 1];
+            game.checkPosition(lastVisited.x, lastVisited.y);
+        });
     }
     
     /*
@@ -90,34 +97,34 @@ class Checker {
     move(x, y) {
         let currSquare = board.squares[x][y];
         // If the square isn't lit up yet, light it up white
-        if (currSquare.state.currentFrame < 1) {
+        if (currSquare && currSquare.state.currentFrame < 1) {
             PIXI.animate.Animator.play(currSquare.state, config.frameLabels.VISITED);
         }
-        if (game.pauseClicked) {
-            return;
-        }
-        
-        let moveAnimLabel = 'move' + board.squares[x][y].direction;
+
+        this._moveAnimLabel = 'move' + board.squares[x][y].direction;
         
         // Note: My dog Olive HATES this sound.
         playAudio('shift', 400);
         
-        PIXI.animate.Animator.play(this._checker, moveAnimLabel, ()=>{
-            // Move based on direction
-            switch(board.squares[x][y].direction){
-              case 'N':
-                y -= 1;
-                break;
-              case 'S':
-                y += 1;
-                break;
-              case 'W':
-                x -= 1;
-                break;
-              case 'E':
-                x += 1;
-                break;
-            }
+        // Move based on direction
+        switch(board.squares[x][y].direction){
+          case 'N':
+            y -= 1;
+            break;
+          case 'S':
+            y += 1;
+            break;
+          case 'W':
+            x -= 1;
+            break;
+          case 'E':
+            x += 1;
+            break;
+        }
+
+        board.visited.push({x, y});
+        
+        PIXI.animate.Animator.play(this._checker, this._moveAnimLabel, ()=>{
             game.checkPosition(x, y);
         });
     }

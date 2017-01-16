@@ -7,6 +7,7 @@ class Game {
      * Pause/resume checker
      */
     playPause() {
+        PIXI.animate.Animator.stop(checker._checker);
         // Turn off button if there's no checker or if it fell off the edge
         if (!board.visited.length) {
             return;
@@ -16,6 +17,7 @@ class Game {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
             if (checker._checker) {
+                this.pauseClicked = false;
                 checker.unpause();
             }
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
