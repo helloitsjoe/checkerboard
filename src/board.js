@@ -21,7 +21,6 @@ class Board {
         this.createSquareArr();
     }
     
-    
     /*
     * Create an array to fill with squares/directions
     */
@@ -185,6 +184,9 @@ class Board {
         this._startY = y;
     }
     
+    /*
+     * Transition animation
+     */
     lightUpSquare(x, y) {
         let currSquare = this.squares[x][y];
         // If the square isn't lit up yet, light it up white
