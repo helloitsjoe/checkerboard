@@ -1,8 +1,5 @@
 const Game = require('./src/game');
-const Gui = require('./src/gui');
-const Board = require('./src/board');
-const Checker = require('./src/checker');
-const config = require('./src/gameConfig.json');
+const game = new Game();
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),
@@ -11,13 +8,8 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 });
 const stage = new PIXI.Container();
 
-const game = new Game();
-const gui = new Gui();
-const board = new Board();
-const checker = new Checker();
-
 PIXI.animate.load(lib.test, stage, (test) => {
-    board.setTheTable(test)
+    game.board.setTheTable(test)
 }, 'assets');
 update();
 

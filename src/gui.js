@@ -1,5 +1,5 @@
 class GUI {
-    constructor() {
+    constructor(game) {
         this.staggerGUI();
         this.bipListener();
         
