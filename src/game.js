@@ -6,6 +6,7 @@ class Game {
     constructor() {
         this.pauseClicked = false;
         this.config = require('./gameConfig.json');
+        this.stage = new PIXI.Container();
         
         this.gui = new Gui(this);
         this.board = new Board(this);
@@ -35,11 +36,11 @@ class Game {
      * Pause/resume checker
      */
     playPause() {
-        PIXI.animate.Animator.stop(this.checker._clip);
         // Turn off button if there's no checker or if it fell off the edge
         if (!this.board.visited.length) {
             return;
         }
+        this.checker.pause();
         this.pauseClicked = !this.pauseClicked;
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
@@ -110,6 +111,15 @@ class Game {
         if (this.pauseClicked) {
             this.playPause();
         }
+    }
+    
+    /*
+     * Plays audio from wav file
+     */
+    playAudio(sound, ms) {
+        setTimeout(()=>{
+            new Audio(`./audio/${sound}.wav`).play();
+        }, ms)
     }
 }
 

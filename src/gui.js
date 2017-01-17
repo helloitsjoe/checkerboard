@@ -1,5 +1,7 @@
 class GUI {
     constructor(game) {
+        this._game = game;
+        
         this.staggerGUI();
         this.bipListener();
         
@@ -23,7 +25,7 @@ class GUI {
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0; i < guiElems.length; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
-                playAudio('bip', 0)
+                this._game.playAudio('bip', 0)
             })
         }
     }

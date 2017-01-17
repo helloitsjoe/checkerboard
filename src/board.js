@@ -1,7 +1,9 @@
 class Board {
     constructor(game) {
-        this.X_OFFSET = game.config.SQUARE_WIDTH / 2;
-        this.Y_OFFSET = (game.config.SQUARE_HEIGHT - 24) / 2;
+        this._game = game;
+        
+        this.X_OFFSET = this._game.config.SQUARE_WIDTH / 2;
+        this.Y_OFFSET = (this._game.config.SQUARE_HEIGHT - 24) / 2;
         this.BOARD_SIZE = document.getElementById('resize-input').value;
         this._endText = document.getElementById('text');
         
@@ -44,15 +46,16 @@ class Board {
 
         this._bg.gotoAndStop(0);
         this.board = new PIXI.Container();
-        stage.addChild(this.board);
+        this._game.stage.addChild(this.board);
         
-        this.board.x = stage.width / 2;
-        this.board.y = stage.height / 2 - 60;
+        this.board.x = this._game.stage.width / 2;
+        this.board.y = this._game.stage.height / 2 - 60;
         this._boardBase.y = 440 + (5 * this.BOARD_SIZE);
-        this.board.scale.x = this.board.scale.y = (stage.width / (game.config.SQUARE_WIDTH * this.BOARD_SIZE)) * game.config.BOARD_SCALE_PCT;
+        this.board.scale.x = this.board.scale.y = (this._game.stage.width / (this._game.config.SQUARE_WIDTH * this.BOARD_SIZE)) * this._game.config.BOARD_SCALE_PCT;
         
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
+        const game = this._game;
         for (let row = 0; row < game.board.squares.length; row++){
             (function (idx) {
                 setTimeout(()=>{
@@ -95,7 +98,7 @@ class Board {
             square.interactive = true;
             
             // Set direction arrow on square
-            square.direction = game.config.DIRECTIONS[Math.floor(Math.random() * game.config.DIRECTIONS.length)];;
+            square.direction = this._game.config.DIRECTIONS[Math.floor(Math.random() * this._game.config.DIRECTIONS.length)];;
             square.arrows.gotoAndStop(square.direction);
             
             // Checkerboard pattern
@@ -112,10 +115,10 @@ class Board {
                 // Save reference to clicked position in case 'Restart' button is clicked
                 this._startX = x;
                 this._startY = y;
-                game.checker.restart();
+                this._game.checker.restart();
             });
             
-            playAudio('set', 200);
+            this._game.playAudio('set', 200);
 
             PIXI.animate.Animator.play(square, 'fadeIn', ()=>{
                 this._tableSetInProgress = false;
@@ -130,17 +133,17 @@ class Board {
         this._tableSetInProgress = true;
         
         // If we've started a round, remove the checker
-        if (this.visited.length && game.checker._clip) {
-            game.checker.remove();
+        if (this.visited.length && this._game.checker._clip) {
+            this._game.checker.remove();
         }
         
-        playAudio('remove', 200);
+        this._game.playAudio('remove', 200);
 
         this.eachSquare((square)=>{
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
-                stage.removeChild(this.board);
+                this._game.stage.removeChild(this.board);
                 this.board.destroy();
             });
         });
@@ -149,8 +152,8 @@ class Board {
         this.squares.length = 0;
         this.refreshBoard();
         setTimeout(()=>{
-            if (game.checker._clip) {
-                game.checker.destroy();
+            if (this._game.checker._clip) {
+                this._game.checker.destroy();
             }
             this.setTheTable();
         }, 500)
@@ -158,7 +161,7 @@ class Board {
     
     /*
      * Reset states of elements
-     * Called by this.createNew() and game.checker.dropOnBoard()
+     * Called by this.createNew() and this._game.checker.dropOnBoard()
      */
     refreshBoard() {
         this.eachSquare((square)=>{
@@ -191,12 +194,12 @@ class Board {
         let currSquare = this.squares[x][y];
         // If the square isn't lit up yet, light it up white
         if (currSquare && currSquare.state.currentFrame < 1) {
-            PIXI.animate.Animator.play(currSquare.state, game.config.frameLabels.VISITED);
+            PIXI.animate.Animator.play(currSquare.state, this._game.config.frameLabels.VISITED);
         }
     }
     
     /*
-     * State of board if checker is looping, accessed by game.checkPosition
+     * State of board if checker is looping, accessed by this._game.checkPosition
      */
     loopState(x, y) {
         if (this.squares[x][y].stored) {
@@ -206,13 +209,13 @@ class Board {
 
             // Turn visited squares green
             this.visited.forEach((spot) => {
-                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, game.config.frameLabels.LOOPING);
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, this._game.config.frameLabels.LOOPING);
             });
 
-            playAudio('bell', 200);
+            this._game.playAudio('bell', 200);
             
             // Turn BG green
-            PIXI.animate.Animator.play(this._bg, game.config.frameLabels.LOOPING);
+            PIXI.animate.Animator.play(this._bg, this._game.config.frameLabels.LOOPING);
             
             // Show text onscreen
             this._endText.innerHTML = 'YOU ARE IN A LOOP';
@@ -227,7 +230,7 @@ class Board {
     }
     
     /*
-     * State of board if checker falls off edge, accessed by game.checkPosition
+     * State of board if checker falls off edge, accessed by this._game.checkPosition
      */
     edgeState() {
         // Remove "last visited" spot since it will be off the board
@@ -235,13 +238,13 @@ class Board {
         
         // Turn squares red
         this.visited.forEach((spot) => {
-            PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, game.config.frameLabels.FALL);
+            PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, this._game.config.frameLabels.FALL);
         });
         
         // this.visited.length = 0;
         
         // Turn BG red
-        PIXI.animate.Animator.play(this._bg, game.config.frameLabels.FALL);
+        PIXI.animate.Animator.play(this._bg, this._game.config.frameLabels.FALL);
         
         // Show text onscreen
         this._endText.innerHTML = 'YOU FELL OFF THE EDGE';

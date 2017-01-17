@@ -1,3 +1,11 @@
+require('pixi.js');
+require('pixi-animate');
+global.lib = {
+    test: require('./assets/test.js').stage,
+    checker: require('./assets/checker.js').stage,
+    square: require('./assets/square.js').stage
+};
+
 const Game = require('./src/game');
 const game = new Game();
 
@@ -6,21 +14,15 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     backgroundColor: 0x0,
     antialias: true
 });
-const stage = new PIXI.Container();
 
-PIXI.animate.load(lib.test, stage, (test) => {
+PIXI.animate.load(lib.test, game.stage, (test) => {
     game.board.setTheTable(test)
 }, 'assets');
 update();
 
 function update() {
-    renderer.render(stage);
+    renderer.render(game.stage);
     requestAnimationFrame(update);
 }
 
-function playAudio(sound, ms) {
-    setTimeout(()=>{
-        new Audio(`./audio/${sound}.wav`).play();
-    }, ms)
-}
 
