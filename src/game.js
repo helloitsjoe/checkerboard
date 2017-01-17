@@ -11,14 +11,18 @@ class Game {
         if (x >=0 && x < board.BOARD_SIZE && y >= 0 && y < board.BOARD_SIZE) {
             board.loopState(x, y);
             
-            // Set checker's onscreen position at new spot and move from there
-            checker.newPlace(x, y);
-            checker.move(x, y);
+            checker.animateMove(() => {
+                // Set checker's onscreen position at new spot and move from there
+                checker.newPlace(x, y);
+                checker.move(x, y);
+            });
             
         // If it's not on the board, you fell off the edge!
         } else {
             board.edgeState();
-            checker.remove(x, y);
+            checker.animateMove(() => {
+                checker.remove(x, y);
+            })
         }
     }
     

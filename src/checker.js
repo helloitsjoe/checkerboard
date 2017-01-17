@@ -66,7 +66,9 @@ class Checker {
 
         PIXI.animate.Animator.fromTo(this._clip, this._clip.currentFrame, endFrame, false, () => {
             let lastVisited = board.visited[board.visited.length - 1];
-            game.checkPosition(lastVisited.x, lastVisited.y);
+            this.newPlace(lastVisited.x, lastVisited.y)
+            this.move(lastVisited.x, lastVisited.y)
+            // game.checkPosition(lastVisited.x, lastVisited.y);
         });
     }
     
@@ -119,10 +121,14 @@ class Checker {
         }
 
         board.visited.push({x, y});
-        
-        PIXI.animate.Animator.play(this._clip, this._moveAnimLabel, ()=>{
-            game.checkPosition(x, y);
-        });
+        game.checkPosition(x, y);
+    }
+    
+    /*
+     * Animate the checker moving
+     */
+    animateMove(callback) {
+        PIXI.animate.Animator.play(this._clip, this._moveAnimLabel, callback);
     }
 }
 
