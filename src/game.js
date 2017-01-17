@@ -4,10 +4,29 @@ class Game {
     }
     
     /*
+     * Check if we're still on the board or in a loop, call checker.move again if so
+     */
+    checkPosition(x, y) {
+        // If the new position is on the board, compare it to previous spots
+        if (x >=0 && x < board.BOARD_SIZE && y >= 0 && y < board.BOARD_SIZE) {
+            board.loopState(x, y);
+            
+            // Set checker's onscreen position at new spot and move from there
+            checker.newPlace(x, y);
+            checker.move(x, y);
+            
+        // If it's not on the board, you fell off the edge!
+        } else {
+            board.edgeState();
+            checker.remove(x, y);
+        }
+    }
+    
+    /*
      * Pause/resume checker
      */
     playPause() {
-        PIXI.animate.Animator.stop(checker._checker);
+        PIXI.animate.Animator.stop(checker._clip);
         // Turn off button if there's no checker or if it fell off the edge
         if (!board.visited.length) {
             return;
@@ -16,7 +35,7 @@ class Game {
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (checker._checker) {
+            if (checker._clip) {
                 this.pauseClicked = false;
                 checker.unpause();
             }
@@ -81,25 +100,6 @@ class Game {
     togglePause() {
         if (this.pauseClicked) {
             this.playPause();
-        }
-    }
-    
-    /*
-     * Check if we're still on the board or in a loop, call checker.move again if so
-     */
-    checkPosition(x, y) {
-        // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < board.BOARD_SIZE && y >= 0 && y < board.BOARD_SIZE) {
-            board.loopState(x, y);
-            
-            // Set checker's onscreen position at new spot and move from there
-            checker.newPlace(x, y);
-            checker.move(x, y);
-            
-        // If it's not on the board, you fell off the edge!
-        } else {
-            board.edgeState();
-            checker.remove(x, y);
         }
     }
 }

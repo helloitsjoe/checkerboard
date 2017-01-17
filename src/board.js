@@ -131,7 +131,7 @@ class Board {
         this._tableSetInProgress = true;
         
         // If we've started a round, remove the checker
-        if (this.visited.length && checker._checker) {
+        if (this.visited.length && checker._clip) {
             checker.remove();
         }
         
@@ -150,7 +150,7 @@ class Board {
         this.squares.length = 0;
         this.refreshBoard();
         setTimeout(()=>{
-            if (checker._checker) {
+            if (checker._clip) {
                 checker.destroy();
             }
             this.setTheTable();
