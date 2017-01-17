@@ -14,10 +14,29 @@ class Game {
     }
     
     /*
+     * Check if we're still on the board or in a loop, call this.checker.move again if so
+     */
+    checkPosition(x, y) {
+        // If the new position is on the board, compare it to previous spots
+        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
+            this.board.loopState(x, y);
+            
+            // Set checker's onscreen position at new spot and move from there
+            this.checker.newPlace(x, y);
+            this.checker.move(x, y);
+            
+        // If it's not on the board, you fell off the edge!
+        } else {
+            this.board.edgeState();
+            this.checker.remove(x, y);
+        }
+    }
+    
+    /*
      * Pause/resume checker
      */
     playPause() {
-        PIXI.animate.Animator.stop(this.checker._checker);
+        PIXI.animate.Animator.stop(this.checker._clip);
         // Turn off button if there's no checker or if it fell off the edge
         if (!this.board.visited.length) {
             return;
@@ -26,7 +45,7 @@ class Game {
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (this.checker._checker) {
+            if (this.checker._clip) {
                 this.pauseClicked = false;
                 this.checker.unpause();
             }
@@ -91,25 +110,6 @@ class Game {
     togglePause() {
         if (this.pauseClicked) {
             this.playPause();
-        }
-    }
-    
-    /*
-     * Check if we're still on the board or in a loop, call this.checker.move again if so
-     */
-    checkPosition(x, y) {
-        // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
-            this.board.loopState(x, y);
-            
-            // Set checker's onscreen position at new spot and move from there
-            this.checker.newPlace(x, y);
-            this.checker.move(x, y);
-            
-        // If it's not on the board, you fell off the edge!
-        } else {
-            this.board.edgeState();
-            this.checker.remove(x, y);
         }
     }
 }

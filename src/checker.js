@@ -1,6 +1,6 @@
 class Checker {
     constructor(game) {
-        this._checker;
+        this._clip;
         this._moveAnimLabel;
     }
     
@@ -10,7 +10,7 @@ class Checker {
     dropOnBoard(x, y) {
         game.board.refreshBoard();
         PIXI.animate.load(lib.checker, game.board.board, (checker)=>{
-            this._checker = checker;
+            this._clip = checker;
             // Add first position to array
             game.board.visited.push({x, y});
             
@@ -29,13 +29,13 @@ class Checker {
      */
     restart() {
         game.togglePause();
-        if (!this._checker) {
+        if (!this._clip) {
             // If the checker fell off, don't play 'dropOut' animation
             this.dropOnBoard(game.board._startX, game.board._startY);
         } else {
             playAudio('whooshOut', 200);
             
-            PIXI.animate.Animator.play(this._checker, 'dropOut', () => {
+            PIXI.animate.Animator.play(this._clip, 'dropOut', () => {
                 this.destroy();
                 this.dropOnBoard(game.board._startX, game.board._startY);
             });
@@ -46,25 +46,25 @@ class Checker {
      * Sets x/y position on stage
      */
     newPlace(x, y) {
-        this._checker.gotoAndStop('pause');
+        this._clip.gotoAndStop('pause');
         
         if (game.board.squares[x] && game.board.squares[x][y]) {
             game.board.squares[x][y].stored = true;
         }
-        this._checker.x = ( x - y ) * game.board.X_OFFSET;
-        this._checker.y = ( y + x ) * game.board.Y_OFFSET;
+        this._clip.x = ( x - y ) * game.board.X_OFFSET;
+        this._clip.y = ( y + x ) * game.board.Y_OFFSET;
     }
 
     /*
      * Resume from pause
      */
     unpause() {
-        let fallStopFrame = this._checker.labelsMap[`${game.config.frameLabels.FALL}_stop`];
-        let moveStopFrame = this._checker.labelsMap[`${this._moveAnimLabel}_stop`];
+        let fallStopFrame = this._clip.labelsMap[`${game.config.frameLabels.FALL}_stop`];
+        let moveStopFrame = this._clip.labelsMap[`${this._moveAnimLabel}_stop`];
         
-        let endFrame = this._checker.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
+        let endFrame = this._clip.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
 
-        PIXI.animate.Animator.fromTo(this._checker, this._checker.currentFrame, endFrame, false, () => {
+        PIXI.animate.Animator.fromTo(this._clip, this._clip.currentFrame, endFrame, false, () => {
             let lastVisited = game.board.visited[game.board.visited.length - 1];
             game.checkPosition(lastVisited.x, lastVisited.y);
         });
@@ -81,25 +81,21 @@ class Checker {
         
         playAudio('zap', 200);
         
-        PIXI.animate.Animator.play(this._checker, game.config.frameLabels.FALL, () => {
+        PIXI.animate.Animator.play(this._clip, game.config.frameLabels.FALL, () => {
             this.destroy();
         });
     }
     
     destroy() {
-        this._checker.destroy();
-        this._checker = null;
+        this._clip.destroy();
+        this._clip = null;
     }
         
     /*
      * Move the checker one space
      */
     move(x, y) {
-        let currSquare = game.board.squares[x][y];
-        // If the square isn't lit up yet, light it up white
-        if (currSquare && currSquare.state.currentFrame < 1) {
-            PIXI.animate.Animator.play(currSquare.state, game.config.frameLabels.VISITED);
-        }
+        game.board.lightUpSquare(x, y);
 
         this._moveAnimLabel = 'move' + game.board.squares[x][y].direction;
         
@@ -124,7 +120,7 @@ class Checker {
 
         game.board.visited.push({x, y});
         
-        PIXI.animate.Animator.play(this._checker, this._moveAnimLabel, ()=>{
+        PIXI.animate.Animator.play(this._clip, this._moveAnimLabel, ()=>{
             game.checkPosition(x, y);
         });
     }

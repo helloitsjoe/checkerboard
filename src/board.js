@@ -1,5 +1,4 @@
 class Board {
-    
     constructor(game) {
         this.X_OFFSET = game.config.SQUARE_WIDTH / 2;
         this.Y_OFFSET = (game.config.SQUARE_HEIGHT - 24) / 2;
@@ -132,7 +131,7 @@ class Board {
         this._tableSetInProgress = true;
         
         // If we've started a round, remove the checker
-        if (this.visited.length && game.checker._checker) {
+        if (this.visited.length && game.checker._clip) {
             game.checker.remove();
         }
         
@@ -151,7 +150,7 @@ class Board {
         this.squares.length = 0;
         this.refreshBoard();
         setTimeout(()=>{
-            if (game.checker._checker) {
+            if (game.checker._clip) {
                 game.checker.destroy();
             }
             this.setTheTable();
@@ -184,6 +183,14 @@ class Board {
         let y = Math.floor(Math.random() * this.BOARD_SIZE);
         this._startX = x;
         this._startY = y;
+    }
+    
+    lightUpSquare(x, y) {
+        let currSquare = this.squares[x][y];
+        // If the square isn't lit up yet, light it up white
+        if (currSquare && currSquare.state.currentFrame < 1) {
+            PIXI.animate.Animator.play(currSquare.state, game.config.frameLabels.VISITED);
+        }
     }
     
     /*
