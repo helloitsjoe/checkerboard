@@ -95,11 +95,7 @@ class Checker {
      * Move the checker one space
      */
     move(x, y) {
-        let currSquare = board.squares[x][y];
-        // If the square isn't lit up yet, light it up white
-        if (currSquare && currSquare.state.currentFrame < 1) {
-            PIXI.animate.Animator.play(currSquare.state, config.frameLabels.VISITED);
-        }
+        board.lightUpSquare(x, y);
 
         this._moveAnimLabel = 'move' + board.squares[x][y].direction;
         

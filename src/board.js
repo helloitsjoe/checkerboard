@@ -185,6 +185,14 @@ class Board {
         this._startY = y;
     }
     
+    lightUpSquare(x, y) {
+        let currSquare = this.squares[x][y];
+        // If the square isn't lit up yet, light it up white
+        if (currSquare && currSquare.state.currentFrame < 1) {
+            PIXI.animate.Animator.play(currSquare.state, config.frameLabels.VISITED);
+        }
+    }
+    
     /*
      * State of board if checker is looping, accessed by game.checkPosition
      */
