@@ -23,7 +23,8 @@ class GUI {
      */
     bipListener() {
         let guiElems = document.getElementsByClassName('gui-element');
-        for (let i = 0; i < guiElems.length; i++) {
+        let len = guiElems.length;
+        for (let i = 0; i < len; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
                 this._game.playAudio('bip', 0)
             })
@@ -36,10 +37,11 @@ class GUI {
     staggerGUI() {
         let guiElems = document.querySelectorAll('.gui-element .box-resize');
         let gui = document.getElementById('gui');
+        let len = guiElems.length;
 
         // Stagger GUI motion
         gui.addEventListener('mouseover', () => {
-            for ( let i = 0; i < guiElems.length; i++ ) {
+            for ( let i = 0; i < len; i++ ) {
                 let elem = guiElems[i];
                 let delay = guiElems.length - i - 1;
                 elem.style.transitionDelay = ( delay * 50 ) + 'ms';
