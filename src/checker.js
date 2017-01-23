@@ -107,14 +107,15 @@ class Checker {
      */
     move(x, y) {
         this._game.board.lightUpSquare(x, y);
-
-        this._moveAnimLabel = 'move' + this._game.board.squares[x][y].direction;
+        
+        let direction = this._game.board.squares[x][y].direction;
+        this._moveAnimLabel = 'move' + direction;
         
         // Note: My dog Olive HATES this sound.
         this._game.playAudio('shift', 400);
         
         // Move based on direction
-        switch(this._game.board.squares[x][y].direction){
+        switch(direction){
           case 'N':
             y -= 1;
             break;

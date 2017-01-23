@@ -56,17 +56,17 @@ class Board {
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
         const game = this._game;
-        for (let row = 0; row < game.board.squares.length; row++){
+        for (let row = 0, len = game.board.squares.length; row < len; row++){
             (function (idx) {
                 setTimeout(()=>{
-                    for (let col = 0; col < game.board.squares[row].length; col++) {
+                    for (let col = 0, rowLen = game.board.squares[row].length; col < rowLen; col++) {
                         (function (idx) {
                             setTimeout(()=>{
                                 game.board.addSquare(col, row);
                             }, game.config.STAGGER_TIME * idx);
                         }(col));
                     }
-                }, game.config.STAGGER_TIME * (idx + (game.board.squares.length * idx)));
+                }, game.config.STAGGER_TIME * (idx + (len * idx)));
             }(row));
         }
     }
