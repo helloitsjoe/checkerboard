@@ -56,12 +56,10 @@ class Board {
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
         const game = this._game;
-        let len = game.board.squares.length;
-        for (let row = 0; row < len; row++){
+        for (let row = 0, len = game.board.squares.length; row < len; row++){
             (function (idx) {
                 setTimeout(()=>{
-                    let rowLen = game.board.squares[row].length;
-                    for (let col = 0; col < rowLen; col++) {
+                    for (let col = 0, rowLen = game.board.squares[row].length; col < rowLen; col++) {
                         (function (idx) {
                             setTimeout(()=>{
                                 game.board.addSquare(col, row);
@@ -211,9 +209,7 @@ class Board {
 
             // Turn visited squares green
             this.visited.forEach((spot) => {
-                let x = spot.x;
-                let y = spot.y;
-                PIXI.animate.Animator.play(this.squares[x][y].state, this._game.config.frameLabels.LOOPING);
+                PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, this._game.config.frameLabels.LOOPING);
             });
 
             this._game.playAudio('bell', 200);
@@ -228,9 +224,7 @@ class Board {
         // This is to stop repeated green square transition animation
         } if (this._looping > 1) {
             this.visited.forEach((spot) => {
-                let x = spot.x;
-                let y = spot.y;
-                this.squares[x][y].state.gotoAndStop('looping_stop');
+                this.squares[spot.x][spot.y].state.gotoAndStop('looping_stop');
             });
         }
     }
@@ -244,9 +238,7 @@ class Board {
         
         // Turn squares red
         this.visited.forEach((spot) => {
-            let x = spot.x;
-            let y = spot.y;
-            PIXI.animate.Animator.play(this.squares[x][y].state, this._game.config.frameLabels.FALL);
+            PIXI.animate.Animator.play(this.squares[spot.x][spot.y].state, this._game.config.frameLabels.FALL);
         });
         
         // this.visited.length = 0;
