@@ -1,28 +1,15 @@
 require('pixi.js');
 require('pixi-animate');
-global.lib = {
-    test: require('./assets/test.js').stage,
-    checker: require('./assets/checker.js').stage,
-    square: require('./assets/square.js').stage
-};
+const test = require('./assets/test');
 
 const Game = require('./src/game');
 const game = new Game();
 
-const renderer = new PIXI.autoDetectRenderer(1280, 720, {
-    view: document.getElementById("stage"),
-    backgroundColor: 0x0,
-    antialias: true
-});
+const app = new PIXI.Application(1280, 720, {backgroundColor : 0x0});
+const container = document.getElementById('container');
+container.appendChild(app.view);
+app.stage.addChild(game.stage);
 
-PIXI.animate.load(lib.test, game.stage, (test) => {
-    game.board.setTheTable(test)
+PIXI.animate.load(test.stage, game.stage, (instance) => {
+    game.board.setTheTable(instance);
 }, 'assets');
-update();
-
-function update() {
-    renderer.render(game.stage);
-    requestAnimationFrame(update);
-}
-
-
