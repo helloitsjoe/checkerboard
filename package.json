@@ -4,8 +4,9 @@
   "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "build": "build --dir"
+    "start": "node_modules/.bin/electron .",
+    "build": "build --dir",
+    "server": "node ./server.js"
   },
   "author": "Bubbles",
   "license": "private",
@@ -17,7 +18,8 @@
     "category": "test"
   },
   "dependencies": {
-    "pixi-animate": "^1.1.1",
+    "express": "^4.15.4",
+    "pixi-animate": "^1.3.2",
     "pixi.js": "^4.3.0"
   }
 }
