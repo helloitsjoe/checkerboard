@@ -104,8 +104,9 @@ export default class Game {
     /*
      * Resizes board when enter is pressed
      */
-    resizeOnEnter(el) {
-        if(event.keyCode == 13) {
+    resizeOnEnter(el, event) {
+        // TODO: Make sure el and event are the right arguments
+        if (event.keyCode === 13) {
             this.board.boardSize = el.value;
             this.shuffle();
         }
