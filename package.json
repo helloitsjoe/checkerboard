@@ -1,7 +1,7 @@
 {
     "name": "Checkerboard",
     "version": "1.0.0",
-    "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
+    "description": "Based on checkerboard programming test https://github.com/golgobot/programming-challenge",
     "main": "main.js",
     "config": {
       "watch": "src",
@@ -10,7 +10,7 @@
       "map": "index.js.map"
     },
     "scripts": {
-        "start": "npm run watch",
+        "start": "node_modules/.bin/electron .",
         "clean": "cross-conf-env rimraf npm_package_config_bundle",
         "build": "cross-conf-env browserify -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug",
         "watch": "cross-conf-env watchify  -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug -dv"
@@ -18,7 +18,7 @@
     "browserify": {
         "transform": []
     },
-    "author": "Bubbles",
+    "author": "Joe Boyle",
     "license": "private",
     "devDependencies": {
         "electron": "^1.4.1",
