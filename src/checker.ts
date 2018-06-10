@@ -1,11 +1,15 @@
+import * as PIXI from 'pixi.js';
+
 const checker = require('../assets/checker.js').stage;
 
-class Checker {
+export default class Checker {
+
+    private _game;
+    private _moveAnimLabel;
+    public clip;
+
     constructor(game) {
         this._game = game;
-
-        this._clip;
-        this._moveAnimLabel;
     }
 
     /*
@@ -14,7 +18,7 @@ class Checker {
     dropOnBoard(x, y) {
         this._game.board.refreshBoard();
         PIXI.animate.load(checker, this._game.board.board, (checker)=>{
-            this._clip = checker;
+            this.clip = checker;
             // Add first position to array
             this._game.board.visited.push({x, y});
 
@@ -33,13 +37,13 @@ class Checker {
      */
     restart() {
         this._game.togglePause();
-        if (!this._clip) {
+        if (!this.clip) {
             // If the checker fell off, don't play 'dropOut' animation
             this.dropOnBoard(this._game.board._startX, this._game.board._startY);
         } else {
             this._game.playAudio('whooshOut', 200);
 
-            PIXI.animate.Animator.play(this._clip, 'dropOut', () => {
+            PIXI.animate.Animator.play(this.clip, 'dropOut', () => {
                 this.destroy();
                 this.dropOnBoard(this._game.board._startX, this._game.board._startY);
             });
@@ -50,21 +54,21 @@ class Checker {
      * Sets x/y position on stage
      */
     newPlace(x, y) {
-        this._clip.gotoAndStop('pause');
+        this.clip.gotoAndStop('pause');
 
         if (this._game.board.squares[x] && this._game.board.squares[x][y]) {
             this._game.board.squares[x][y].stored = true;
         }
-        this._clip.x = ( x - y ) * this._game.board.X_OFFSET;
-        this._clip.y = ( y + x ) * this._game.board.Y_OFFSET;
+        this.clip.x = ( x - y ) * this._game.board.X_OFFSET;
+        this.clip.y = ( y + x ) * this._game.board.Y_OFFSET;
     }
 
     /*
      * Pause current animation
      */
     pause() {
-        if (this._clip) {
-            PIXI.animate.Animator.stop(this._clip);
+        if (this.clip) {
+            PIXI.animate.Animator.stop(this.clip);
         }
     }
 
@@ -72,12 +76,12 @@ class Checker {
      * Resume from pause
      */
     unpause() {
-        let fallStopFrame = this._clip.labelsMap[`${this._game.config.frameLabels.FALL}_stop`];
-        let moveStopFrame = this._clip.labelsMap[`${this._moveAnimLabel}_stop`];
+        let fallStopFrame = this.clip.labelsMap[`${this._game.config.frameLabels.FALL}_stop`];
+        let moveStopFrame = this.clip.labelsMap[`${this._moveAnimLabel}_stop`];
 
-        let endFrame = this._clip.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
+        let endFrame = this.clip.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
 
-        PIXI.animate.Animator.fromTo(this._clip, this._clip.currentFrame, endFrame, false, () => {
+        PIXI.animate.Animator.fromTo(this.clip, this.clip.currentFrame, endFrame, false, () => {
             let lastVisited = this._game.board.visited[this._game.board.visited.length - 1];
             this._game.checkPosition(lastVisited.x, lastVisited.y);
         });
@@ -94,14 +98,14 @@ class Checker {
 
         this._game.playAudio('zap', 200);
 
-        PIXI.animate.Animator.play(this._clip, this._game.config.frameLabels.FALL, () => {
+        PIXI.animate.Animator.play(this.clip, this._game.config.frameLabels.FALL, () => {
             this.destroy();
         });
     }
 
     destroy() {
-        this._clip.destroy();
-        this._clip = null;
+        this.clip.destroy();
+        this.clip = null;
     }
 
     /*
@@ -134,10 +138,8 @@ class Checker {
 
         this._game.board.visited.push({x, y});
 
-        PIXI.animate.Animator.play(this._clip, this._moveAnimLabel, ()=>{
+        PIXI.animate.Animator.play(this.clip, this._moveAnimLabel, ()=>{
             this._game.checkPosition(x, y);
         });
     }
 }
-
-module.exports = Checker;

@@ -1,14 +1,15 @@
-// import PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js';
+
+const testLib = require('../assets/test.js');
 // import animate from 'pixi-animate';
-// require('../assets/test.js');
 // require('../assets/checker.js');
 // require('../assets/square.js');
 
-import Game from './game';
-import Gui from './gui';
-import Board from './board';
-import Checker from './checker';
-var config = require('./gameConfig.json');
+import Game from './Game';
+import Board from './Board';
+// import Gui from './Gui';
+// import Checker from './Checker';
+// var config = require('./gameConfig.json');
 
 const renderer = new PIXI.autoDetectRenderer(1280, 720, {
     view: document.getElementById("stage"),
@@ -18,11 +19,11 @@ const renderer = new PIXI.autoDetectRenderer(1280, 720, {
 const stage = new PIXI.Container();
 
 const game = new Game();
-const gui = new Gui();
-const board = new Board();
-const checker = new Checker();
+const board = new Board(game);
+// const gui = new Gui(game);
+// const checker = new Checker(game);
 
-PIXI.animate.load(lib.test, stage, (test) => {
+PIXI.animate.load(testLib, stage, (test) => {
     board.setTheTable(test)
 }, 'assets');
 update();

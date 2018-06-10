@@ -1,13 +1,20 @@
-const Gui = require('./gui');
-const Board = require('./board');
-const Checker = require('./checker');
+import * as PIXI from 'pixi.js';
+import Gui from './Gui';
+import Board from './Board';
+import Checker from './Checker';
 
-class Game {
+const config = require('./gameConfig.json');
+
+export default class Game {
+
+    private pauseClicked = false;
+    private stage = new PIXI.Container();
+    private gui: Gui;
+    private board: Board;
+    private checker: Checker;
+    private _tableSetInProgress: boolean;
+
     constructor() {
-        this.pauseClicked = false;
-        this.config = require('./gameConfig.json');
-        this.stage = new PIXI.Container();
-        
         this.gui = new Gui(this);
         this.board = new Board(this);
         this.checker = new Checker(this);
@@ -18,7 +25,7 @@ class Game {
      */
     checkPosition(x, y) {
         // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
+        if (x >=0 && x < this.board.boardSize && y >= 0 && y < this.board.boardSize) {
             this.board.loopState(x, y);
             
             // Set checker's onscreen position at new spot and move from there
@@ -45,7 +52,7 @@ class Game {
         if (this.pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (this.checker._clip) {
+            if (this.checker.clip) {
                 this.pauseClicked = false;
                 this.checker.unpause();
             }
@@ -90,7 +97,7 @@ class Game {
      * Resizes board
      */
     resize() {
-        this.board.BOARD_SIZE = document.getElementById('resize-input').value;
+        this.board.boardSize = (document.getElementById('resize-input') as HTMLInputElement).value;
         this.shuffle();
     }
 
@@ -99,7 +106,7 @@ class Game {
      */
     resizeOnEnter(el) {
         if(event.keyCode == 13) {
-            this.board.BOARD_SIZE = el.value;
+            this.board.boardSize = el.value;
             this.shuffle();
         }
     }
@@ -122,6 +129,4 @@ class Game {
         }, ms)
     }
 }
-
-module.exports = Game;
 

@@ -1,31 +1,24 @@
-class GUI {
+export default class Gui {
+
     constructor(game) {
-        this._game = game;
-        
         this.staggerGUI();
-        this.bipListener();
+        this.bipListener(game);
         
-        this._playPauseButton = document.getElementById('playPause');
-        this._restartButton = document.getElementById('restart')
-        this._shuffleButton = document.getElementById('shuffle')
-        this._randomButton = document.getElementById('random')
-        this._resizeButton = document.getElementById('resize')
-        
-        this._playPauseButton.addEventListener('click', game.playPause.bind(game));
-        this._restartButton.addEventListener('click', game.restart.bind(game));
-        this._shuffleButton.addEventListener('click', game.shuffle.bind(game));
-        this._randomButton.addEventListener('click', game.randomStart.bind(game));
-        this._resizeButton.addEventListener('click', game.resize.bind(game));
+        document.getElementById('playPause').addEventListener('click', game.playPause.bind(game));
+        document.getElementById('restart').addEventListener('click', game.restart.bind(game));
+        document.getElementById('shuffle').addEventListener('click', game.shuffle.bind(game));
+        document.getElementById('random').addEventListener('click', game.randomStart.bind(game));
+        document.getElementById('resize').addEventListener('click', game.resize.bind(game));
     }
         
     /*
      * Fire button audio on mouse mouseenter
      */
-    bipListener() {
+    bipListener(game) {
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0, len = guiElems.length; i < len; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
-                this._game.playAudio('bip', 0)
+                game.playAudio('bip', 0)
             })
         }
     }
@@ -34,12 +27,12 @@ class GUI {
      * Style for GUI motion
      */
     staggerGUI() {
-        let guiElems = document.querySelectorAll('.gui-element .box-resize');
+        let guiElems = [...document.querySelectorAll('.gui-element .box-resize')] as HTMLElement[];
         let gui = document.getElementById('gui');
 
         // Stagger GUI motion
         gui.addEventListener('mouseover', () => {
-            for ( let i = 0, len = guiElems.length; i < len; i++ ) {
+            for (let i = 0, len = guiElems.length; i < len; i++) {
                 let elem = guiElems[i];
                 let delay = len - i - 1;
                 elem.style.transitionDelay = ( delay * 50 ) + 'ms';
@@ -47,5 +40,3 @@ class GUI {
         });
     }
 }
-
-module.exports = GUI;

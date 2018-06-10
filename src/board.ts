@@ -1,28 +1,34 @@
+import * as PIXI from 'pixi.js';
+
 const config = require('./gameConfig.json');
 const square = require('../assets/square.js').stage;
 
-class Board {
-    // private X_OFFSET: number = config.SQUARE_WIDTH / 2;
-    private BOARD_SIZE: any;
-    private bg;
-    private board;
-    private boardBase;
-    private startX;
-    private startY;
-    private tableSetInProgress;
-    private endText;
+const X_OFFSET = config.SQUARE_WIDTH / 2;
+const Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
+
+export default class Board {
+    public boardSize: any;
+    private _bg;
+    private _board;
+    private _boardBase;
+    private _game;
+    private _startX;
+    private _startY;
+    private _squares;
+    private _tableSetInProgress;
+    private _endText;
+    private _looping;
     
     private squares: Array<any> = [];
+
+    public visited;
     
-    constructor() {
-        // this.X_OFFSET = config.SQUARE_WIDTH / 2;
-        // this.Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
-        // this.BOARD_SIZE = document.getElementById('resize-input').value;
-        this.endText = document.getElementById('text');
-        
-        // this.squares = [];
-        
-        
+    constructor(game) {
+        this._game = game;
+
+        this.boardSize = (document.getElementById('resize-input') as HTMLInputElement).value;
+        this._endText = document.getElementById('text');
+
         this.createSquareArr();
     }
 
@@ -30,9 +36,9 @@ class Board {
     * Create an array to fill with squares/directions
     */
     createSquareArr() {
-        for (let x = 0; x < this.BOARD_SIZE; ++x) {
+        for (let x = 0; x < this.boardSize; ++x) {
             this.squares[x] = [];
-            for (let y = 0; y < this.BOARD_SIZE; ++y) {
+            for (let y = 0; y < this.boardSize; ++y) {
                 this.squares[x][y] = null;
             }
         }
@@ -41,20 +47,20 @@ class Board {
     /*
      * Build the board
      */
-    setTheTable(test) {
+    setTheTable(test?) {
         if (test) {
             this._bg = test.bg;
             this._boardBase = test.boardBase;
         }
 
         this._bg.gotoAndStop(0);
-        this.board = new PIXI.Container();
-        this._game.stage.addChild(this.board);
+        this._board = new PIXI.Container();
+        this._game.stage.addChild(this._board);
 
-        this.board.x = this._game.stage.width / 2;
-        this.board.y = this._game.stage.height / 2 - 60;
-        this._boardBase.y = 440 + (5 * this.BOARD_SIZE);
-        this.board.scale.x = this.board.scale.y = (this._game.stage.width / (this._game.config.SQUARE_WIDTH * this.BOARD_SIZE)) * this._game.config.BOARD_SCALE_PCT;
+        this._board.x = this._game.stage.width / 2;
+        this._board.y = this._game.stage.height / 2 - 60;
+        this._boardBase.y = 440 + (5 * this.boardSize);
+        this._board.scale.x = this._board.scale.y = (this._game.stage.width / (this._game.config.SQUARE_WIDTH * this.boardSize)) * this._game.config.BOARD_SCALE_PCT;
 
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
@@ -92,11 +98,11 @@ class Board {
     addSquare(x, y) {
         this._tableSetInProgress = true;
 
-        PIXI.animate.load(square, this.board, (square) => {
+        PIXI.animate.load(square, this._board, (square) => {
 
-            square.x = ( x - y ) * this.X_OFFSET;
-            square.y = ( y + x ) * this.Y_OFFSET;
-            square.hitArea = new PIXI.Polygon([-this.X_OFFSET, 0, 0, this.Y_OFFSET, this.X_OFFSET, 0, 0, -this.Y_OFFSET]);
+            square.x = ( x - y ) * X_OFFSET;
+            square.y = ( y + x ) * Y_OFFSET;
+            square.hitArea = new PIXI.Polygon([-X_OFFSET, 0, 0, Y_OFFSET, X_OFFSET, 0, 0, -Y_OFFSET]);
             square.state.gotoAndStop(0);
             square.interactive = true;
 
@@ -146,8 +152,8 @@ class Board {
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
-                this._game.stage.removeChild(this.board);
-                this.board.destroy();
+                this._game.stage.removeChild(this._board);
+                this._board.destroy();
             });
         });
 
@@ -184,8 +190,8 @@ class Board {
      * Restart checker from same spot without rebuilding board
      */
     random() {
-        let x = Math.floor(Math.random() * this.BOARD_SIZE);
-        let y = Math.floor(Math.random() * this.BOARD_SIZE);
+        let x = Math.floor(Math.random() * this.boardSize);
+        let y = Math.floor(Math.random() * this.boardSize);
         this._startX = x;
         this._startY = y;
     }
@@ -254,5 +260,3 @@ class Board {
         this._endText.classList.add('text-end');
     }
 }
-
-module.exports = Board;
