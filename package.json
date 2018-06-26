@@ -4,10 +4,10 @@
     "description": "Based on checkerboard programming test https://github.com/golgobot/programming-challenge",
     "main": "main.js",
     "config": {
-      "watch": "src",
-      "app": "src/index.ts",
-      "bundle": "index.js",
-      "map": "index.js.map"
+        "watch": "src",
+        "app": "src/index.ts",
+        "bundle": "index.js",
+        "map": "index.js.map"
     },
     "scripts": {
         "start": "node_modules/.bin/electron .",
