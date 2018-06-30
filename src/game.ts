@@ -81,7 +81,6 @@ export default class Game {
         // This works most of the time, but not perfectly... how to make it better?
         if (!this._tableSetInProgress) {
             this.board.createNew();
-            // this.board.createSquareArr();
         }
     }
     
