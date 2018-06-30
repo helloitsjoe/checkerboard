@@ -28,7 +28,7 @@ export default class Checker {
 
             this._game.playAudio('whoosh', 0);
 
-            PIXI.animate.Animator.play(this.clip, 'dropIn', ()=>{
+            PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
                 this.move(x, y);
             });
         }, 'assets');
