@@ -19,7 +19,7 @@ export default class Checker {
      */
     dropOnBoard(x, y) {
         this._game.board.refreshBoard();
-        PIXI.animate.load(checkerLib.stage, this._game.board.board, (checker)=>{
+        PIXI.animate.load(checkerLib.stage, this._game.board.board, (checker) => {
             this.clip = checker;
             // Add first position to array
             this._game.board.visited.push({x, y});
@@ -28,7 +28,7 @@ export default class Checker {
 
             this._game.playAudio('whoosh', 0);
 
-            PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
+            PIXI.animate.Animator.play(this.clip, 'dropIn', () => {
                 this.move(x, y);
             });
         }, 'assets');
