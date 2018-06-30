@@ -1,5 +1,5 @@
 {
-    "name": "Checkerboard",
+    "name": "checkerboard",
     "version": "1.0.0",
     "description": "Based on checkerboard programming test https://github.com/golgobot/programming-challenge",
     "main": "main.js",
