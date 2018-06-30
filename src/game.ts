@@ -17,7 +17,7 @@ export default class Game {
     constructor() {
         this.gui = new Gui(this);
         this.board = new Board(this);
-        this.checker = new Checker(this);
+        this.checker = new Checker(this, this.board);
     }
     
     /*

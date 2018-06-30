@@ -3,31 +3,29 @@ import * as PIXI from 'pixi.js';
 const config = require('./gameConfig.json');
 const squareLib = require('../assets/square.js');
 
-const X_OFFSET = config.SQUARE_WIDTH / 2;
-const Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
-
 export default class Board {
     public boardSize: any;
     public board;
+    public startX;
+    public startY;
+    public xOffset = config.SQUARE_WIDTH / 2;
+    public yOffset = (config.SQUARE_HEIGHT - 24) / 2;
+    public squares: Array<any>;
+    public visited: Array<any>;
+
     private _bg;
     private _boardBase;
     private _game;
-    private _startX;
-    private _startY;
-    private _squares;
     private _tableSetInProgress;
     private _endText;
     private _looping;
-    
-    private squares: Array<any> = [];
-
-    public visited: Array<any>;
     
     constructor(game) {
         this._game = game;
 
         this.boardSize = (document.getElementById('resize-input') as HTMLInputElement).value;
         this._endText = document.getElementById('text');
+        this.squares = [];
         this.visited = [];
 
         this.createSquareArr();
@@ -100,9 +98,9 @@ export default class Board {
         this._tableSetInProgress = true;
 
         PIXI.animate.load(squareLib.stage, this.board, (square) => {
-            square.x = ( x - y ) * X_OFFSET;
-            square.y = ( y + x ) * Y_OFFSET;
-            square.hitArea = new PIXI.Polygon([-X_OFFSET, 0, 0, Y_OFFSET, X_OFFSET, 0, 0, -Y_OFFSET]);
+            square.x = ( x - y ) * this.xOffset;
+            square.y = ( y + x ) * this.yOffset;
+            square.hitArea = new PIXI.Polygon([-this.xOffset, 0, 0, this.yOffset, this.xOffset, 0, 0, -this.yOffset]);
             square.state.gotoAndStop(0);
             square.interactive = true;
 
@@ -122,8 +120,8 @@ export default class Board {
 
             square.on('click', ()=>{
                 // Save reference to clicked position in case 'Restart' button is clicked
-                this._startX = x;
-                this._startY = y;
+                this.startX = x;
+                this.startY = y;
                 this._game.checker.restart();
             });
 
@@ -192,8 +190,8 @@ export default class Board {
     random() {
         let x = Math.floor(Math.random() * this.boardSize);
         let y = Math.floor(Math.random() * this.boardSize);
-        this._startX = x;
-        this._startY = y;
+        this.startX = x;
+        this.startY = y;
     }
 
     /*

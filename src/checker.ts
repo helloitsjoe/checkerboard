@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import Board from './board';
 require('pixi-animate');
 
 const checkerLib = require('../assets/checker.js');
@@ -8,21 +9,23 @@ export default class Checker {
 
     public clip;
     private _game;
+    private _board: Board;
     private _moveAnimLabel;
 
-    constructor(game) {
+    constructor(game, board) {
         this._game = game;
+        this._board = board;
     }
 
     /*
      * Initial placement of checker on board
      */
     dropOnBoard(x, y) {
-        this._game.board.refreshBoard();
-        PIXI.animate.load(checkerLib.stage, this._game.board.board, (checker) => {
+        this._board.refreshBoard();
+        PIXI.animate.load(checkerLib.stage, this._board.board, (checker) => {
             this.clip = checker;
             // Add first position to array
-            this._game.board.visited.push({x, y});
+            this._board.visited.push({x, y});
 
             this.newPlace(x, y);
 
@@ -41,13 +44,13 @@ export default class Checker {
         this._game.togglePause();
         if (!this.clip) {
             // If the checker fell off, don't play 'dropOut' animation
-            this.dropOnBoard(this._game.board._startX, this._game.board._startY);
+            this.dropOnBoard(this._board.startX, this._board.startY);
         } else {
             this._game.playAudio('whooshOut', 200);
 
             PIXI.animate.Animator.play(this.clip, 'dropOut', () => {
                 this.destroy();
-                this.dropOnBoard(this._game.board._startX, this._game.board._startY);
+                this.dropOnBoard(this._board.startX, this._board.startY);
             });
         }
     }
@@ -58,11 +61,11 @@ export default class Checker {
     newPlace(x, y) {
         this.clip.gotoAndStop('pause');
 
-        if (this._game.board.squares[x] && this._game.board.squares[x][y]) {
-            this._game.board.squares[x][y].stored = true;
+        if (this._board.squares[x] && this._board.squares[x][y]) {
+            this._board.squares[x][y].stored = true;
         }
-        this.clip.x = ( x - y ) * this._game.board.X_OFFSET;
-        this.clip.y = ( y + x ) * this._game.board.Y_OFFSET;
+        this.clip.x = ( x - y ) * this._board.xOffset;
+        this.clip.y = ( y + x ) * this._board.yOffset;
     }
 
     /*
@@ -84,7 +87,7 @@ export default class Checker {
         let endFrame = this.clip.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
 
         PIXI.animate.Animator.fromTo(this.clip, this.clip.currentFrame, endFrame, false, () => {
-            let lastVisited = this._game.board.visited[this._game.board.visited.length - 1];
+            let lastVisited = this._board.visited[this._board.visited.length - 1];
             this._game.checkPosition(lastVisited.x, lastVisited.y);
         });
     }
@@ -114,9 +117,9 @@ export default class Checker {
      * Move the checker one space
      */
     move(x, y) {
-        this._game.board.lightUpSquare(x, y);
+        this._board.lightUpSquare(x, y);
 
-        let direction = this._game.board.squares[x][y].direction;
+        let direction = this._board.squares[x][y].direction;
         this._moveAnimLabel = 'move' + direction;
 
         // Note: My dog Olive HATES this sound.
@@ -138,7 +141,7 @@ export default class Checker {
             break;
         }
 
-        this._game.board.visited.push({x, y});
+        this._board.visited.push({x, y});
 
         PIXI.animate.Animator.play(this.clip, this._moveAnimLabel, ()=>{
             this._game.checkPosition(x, y);
