@@ -27,13 +27,13 @@ export default class Gui {
      * Style for GUI motion
      */
     staggerGUI() {
-        let guiElems = [...document.querySelectorAll('.gui-element .box-resize')] as HTMLElement[];
+        let guiElems = document.querySelectorAll('.gui-element .box-resize');
         let gui = document.getElementById('gui');
 
         // Stagger GUI motion
         gui.addEventListener('mouseover', () => {
             for (let i = 0, len = guiElems.length; i < len; i++) {
-                let elem = guiElems[i];
+                let elem = guiElems[i] as HTMLElement;
                 let delay = len - i - 1;
                 elem.style.transitionDelay = ( delay * 50 ) + 'ms';
             }

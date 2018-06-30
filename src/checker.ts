@@ -11,6 +11,9 @@ export default class Checker {
 
     constructor(game) {
         this._game = game;
+        // PIXI.animate.load(checker, this._game.board.board, (clip) => {
+        //     this.clip = checker;
+        // }, 'assets');
     }
 
     /*
@@ -27,7 +30,7 @@ export default class Checker {
 
             this._game.playAudio('whoosh', 0);
 
-            PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
+            PIXI.animate.Animator.play(this.clip, 'dropIn', ()=>{
                 this.move(x, y);
             });
         }, 'assets');
