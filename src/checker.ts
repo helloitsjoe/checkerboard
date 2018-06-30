@@ -17,6 +17,10 @@ export default class Checker {
         this._board = board;
     }
 
+    public exists(): boolean {
+        return !!this.clip;
+    }
+
     /*
      * Initial placement of checker on board
      */
@@ -95,7 +99,7 @@ export default class Checker {
     /*
      * Remove checker when it falls off the edge or if the board gets reset
      */
-    remove(x, y) {
+    remove(x?, y?) {
         // Move checker's onscreen position off the board
         if (x || y) {
             this.newPlace(x, y);

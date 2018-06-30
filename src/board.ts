@@ -1,46 +1,58 @@
 import * as PIXI from 'pixi.js';
+import Game from './game';
 
 const config = require('./gameConfig.json');
 const squareLib = require('../assets/square.js');
 
+type Spot = {
+    x: number,
+    y: number
+}
+
 export default class Board {
-    public boardSize: any;
-    public board;
-    public startX;
-    public startY;
-    public xOffset = config.SQUARE_WIDTH / 2;
-    public yOffset = (config.SQUARE_HEIGHT - 24) / 2;
-    public squares: Array<any>;
-    public visited: Array<any>;
 
-    private _bg;
-    private _boardBase;
-    private _game;
-    private _tableSetInProgress;
-    private _endText;
-    private _looping;
+    public boardSize: number;
+    public board: PIXI.Container;
+    public startX: number;
+    public startY: number;
+    public xOffset: number;
+    public yOffset: number;
+    public squares: Array<PIXI.animate.MovieClip>; // TODO: Get animate typings
+    public visited: Array<Spot>;
+
+    private _bg: PIXI.animate.MovieClip;
+    private _boardBase: PIXI.animate.MovieClip;
+    private _game: Game;
+    private _tableSetInProgress = false;
+    private _endText: HTMLElement;
+    private _loopState: number;
     
-    constructor(game) {
+    constructor(game: Game) {
         this._game = game;
-
-        this.boardSize = (document.getElementById('resize-input') as HTMLInputElement).value;
         this._endText = document.getElementById('text');
-        this.squares = [];
-        this.visited = [];
 
-        this.createSquareArr();
+        const input = document.getElementById('resize-input') as HTMLInputElement;
+        this.boardSize = parseInt(input.value);
+
+        this.xOffset = config.SQUARE_WIDTH / 2;
+        this.yOffset = (config.SQUARE_HEIGHT - 24) / 2;
+
+        this.squares = this.createSquareArr();
+        this.visited = [];
     }
 
     /*
     * Create an array to fill with squares/directions
     */
-    createSquareArr() {
+    private createSquareArr(): PIXI.animate.MovieClip[] {
+        const arr = [];
         for (let x = 0; x < this.boardSize; ++x) {
-            this.squares[x] = [];
+            arr[x] = [];
             for (let y = 0; y < this.boardSize; ++y) {
-                this.squares[x][y] = null;
+                arr[x][y] = null;
             }
         }
+        return arr;
     }
 
     /*
@@ -140,7 +152,7 @@ export default class Board {
         this._tableSetInProgress = true;
 
         // If we've started a round, remove the checker
-        if (this.visited.length && this._game.checker._clip) {
+        if (this.visited.length && this._game.checker.exists()) {
             this._game.checker.remove();
         }
 
@@ -158,8 +170,9 @@ export default class Board {
         // resizeBoard needs the array of squares to be reset
         this.squares.length = 0;
         this.refreshBoard();
+        this.squares = this.createSquareArr();
         setTimeout(()=>{
-            if (this._game.checker._clip) {
+            if (this._game.checker.exists()) {
                 this._game.checker.destroy();
             }
             this.setTheTable();
@@ -180,7 +193,7 @@ export default class Board {
         this._endText.classList.remove('text-end');
 
         this._bg.gotoAndStop(0);
-        this._looping = 0;
+        this._loopState = 0;
         this.visited.length = 0;
     }
 
@@ -188,10 +201,8 @@ export default class Board {
      * Restart checker from same spot without rebuilding board
      */
     random() {
-        let x = Math.floor(Math.random() * this.boardSize);
-        let y = Math.floor(Math.random() * this.boardSize);
-        this.startX = x;
-        this.startY = y;
+        this.startX = Math.floor(Math.random() * this.boardSize);
+        this.startY = Math.floor(Math.random() * this.boardSize);
     }
 
     /*
@@ -210,9 +221,9 @@ export default class Board {
      */
     loopState(x, y) {
         if (this.squares[x][y].stored) {
-            this._looping++;
+            this._loopState++;
         }
-        if (this._looping === 1) {
+        if (this._loopState === 1) {
 
             // Turn visited squares green
             this.visited.forEach((spot) => {
@@ -229,7 +240,7 @@ export default class Board {
             this._endText.classList.add('text-end');
 
         // This is to stop repeated green square transition animation
-        } if (this._looping > 1) {
+        } if (this._loopState > 1) {
             this.visited.forEach((spot) => {
                 this.squares[spot.x][spot.y].state.gotoAndStop('looping_stop');
             });

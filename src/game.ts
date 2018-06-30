@@ -9,10 +9,10 @@ export default class Game {
 
     public stage = new PIXI.Container();
     public board: Board;
-    private pauseClicked = false;
+    public checker: Checker;
     private gui: Gui;
-    private checker: Checker;
-    private _tableSetInProgress: boolean;
+    private pauseClicked = false;
+    private _tableSetInProgress = false;
 
     constructor() {
         this.gui = new Gui(this);
@@ -81,7 +81,7 @@ export default class Game {
         // This works most of the time, but not perfectly... how to make it better?
         if (!this._tableSetInProgress) {
             this.board.createNew();
-            this.board.createSquareArr();
+            // this.board.createSquareArr();
         }
     }
     
@@ -97,7 +97,8 @@ export default class Game {
      * Resizes board
      */
     resize() {
-        this.board.boardSize = (document.getElementById('resize-input') as HTMLInputElement).value;
+        const input = document.getElementById('resize-input') as HTMLInputElement;
+        this.board.boardSize = parseInt(input.value);
         this.shuffle();
     }
 
