@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+require('pixi-animate');
 
 const checker = require('../assets/checker.js').stage;
 

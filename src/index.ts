@@ -1,8 +1,10 @@
 import * as PIXI from 'pixi.js';
+require('pixi-animate');
+// import animate from 'pixi-animate';
 
 const testLib = require('../assets/test.js');
 
-const Game = require('./game');
+import Game from './game';
 const game = new Game();
 console.log('PIXI', PIXI.animate);
 
