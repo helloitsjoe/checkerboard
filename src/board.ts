@@ -8,8 +8,8 @@ const Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
 
 export default class Board {
     public boardSize: any;
+    public board;
     private _bg;
-    private _board;
     private _boardBase;
     private _game;
     private _startX;
@@ -55,13 +55,13 @@ export default class Board {
         }
 
         this._bg.gotoAndStop(0);
-        this._board = new PIXI.Container();
-        this._game.stage.addChild(this._board);
+        this.board = new PIXI.Container();
+        this._game.stage.addChild(this.board);
 
-        this._board.x = this._game.stage.width / 2;
-        this._board.y = this._game.stage.height / 2 - 60;
+        this.board.x = this._game.stage.width / 2;
+        this.board.y = this._game.stage.height / 2 - 60;
         this._boardBase.y = 440 + (5 * this.boardSize);
-        this._board.scale.x = this._board.scale.y = (this._game.stage.width / (config.SQUARE_WIDTH * this.boardSize)) * config.BOARD_SCALE_PCT;
+        this.board.scale.x = this.board.scale.y = (this._game.stage.width / (config.SQUARE_WIDTH * this.boardSize)) * config.BOARD_SCALE_PCT;
 
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
@@ -99,7 +99,7 @@ export default class Board {
     addSquare(x, y) {
         this._tableSetInProgress = true;
 
-        PIXI.animate.load(squareLib.stage, this._board, (square) => {
+        PIXI.animate.load(squareLib.stage, this.board, (square) => {
             square.x = ( x - y ) * X_OFFSET;
             square.y = ( y + x ) * Y_OFFSET;
             square.hitArea = new PIXI.Polygon([-X_OFFSET, 0, 0, Y_OFFSET, X_OFFSET, 0, 0, -Y_OFFSET]);
@@ -152,8 +152,8 @@ export default class Board {
             // Turn off all squares lit state
             square.state.gotoAndStop(0);
             PIXI.animate.Animator.play(square, 'fadeOut', () => {
-                this._game.stage.removeChild(this._board);
-                this._board.destroy();
+                this._game.stage.removeChild(this.board);
+                this.board.destroy();
             });
         });
 

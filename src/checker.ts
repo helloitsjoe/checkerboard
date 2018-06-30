@@ -2,12 +2,13 @@ import * as PIXI from 'pixi.js';
 require('pixi-animate');
 
 const checkerLib = require('../assets/checker.js');
+const config = require('./gameConfig.json');
 
 export default class Checker {
 
+    public clip;
     private _game;
     private _moveAnimLabel;
-    public clip;
 
     constructor(game) {
         this._game = game;
@@ -19,7 +20,6 @@ export default class Checker {
     dropOnBoard(x, y) {
         this._game.board.refreshBoard();
         PIXI.animate.load(checkerLib.stage, this._game.board.board, (checker)=>{
-            console.log(checker);
             this.clip = checker;
             // Add first position to array
             this._game.board.visited.push({x, y});
@@ -28,7 +28,7 @@ export default class Checker {
 
             this._game.playAudio('whoosh', 0);
 
-            PIXI.animate.Animator.play(checker, 'dropIn', ()=>{
+            PIXI.animate.Animator.play(this.clip, 'dropIn', ()=>{
                 this.move(x, y);
             });
         }, 'assets');
@@ -78,7 +78,7 @@ export default class Checker {
      * Resume from pause
      */
     unpause() {
-        let fallStopFrame = this.clip.labelsMap[`${this._game.config.frameLabels.FALL}_stop`];
+        let fallStopFrame = this.clip.labelsMap[`${config.frameLabels.FALL}_stop`];
         let moveStopFrame = this.clip.labelsMap[`${this._moveAnimLabel}_stop`];
 
         let endFrame = this.clip.currentFrame < moveStopFrame ? moveStopFrame : fallStopFrame;
@@ -100,7 +100,7 @@ export default class Checker {
 
         this._game.playAudio('zap', 200);
 
-        PIXI.animate.Animator.play(this.clip, this._game.config.frameLabels.FALL, () => {
+        PIXI.animate.Animator.play(this.clip, config.frameLabels.FALL, () => {
             this.destroy();
         });
     }

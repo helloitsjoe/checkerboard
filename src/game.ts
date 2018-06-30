@@ -7,10 +7,10 @@ const config = require('./gameConfig.json');
 
 export default class Game {
 
-    private pauseClicked = false;
     public stage = new PIXI.Container();
-    private gui: Gui;
     public board: Board;
+    private pauseClicked = false;
+    private gui: Gui;
     private checker: Checker;
     private _tableSetInProgress: boolean;
 
