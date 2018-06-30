@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 const config = require('./gameConfig.json');
-const square = require('../assets/square.js').stage;
+const squareLib = require('../assets/square.js');
 
 const X_OFFSET = config.SQUARE_WIDTH / 2;
 const Y_OFFSET = (config.SQUARE_HEIGHT - 24) / 2;
@@ -99,8 +99,7 @@ export default class Board {
     addSquare(x, y) {
         this._tableSetInProgress = true;
 
-        PIXI.animate.load(square, this._board, (square) => {
-
+        PIXI.animate.load(squareLib.stage, this._board, (square) => {
             square.x = ( x - y ) * X_OFFSET;
             square.y = ( y + x ) * Y_OFFSET;
             square.hitArea = new PIXI.Polygon([-X_OFFSET, 0, 0, Y_OFFSET, X_OFFSET, 0, 0, -Y_OFFSET]);

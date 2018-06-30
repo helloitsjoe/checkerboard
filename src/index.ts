@@ -1,12 +1,10 @@
 import * as PIXI from 'pixi.js';
 require('pixi-animate');
-// import animate from 'pixi-animate';
 
 const testLib = require('../assets/test.js');
 
 import Game from './game';
 const game = new Game();
-console.log('PIXI', PIXI.animate);
 
 const app = new PIXI.Application(1280, 720, {backgroundColor : 0x0});
 const container = document.getElementById('container');
