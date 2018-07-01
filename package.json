@@ -21,9 +21,7 @@
     "author": "Joe Boyle",
     "license": "private",
     "devDependencies": {
-        "canvas-prebuilt": "^1.6.5-prerelease.1",
         "electron": "^1.4.1",
-        "jsdom": "^11.11.0",
         "mocha": "^5.2.0",
         "ts-loader": "^4.4.2",
         "ts-node": "^7.0.0",
