@@ -10,12 +10,12 @@ export default class Game {
     public stage = new PIXI.Container();
     public board: Board;
     public checker: Checker;
-    private gui: Gui;
-    private pauseClicked = false;
+    private _gui: Gui;
+    private _pauseClicked = false;
     private _tableSetInProgress = false;
 
     constructor() {
-        this.gui = new Gui(this);
+        this._gui = new Gui(this);
         this.board = new Board(this);
         this.checker = new Checker(this, this.board);
     }
@@ -23,10 +23,10 @@ export default class Game {
     /*
      * Check if we're still on the board or in a loop, call this.checker.move again if so
      */
-    checkPosition(x, y) {
+    private checkPosition(x: number, y: number): void {
         // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < this.board.boardSize && y >= 0 && y < this.board.boardSize) {
-            this.board.loopState(x, y);
+        if (x >= 0 && x < this.board.size && y >= 0 && y < this.board.size) {
+            this.board.updateLoopState(x, y);
             
             // Set checker's onscreen position at new spot and move from there
             this.checker.newPlace(x, y);
@@ -34,7 +34,7 @@ export default class Game {
             
         // If it's not on the board, you fell off the edge!
         } else {
-            this.board.edgeState();
+            this.board.updateEdgeState();
             this.checker.remove(x, y);
         }
     }
@@ -42,29 +42,28 @@ export default class Game {
     /*
      * Pause/resume checker
      */
-    playPause() {
+    private playPause(): void {
         // Turn off button if there's no checker or if it fell off the edge
         if (!this.board.visited.length) {
             return;
         }
         this.checker.pause();
-        this.pauseClicked = !this.pauseClicked;
-        if (this.pauseClicked) {
+        this._pauseClicked = !this._pauseClicked;
+        if (this._pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (this.checker.clip) {
-                this.pauseClicked = false;
+            if (this.checker.exists()) {
+                this._pauseClicked = false;
                 this.checker.unpause();
             }
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
-    
-    
+
     /*
      * Plays current turn again from the same start spot
      */
-    restart() {
+    public restart(): void {
         if (!this.board.visited.length) {
             // Turn off button if game hasn't started yet
             return;
@@ -75,7 +74,7 @@ export default class Game {
     /*
      * Shuffles arrows
      */
-    shuffle() {
+    private shuffle(): void {
         this.togglePause();
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
@@ -87,7 +86,7 @@ export default class Game {
     /*
      * Starts player at a random square on the board
      */
-    randomStart() {
+    public randomStart(): void {
         this.board.random();
         this.checker.restart();
     }
@@ -95,19 +94,19 @@ export default class Game {
     /*
      * Resizes board
      */
-    resize() {
+    private resize(): void {
         const input = document.getElementById('resize-input') as HTMLInputElement;
-        this.board.boardSize = parseInt(input.value);
+        this.board.size = parseInt(input.value);
         this.shuffle();
     }
 
     /*
      * Resizes board when enter is pressed
      */
-    resizeOnEnter(el, event) {
+    private resizeOnEnter(el: HTMLInputElement, event: KeyboardEvent): void {
         // TODO: Make sure el and event are the right arguments
         if (event.keyCode === 13) {
-            this.board.boardSize = el.value;
+            this.board.size = parseInt(el.value);
             this.shuffle();
         }
     }
@@ -115,8 +114,8 @@ export default class Game {
     /*
      * Repeated logic in shuffle, restart, randomStart
      */
-    togglePause() {
-        if (this.pauseClicked) {
+    private togglePause(): void {
+        if (this._pauseClicked) {
             this.playPause();
         }
     }
@@ -124,7 +123,7 @@ export default class Game {
     /*
      * Plays audio from wav file
      */
-    playAudio(sound, ms) {
+    public playAudio(sound: string, ms: number) {
         setTimeout(()=>{
             new Audio(`./audio/${sound}.wav`).play();
         }, ms)

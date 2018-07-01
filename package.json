@@ -12,7 +12,8 @@
     "scripts": {
         "start": "node_modules/.bin/electron .",
         "watch": "node_modules/.bin/webpack --watch",
-        "build": "node_modules/.bin/webpack"
+        "build": "node_modules/.bin/webpack",
+        "test": "node_modules/.bin/mocha -r ts-node/register ./test/index.js"
     },
     "browserify": {
         "transform": []
@@ -20,8 +21,12 @@
     "author": "Joe Boyle",
     "license": "private",
     "devDependencies": {
+        "canvas-prebuilt": "^1.6.5-prerelease.1",
         "electron": "^1.4.1",
+        "jsdom": "^11.11.0",
+        "mocha": "^5.2.0",
         "ts-loader": "^4.4.2",
+        "ts-node": "^7.0.0",
         "typescript": "^2.9.2",
         "webpack": "^4.14.0",
         "webpack-cli": "^3.0.8",

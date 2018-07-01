@@ -1,9 +1,11 @@
+import Game from './game';
+
 export default class Gui {
 
     constructor(game) {
         this.staggerGUI();
         this.bipListener(game);
-        
+
         document.getElementById('playPause').addEventListener('click', game.playPause.bind(game));
         document.getElementById('restart').addEventListener('click', game.restart.bind(game));
         document.getElementById('shuffle').addEventListener('click', game.shuffle.bind(game));
@@ -14,7 +16,7 @@ export default class Gui {
     /*
      * Fire button audio on mouse mouseenter
      */
-    bipListener(game) {
+    private bipListener(game: Game): void {
         let guiElems = document.getElementsByClassName('gui-element');
         for (let i = 0, len = guiElems.length; i < len; i++) {
             guiElems[i].addEventListener('mouseenter', ()=>{
@@ -26,7 +28,7 @@ export default class Gui {
     /*
      * Style for GUI motion
      */
-    staggerGUI() {
+    private staggerGUI(): void {
         let guiElems = document.querySelectorAll('.gui-element .box-resize');
         let gui = document.getElementById('gui');
 

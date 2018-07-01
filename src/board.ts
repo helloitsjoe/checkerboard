@@ -11,15 +11,14 @@ type Spot = {
 
 export default class Board {
 
-    public boardSize: number;
-    public board: PIXI.Container;
+    public size: number;
     public startX: number;
     public startY: number;
     public xOffset: number;
     public yOffset: number;
     public squares: Array<PIXI.animate.MovieClip>; // TODO: Get animate typings
     public visited: Array<Spot>;
-
+    private board: PIXI.Container;
     private _bg: PIXI.animate.MovieClip;
     private _boardBase: PIXI.animate.MovieClip;
     private _game: Game;
@@ -32,23 +31,23 @@ export default class Board {
         this._endText = document.getElementById('text');
 
         const input = document.getElementById('resize-input') as HTMLInputElement;
-        this.boardSize = parseInt(input.value);
+        this.size = parseInt(input.value);
 
         this.xOffset = config.SQUARE_WIDTH / 2;
         this.yOffset = (config.SQUARE_HEIGHT - 24) / 2;
 
-        this.squares = this.createSquareArr();
+        this.squares = this.createSquareArr(this.size);
         this.visited = [];
     }
 
     /*
     * Create an array to fill with squares/directions
     */
-    private createSquareArr(): PIXI.animate.MovieClip[] {
-        const arr = [];
-        for (let x = 0; x < this.boardSize; ++x) {
+    private createSquareArr(size): PIXI.animate.MovieClip[] {
+        const arr: PIXI.animate.MovieClip = [];
+        for (let x = 0; x < size; ++x) {
             arr[x] = [];
-            for (let y = 0; y < this.boardSize; ++y) {
+            for (let y = 0; y < size; ++y) {
                 arr[x][y] = null;
             }
         }
@@ -58,7 +57,7 @@ export default class Board {
     /*
      * Build the board
      */
-    setTheTable(test?) {
+    public setTheTable(test?: PIXI.animate.MovieClip): void {
         if (test) {
             this._bg = test.bg;
             this._boardBase = test.boardBase;
@@ -70,8 +69,8 @@ export default class Board {
 
         this.board.x = this._game.stage.width / 2;
         this.board.y = this._game.stage.height / 2 - 60;
-        this._boardBase.y = 440 + (5 * this.boardSize);
-        this.board.scale.x = this.board.scale.y = (this._game.stage.width / (config.SQUARE_WIDTH * this.boardSize)) * config.BOARD_SCALE_PCT;
+        this._boardBase.y = 440 + (5 * this.size);
+        this.board.scale.x = this.board.scale.y = (this._game.stage.width / (config.SQUARE_WIDTH * this.size)) * config.BOARD_SCALE_PCT;
 
         // Stagger animation of squares appearing
         // This is pretty ugly. Is there a better way to stagger animation of squares appearing?
@@ -94,7 +93,7 @@ export default class Board {
     /*
      * Generic function for when I need to do something to every square
      */
-    eachSquare(cb) {
+    private eachSquare(cb: Function) {
         this.squares.forEach((row)=>{
             row.forEach((square)=>{
                 cb(square);
@@ -106,7 +105,7 @@ export default class Board {
      * Add each square and its direction to the array and screen
      * Set up click listener
      */
-    addSquare(x, y) {
+    private addSquare(x: number, y: number): void {
         this._tableSetInProgress = true;
 
         PIXI.animate.load(squareLib.stage, this.board, (square) => {
@@ -145,10 +144,18 @@ export default class Board {
         }, 'assets');
     }
 
+    /**
+     * Add the checker MovieClip as a child of the board Container
+     */
+    public addChecker(checker: PIXI.animate.MovieClip, x: number, y: number): void {
+        this.board.addChild(checker);
+        this.visited.push({x, y}); // Add first position to array
+    }
+
     /*
      * Remove board and create a new one - called by gui.shuffle()
      */
-    createNew() {
+    public createNew(): void {
         this._tableSetInProgress = true;
 
         // If we've started a round, remove the checker
@@ -170,7 +177,7 @@ export default class Board {
         // resizeBoard needs the array of squares to be reset
         this.squares.length = 0;
         this.refreshBoard();
-        this.squares = this.createSquareArr();
+        this.squares = this.createSquareArr(this.size);
         setTimeout(()=>{
             if (this._game.checker.exists()) {
                 this._game.checker.destroy();
@@ -183,7 +190,7 @@ export default class Board {
      * Reset states of elements
      * Called by this.createNew() and this._game.checker.dropOnBoard()
      */
-    refreshBoard() {
+    public refreshBoard(): void {
         this.eachSquare((square)=>{
             square.stored = false;
             square.state.gotoAndStop(0);
@@ -200,15 +207,15 @@ export default class Board {
     /*
      * Restart checker from same spot without rebuilding board
      */
-    random() {
-        this.startX = Math.floor(Math.random() * this.boardSize);
-        this.startY = Math.floor(Math.random() * this.boardSize);
+    public random(): void {
+        this.startX = Math.floor(Math.random() * this.size);
+        this.startY = Math.floor(Math.random() * this.size);
     }
 
     /*
      * Transition animation
      */
-    lightUpSquare(x, y) {
+    public lightUpSquare(x: number, y: number): void {
         let currSquare = this.squares[x][y];
         // If the square isn't lit up yet, light it up white
         if (currSquare && currSquare.state.currentFrame < 1) {
@@ -219,7 +226,7 @@ export default class Board {
     /*
      * State of board if checker is looping, accessed by this._game.checkPosition
      */
-    loopState(x, y) {
+    public updateLoopState(x: number, y: number): void {
         if (this.squares[x][y].stored) {
             this._loopState++;
         }
@@ -250,7 +257,7 @@ export default class Board {
     /*
      * State of board if checker falls off edge, accessed by this._game.checkPosition
      */
-    edgeState() {
+    public updateEdgeState(): void {
         // Remove "last visited" spot since it will be off the board
         this.visited.pop();
 
