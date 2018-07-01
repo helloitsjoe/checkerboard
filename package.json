@@ -1,25 +1,43 @@
 {
-  "name": "Checkerboard",
-  "version": "1.0.0",
-  "description": "Checkerboard programming test https://github.com/golgobot/programming-challenge",
-  "main": "main.js",
-  "scripts": {
-    "start": "node_modules/.bin/electron .",
-    "build": "build --dir",
-    "server": "node ./server.js"
-  },
-  "author": "Bubbles",
-  "license": "private",
-  "devDependencies": {
-    "electron": "^1.4.1"
-  },
-  "build": {
-    "appId": "checkerboard",
-    "category": "test"
-  },
-  "dependencies": {
-    "express": "^4.15.4",
-    "pixi-animate": "^1.3.2",
-    "pixi.js": "^4.3.0"
-  }
+    "name": "checkerboard",
+    "version": "1.0.0",
+    "description": "Based on checkerboard programming test https://github.com/golgobot/programming-challenge",
+    "main": "main.js",
+    "config": {
+        "watch": "src",
+        "app": "src/index.ts",
+        "bundle": "index.js",
+        "map": "index.js.map"
+    },
+    "scripts": {
+        "start": "node_modules/.bin/electron .",
+        "watch": "node_modules/.bin/webpack --watch",
+        "build": "node_modules/.bin/webpack",
+        "test": "node_modules/.bin/mocha -r ts-node/register ./test/index.js"
+    },
+    "browserify": {
+        "transform": []
+    },
+    "author": "Joe Boyle",
+    "license": "private",
+    "devDependencies": {
+        "canvas-prebuilt": "^1.6.5-prerelease.1",
+        "electron": "^1.4.1",
+        "jsdom": "^11.11.0",
+        "mocha": "^5.2.0",
+        "ts-loader": "^4.4.2",
+        "ts-node": "^7.0.0",
+        "typescript": "^2.9.2",
+        "webpack": "^4.14.0",
+        "webpack-cli": "^3.0.8",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "build": {
+        "appId": "checkerboard",
+        "category": "test"
+    },
+    "dependencies": {
+        "pixi-animate": "^1.3.3",
+        "pixi.js": "^4.3.0"
+    }
 }

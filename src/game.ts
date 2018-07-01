@@ -1,25 +1,32 @@
-const Gui = require('./gui');
-const Board = require('./board');
-const Checker = require('./checker');
+import * as PIXI from 'pixi.js';
+import Gui from './Gui';
+import Board from './Board';
+import Checker from './Checker';
 
-class Game {
+const config = require('./gameConfig.json');
+
+export default class Game {
+
+    public stage = new PIXI.Container();
+    public board: Board;
+    public checker: Checker;
+    private _gui: Gui;
+    private _pauseClicked = false;
+    private _tableSetInProgress = false;
+
     constructor() {
-        this.pauseClicked = false;
-        this.config = require('./gameConfig.json');
-        this.stage = new PIXI.Container();
-        
-        this.gui = new Gui(this);
+        this._gui = new Gui(this);
         this.board = new Board(this);
-        this.checker = new Checker(this);
+        this.checker = new Checker(this, this.board);
     }
     
     /*
      * Check if we're still on the board or in a loop, call this.checker.move again if so
      */
-    checkPosition(x, y) {
+    private checkPosition(x: number, y: number): void {
         // If the new position is on the board, compare it to previous spots
-        if (x >=0 && x < this.board.BOARD_SIZE && y >= 0 && y < this.board.BOARD_SIZE) {
-            this.board.loopState(x, y);
+        if (x >= 0 && x < this.board.size && y >= 0 && y < this.board.size) {
+            this.board.updateLoopState(x, y);
             
             // Set checker's onscreen position at new spot and move from there
             this.checker.newPlace(x, y);
@@ -27,7 +34,7 @@ class Game {
             
         // If it's not on the board, you fell off the edge!
         } else {
-            this.board.edgeState();
+            this.board.updateEdgeState();
             this.checker.remove(x, y);
         }
     }
@@ -35,29 +42,28 @@ class Game {
     /*
      * Pause/resume checker
      */
-    playPause() {
+    private playPause(): void {
         // Turn off button if there's no checker or if it fell off the edge
         if (!this.board.visited.length) {
             return;
         }
         this.checker.pause();
-        this.pauseClicked = !this.pauseClicked;
-        if (this.pauseClicked) {
+        this._pauseClicked = !this._pauseClicked;
+        if (this._pauseClicked) {
             document.getElementById('playPause').innerHTML = '<p>PLAY</p>'
         } else {
-            if (this.checker._clip) {
-                this.pauseClicked = false;
+            if (this.checker.exists()) {
+                this._pauseClicked = false;
                 this.checker.unpause();
             }
             document.getElementById('playPause').innerHTML = '<p>PAUSE</p>'
         }
     }
-    
-    
+
     /*
      * Plays current turn again from the same start spot
      */
-    restart() {
+    public restart(): void {
         if (!this.board.visited.length) {
             // Turn off button if game hasn't started yet
             return;
@@ -68,20 +74,19 @@ class Game {
     /*
      * Shuffles arrows
      */
-    shuffle() {
+    private shuffle(): void {
         this.togglePause();
         // Don't reshuffle if shuffle is already in progress
         // This works most of the time, but not perfectly... how to make it better?
         if (!this._tableSetInProgress) {
             this.board.createNew();
-            this.board.createSquareArr();
         }
     }
     
     /*
      * Starts player at a random square on the board
      */
-    randomStart() {
+    public randomStart(): void {
         this.board.random();
         this.checker.restart();
     }
@@ -89,17 +94,19 @@ class Game {
     /*
      * Resizes board
      */
-    resize() {
-        this.board.BOARD_SIZE = document.getElementById('resize-input').value;
+    private resize(): void {
+        const input = document.getElementById('resize-input') as HTMLInputElement;
+        this.board.size = parseInt(input.value);
         this.shuffle();
     }
 
     /*
      * Resizes board when enter is pressed
      */
-    resizeOnEnter(el) {
-        if(event.keyCode == 13) {
-            this.board.BOARD_SIZE = el.value;
+    private resizeOnEnter(el: HTMLInputElement, event: KeyboardEvent): void {
+        // TODO: Make sure el and event are the right arguments
+        if (event.keyCode === 13) {
+            this.board.size = parseInt(el.value);
             this.shuffle();
         }
     }
@@ -107,8 +114,8 @@ class Game {
     /*
      * Repeated logic in shuffle, restart, randomStart
      */
-    togglePause() {
-        if (this.pauseClicked) {
+    private togglePause(): void {
+        if (this._pauseClicked) {
             this.playPause();
         }
     }
@@ -116,12 +123,10 @@ class Game {
     /*
      * Plays audio from wav file
      */
-    playAudio(sound, ms) {
+    public playAudio(sound: string, ms: number) {
         setTimeout(()=>{
             new Audio(`./audio/${sound}.wav`).play();
         }, ms)
     }
 }
-
-module.exports = Game;
 
