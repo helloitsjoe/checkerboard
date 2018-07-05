@@ -13,7 +13,9 @@
         "start": "node_modules/.bin/electron .",
         "watch": "node_modules/.bin/webpack --watch",
         "build": "node_modules/.bin/webpack",
-        "test": "node_modules/.bin/mocha -r ts-node/register ./test/index.js"
+        "test:ts": "node_modules/.bin/mocha -r ts-node/register test/index.js",
+        "test": "node_modules/.bin/floss --path test/index.js",
+        "test:debug": "npm run test -- --debug"
     },
     "browserify": {
         "transform": []
@@ -22,6 +24,7 @@
     "license": "private",
     "devDependencies": {
         "electron": "^1.4.1",
+        "floss": "^2.1.5",
         "mocha": "^5.2.0",
         "ts-loader": "^4.4.2",
         "ts-node": "^7.0.0",

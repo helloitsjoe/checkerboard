@@ -1,4 +1,5 @@
 import Game from './game';
+import { e } from './utils';
 
 export default class Gui {
 
@@ -6,11 +7,36 @@ export default class Gui {
         this.staggerGUI();
         this.bipListener(game);
 
-        document.getElementById('playPause').addEventListener('click', game.playPause.bind(game));
-        document.getElementById('restart').addEventListener('click', game.restart.bind(game));
-        document.getElementById('shuffle').addEventListener('click', game.shuffle.bind(game));
-        document.getElementById('random').addEventListener('click', game.randomStart.bind(game));
-        document.getElementById('resize').addEventListener('click', game.resize.bind(game));
+        const guiDiv = document.getElementById('gui');
+
+        const createButton = (id, text) => e('div', {
+            id,
+            parent: guiDiv,
+            classList: 'gui-element',
+            innerHTML: `<p>${text}</p>`
+        });
+        
+        const pauseButton = createButton('playPause', 'PAUSE');
+        const restartButton = createButton('restart', 'RESTART');
+        const shuffleButton = createButton('shuffle', 'SHUFFLE ARROWS');
+        const randomButton = createButton('random', 'RANDOM SQUARE');
+        const resizeButton = createButton('resize', 'RESIZE BOARD');
+        
+        const resizeBox = e('div', { classList: 'resize-box', parent: guiDiv });
+        const sizeText = e('span', { id: 'size-text', parent: resizeBox, innerHTML: 'BOARD SIZE' });
+        const resizeInputBase = e('input', { id: 'resize-input', parent: resizeBox }) as HTMLInputElement;
+        const resizeInput = Object.assign(resizeInputBase, {
+            type: 'number',
+            min: '1',
+            max: '20'
+        });
+
+        pauseButton.addEventListener('click', game.playPause.bind(game));
+        restartButton.addEventListener('click', game.restart.bind(game));
+        shuffleButton.addEventListener('click', game.shuffle.bind(game));
+        randomButton.addEventListener('click', game.randomStart.bind(game));
+        resizeButton.addEventListener('click', game.resize.bind(game));
+        resizeInput.addEventListener('keydown', game.resizeOnEnter.bind(game));
     }
         
     /*

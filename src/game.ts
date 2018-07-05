@@ -103,10 +103,10 @@ export default class Game {
     /*
      * Resizes board when enter is pressed
      */
-    private resizeOnEnter(el: HTMLInputElement, event: KeyboardEvent): void {
+    private resizeOnEnter(event: KeyboardEvent): void {
         // TODO: Make sure el and event are the right arguments
-        if (event.keyCode === 13) {
-            this.board.size = parseInt(el.value);
+        if (event.key === 'Enter') {
+            this.board.size = parseInt((<HTMLInputElement>event.target).value);
             this.shuffle();
         }
     }

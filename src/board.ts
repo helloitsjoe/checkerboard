@@ -3,6 +3,7 @@ import Game from './game';
 
 const config = require('./gameConfig.json');
 const squareLib = require('../assets/square.js');
+const DEFAULT_START_SIZE = 4;
 
 type Spot = {
     x: number,
@@ -31,7 +32,7 @@ export default class Board {
         this._endText = document.getElementById('text');
 
         const input = document.getElementById('resize-input') as HTMLInputElement;
-        this.size = parseInt(input.value);
+        this.size = parseInt(input.value) || DEFAULT_START_SIZE;
 
         this.xOffset = config.SQUARE_WIDTH / 2;
         this.yOffset = (config.SQUARE_HEIGHT - 24) / 2;
