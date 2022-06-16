@@ -23,7 +23,7 @@
     "author": "Joe Boyle",
     "license": "private",
     "devDependencies": {
-        "electron": "^1.4.1",
+        "electron": "^15.5.5",
         "floss": "^2.1.5",
         "mocha": "^5.2.0",
         "ts-loader": "^4.4.2",
