@@ -26,11 +26,11 @@
         "electron": "^1.4.1",
         "floss": "^2.1.5",
         "mocha": "^5.2.0",
-        "ts-loader": "^4.4.2",
+        "ts-loader": "^9.4.2",
         "ts-node": "^7.0.0",
         "typescript": "^2.9.2",
-        "webpack": "^4.14.0",
-        "webpack-cli": "^3.0.8",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1",
         "webpack-node-externals": "^1.7.2"
     },
     "build": {
